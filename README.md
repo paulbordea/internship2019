@@ -1,2 +1,3 @@
-# internship2019
-Repository for interns 2019
+# Internship2019
+
+An awesome repository for the 2019 internship
