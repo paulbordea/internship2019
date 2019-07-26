@@ -1,0 +1,18 @@
+.center{
+    font-family: 'Pacifico', cursive;
+    color: #bd3333;
+    font-size: 34px;
+    width:700px;
+    text-align: center;
+    margin: auto;
+    
+}
+#navigare{
+    height: 160px;
+    width:100%;
+}
+.mystyle{
+    font-family:"Indie Flower",cursive;
+    font-size:22px;
+    font-weight: bold;
+}
