@@ -1,0 +1,42 @@
+<div id="register" class="modal fade">
+    <div class="modal-dialog modal-login">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Member Register</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form name="form" role="form" ng-controller="signupCtrl">
+                    <div class="form-group" ng-class="{ 'has-erros' : form.email.$dirty && form.email.$error.required}">
+                        <i class="fa fa-user"></i>
+                        <input type="text" id="email" ng-model="signup.email" class="form-control" placeholder="Email" required>
+                        <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Email is required</span>
+
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-erros' : form.rusername.$dirty && form.rusername.$error.required}">
+                        <i class="fa fa-user"></i>
+                        <input type="text" id="rusername" ng-model="signup.rusername" class="form-control" placeholder="Username" required>
+                        <span ng-show="form.rusername.$dirty && form.rusername.$error.required" class="help-block">Username is required</span>
+
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': form.rpassword.$dirty && form.rpassword.$error.required }">
+                        <i class="fa fa-lock"></i>
+                        <input type="password" class="form-control" id="rpassword" name="password" placeholder="Password" ng-model="signup.password" required=>
+                        <span ng-show="form.rpassword.$dirty && form.rpassword.$error.required" class="help-block">Password is required</span>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error': form.repeatpassword.$dirty && form.repeatpassword.$error.required }">
+                        <i class="fa fa-lock"></i>
+                        <input type="password" class="form-control" id="repeatpassword" name="repassword" placeholder="Repeat password" ng-model="signup.rpassword" required=>
+                        <span ng-show="form.repeatpassword.$dirty && form.repeatpassword.$error.required" class="help-block">Confirm passord is required</span>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" ng-click="register(signup)" ng-disabled="form.$invalid" class="btn btn-primary btn-block btn-lg">Register</button>
+                        <a href="#myModal" class="btn btn-primary btn-block btn-lg" data-toggle="modal" data-dismiss="modal">Login</a>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
