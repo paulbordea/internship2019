@@ -8,19 +8,20 @@ config.$inject = ['$routeProvider', '$locationProvider'];
 function config($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {
-            controller: 'loginCtrl',
+            controller: 'homeCtrl',
             templateUrl: 'index.html',
+        })
+        .when('/login', {
+            controller: 'loginCtrl',
+            templateUrl: 'views/partials/modals/login/loginModal.view.html',
             controllerAs: 'vm'
         })
-
-    /* 
-    .when('/register', {
-        controller: 'RegisterController',
-        templateUrl: 'register/register.view.html',
-        controllerAs: 'vm'
-    }) */
-
-    .otherwise({ redirectTo: '/login' });
+        .when('/register', {
+            controller: 'registerCtrl',
+            templateUrl: 'views/partials/modals/register/register.view.html',
+            controllerAs: 'vm'
+        })
+        .otherwise({ redirectTo: '/' });
 }
 
 run.$inject = ['$rootScope', '$location', '$cookies', '$http'];
@@ -37,7 +38,7 @@ function run($rootScope, $location, $cookies, $http) {
         var restrictedPage = $.inArray($location.path(), ['/login', '/register']) === -1;
         var loggedIn = $rootScope.globals.currentUser;
         if (restrictedPage && !loggedIn) {
-            $location.path('/login');
+            $location.path('/');
         }
     });
 }
