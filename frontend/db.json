@@ -1,5 +1,12 @@
 {
+<<<<<<< HEAD
   "credentials":[{
   "username":"123",
   "password":"123"}]}
   
+=======
+  "credentials": [
+    { "username": "123", "password": "123" }
+  ]
+}
+>>>>>>> e936dfe62ba340833853463f5e20af71634a7fee

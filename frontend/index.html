@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app" >
+<html lang="en" ng-app="app">
+
 <head>
+<<<<<<< HEAD
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -44,18 +46,73 @@
       <div ng-include="'./src/pages/partials/modals/login/loginModal.view.html'"></div>
       <div ng-include="'./src/pages/partials/modals/register/register.view.html'"></div>
        <div ng-include="'./src/pages/partials/shared/footer.html'"></div>
+=======
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cinemagic | Home</title>
+
+    <link rel="shortcut icon" type="image/png" src="./images/logos/favicon.png">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <style>
+        @import url("css/main.css");
+        @import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css");
+        @import url('https://fonts.googleapis.com/css?family=Indie+Flower|Flavors|Pacifico&display=swap');
+        @import url("css/navbar.css");
+        @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+        @import url('css/howitworks.css');
+    </style>
+</head>
+
+<body>
+    <div id="page-container" ng-controller="homeCtrl">
+
+        <div ng-include="'./views/partials/shared/navbar.html'"></div>
+
+        <div class="continut banner d-flex justify-content-center">
+            <div id="carouselExampleSlidesOnly" class="carousel slide  my-5 mx-auto" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block " src="images/maxresdefault (1).jpg" alt="First slide" id="carousel-img">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block  " src="images/3.jpg" alt="Second slide" id="carousel-img">
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block " src="images/maxresdefault (2).jpg" alt="Third slide" id="carousel-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-include="'./views/partials/cards.html'"></div>
+        <div ng-include="'./views/partials/modals/login/loginModal.view.html'"></div>
+        <div ng-include="'./views/partials/shared/footer.html'"></div>
+        <div ng-include="'./views/partials/modals/register/register.view.html'"></div>
+>>>>>>> e936dfe62ba340833853463f5e20af71634a7fee
     </div>
-<script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="//code.angularjs.org/1.6.0/angular.min.js"></script>
-<script src="//code.angularjs.org/1.6.0/angular-route.min.js"></script>
-<script src="//code.angularjs.org/1.6.0/angular-cookies.min.js"></script>
 
-<script src="./app.js"></script>
 
-<script src="./js/controllers/login.controller.js"></script>
-<script src="./js/controllers/register.controller.js"></script>
+    <script src="//code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="//code.angularjs.org/1.6.0/angular.min.js"></script>
+    <script src="//code.angularjs.org/1.6.0/angular-route.min.js"></script>
+    <script src="//code.angularjs.org/1.6.0/angular-cookies.min.js"></script>
 
+<<<<<<< HEAD
 <script src="./js/services/auth.service.js"></script>
 <script src="./js/constants.js"></script>
+=======
+    <script src="./src/app.js"></script>
+
+    <script src="./src/controllers/home.controller.js"></script>
+    <script src="./src/controllers/login.controller.js"></script>
+    <script src="./src/controllers/register.controller.js"></script>
+
+    <script src="./src/services/auth.service.js"></script>
+>>>>>>> e936dfe62ba340833853463f5e20af71634a7fee
 </body>
+
 </html>
