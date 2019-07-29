@@ -1,11 +1,10 @@
-(function () {
+(function() {
     'use strict';
 
-    angular
-        .module('app')
-        .factory('AuthenticationService', AuthenticationService);
+    app.factory('AuthenticationService', AuthenticationService);
 
     AuthenticationService.$inject = ['$http', '$cookies', '$rootScope', '$timeout', 'UserService'];
+
     function AuthenticationService($http, $cookies, $rootScope, $timeout, UserService) {
         var service = {};
 
@@ -17,10 +16,10 @@
 
         function Login(username, password, callback) {
 
-            
+
             $http.post('/api/authenticate', { username: username, password: password })
-                .success(function (response) {
-                   callback(response);
+                .success(function(response) {
+                    callback(response);
                 });
 
         }
@@ -56,7 +55,7 @@
 
         keyStr: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
 
-        encode: function (input) {
+        encode: function(input) {
             var output = "";
             var chr1, chr2, chr3 = "";
             var enc1, enc2, enc3, enc4 = "";
@@ -90,7 +89,7 @@
             return output;
         },
 
-        decode: function (input) {
+        decode: function(input) {
             var output = "";
             var chr1, chr2, chr3 = "";
             var enc1, enc2, enc3, enc4 = "";
