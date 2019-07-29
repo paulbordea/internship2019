@@ -1,10 +1,8 @@
 {
-  "date": [
-    {
-      "id": 1
-    },
-    {
-      "id": 2
-    }
-  ]
+  "users": {
+    "email": "123",
+    "rusername": "1234",
+    "password": "lilithi",
+    "rpassword": "lilithi"
+  }
 }

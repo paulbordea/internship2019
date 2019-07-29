@@ -4,11 +4,11 @@
     app.controller('registerCtrl', function($scope,$log, AuthService) {
         $scope.signup = {};
 
-        $scope.signup = { rusername: '', email: '', password: '', rpassword: '' };
+        $scope.data ={ "rusername": $scope.signup.rusername, "email": $scope.signup.email, "password": $scope.signup.rpassword, "rpassword": $scope.signup.repeatpassword };
 
-        $scope.register = function(signup) {
-            AuthService.register(signup).then(function(newuser){
-                $log.info(`User registered`+ JSON.stringify(user));
+        $scope.register = function(data) {
+            AuthService.register(JSON.stringify(data)).then(function(newuser){
+                $log.info(`User registered`+ JSON.stringify(newuser));
 
             })
             /* RestApiClientService.post('register', {
