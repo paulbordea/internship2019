@@ -11,7 +11,7 @@
                 $log.info(`User found: ` + JSON.stringify(user));
 
                 $rootScope.$broadcast("AUTH_EVENTS.loginSuccess");
-                $ScopedCredential.setCurrentUser(user);
+                //$ScopedCredential.setCurrentUser(user);
             }, function() {
                 $rootScope.$broadcast("AUTH_EVENTS.loginFailed");
             });

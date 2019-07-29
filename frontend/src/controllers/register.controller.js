@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    app.controller('signupCtrl', function($scope, $rootScope, $routeParams, $location, $http) {
+    app.controller('registerCtrl', function($scope, $rootScope, $routeParams, $location, $http) {
         $scope.signup = {};
 
         $scope.signup = { rusername: '', email: '', password: '', rpassword: '' };
