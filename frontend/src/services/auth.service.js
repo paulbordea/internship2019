@@ -5,7 +5,8 @@
         var AuthService = {};
         AuthService.login = function(credentials) {
             return $http
-                .get(`http://localhost:3000/credentials?username=${credentials.username}&password=${credentials.password}`, )
+                .get(`http://localhost:3000/credentials?username=${credentials.username}&password=${credentials.password}
+                `, )
                 .then(function(res) {
                     //Session.create(res.data.id,res.data.user.id,res.data.user.role);
                     return res.data;
