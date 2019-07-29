@@ -12,6 +12,14 @@
                     return res.data;
                 });
         };
+        AuthService.register=function(signup){
+            return $http
+            .post(`http://localhost:3000/date?username=${signup.rusername}&email=${signup.email}&password=${signup.password}&repeatpassword=${signup.rpassword}`,)
+            .then(function(response){
+                return response.data
+            }
+            )
+        }
         AuthService.isAuthenticated = function() {
             //return !!Session.userId;
             return true;
