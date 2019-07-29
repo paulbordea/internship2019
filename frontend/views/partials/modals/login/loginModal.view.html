@@ -19,7 +19,7 @@
                         <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
                     </div>
                     <div class="form-actions">
-                        <button type="button" ng-click="login(credentials)" ng-disabled="form.$invalid" class="btn btn-primary btn-block btn-lg">Login</button>
+                        <button type="button" ng-click="login(credentials)" ng-disabled="form.$invalid" data-dismiss="modal" class="btn btn-primary btn-block btn-lg">Login</button>
                         <a href="#register" class="btn btn-primary btn-block btn-lg" data-toggle="modal" data-dismiss="modal">Register</a>
                     </div>
                 </form>
