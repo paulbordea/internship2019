@@ -1,7 +1,7 @@
 
 angular.module("app").factory('AuthService',function($http){
-    var authService={};
-    authService.login=function(credentials){
+    var AuthService={};
+    AuthService.login=function(credentials){
         return $http
         .post('/login',credentials)
         .then(function(res){
@@ -9,16 +9,16 @@ angular.module("app").factory('AuthService',function($http){
             return res.data.user;
         });
     };
-    authService.isAuthenticated=function(){
+    AuthService.isAuthenticated=function(){
         //return !!Session.userId;
         return true;
     };
-    authService.isAuthorized=function(authorizedRoles){
+    AuthService.isAuthorized=function(authorizedRoles){
        /*  if(!angular.isArray(authorizedRoles)){
             authorizedRoles=[authorizedRoles];
         }
         return (authService.isAuthenticated() && authorizedRoles.indexOf(Session.userRole)!== -1); */
     };
-    return authService;
+    return AuthService;
     
     });
