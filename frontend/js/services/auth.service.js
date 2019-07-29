@@ -20,5 +20,4 @@ angular.module("app").factory('AuthService',function($http){
         return (authService.isAuthenticated() && authorizedRoles.indexOf(Session.userRole)!== -1); */
     };
     return authService;
-    
     });

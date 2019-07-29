@@ -1,6 +1,10 @@
 
-    'use strict';
+'use strict';
 
+
+  
+
+    
     angular
         .module('app', ['ngRoute', 'ngCookies'])
         .config(config)
@@ -42,4 +46,3 @@
             }
         });
     }
-
