@@ -13,14 +13,21 @@ namespace cinema.Controllers
     [Route("api/[controller]")]
     public class BookingsController : Controller
     {
+        private readonly CinemaContext _cinemaContext;
+
+        public BookingsController(CinemaContext cinemaContext)
+        {
+            _cinemaContext = cinemaContext;
+        }
         // GET: api/<controller>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Bookings>>> GetBookings()
         {
-            using (CinemaContext _context = new CinemaContext())
-            {
-                return await _context.Bookings.ToListAsync();
-            }
+            //using (CinemaContext _context = new CinemaContext())
+            //{
+            //    return await _context.Bookings.ToListAsync();
+            //}
+            return await _cinemaContext.Bookings.ToListAsync();
         }
 
         // GET api/<controller>/5
