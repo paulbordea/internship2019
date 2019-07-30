@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cinemagic | Admin</title>
+    
+    
+        <link rel="shortcut icon" type="image/png" src="./images/logos/favicon.png">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <style>
+            @import url("../css/main.css");
+            @import url("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css");
+            @import url('https://fonts.googleapis.com/css?family=Indie+Flower|Flavors|Pacifico&display=swap');
+            @import url("../css/navbar.css");
+            @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+ 
+        </style>
+    </head>
+    
+<style>
+.table-sortable tbody tr {
+    cursor: move;
+}
+.latime{
+    width: 80px;
+}
+</style>
+<body >
+    <div class="page-container">
+            <div class="continut">
+
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" id="navigare">
+                        <div class="container">
+                            <a class="navbar-brand" href="#">
+                                <img src="../images/logos/logo_transparent.png" style="height:150px; width:160px" alt="">
+                            </a>
+                            <div class="center">
+                                Welcome to Cinemagic !
+                            </div>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                              </button>
+                            <div class="collapse navbar-collapse" id="navbarResponsive">
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item  mystyle">
+                                        <a class="nav-link" href="#">Home
+                                    
+                                    </a>
+                                    </li>
+                                    <li class="nav-item  active mystyle">
+                                        <a class="nav-link" href="moviesAdmin.html">Movies</a>
+                                    </li>
+                                    <li class="nav-item mystyle">
+                                        <a class="nav-link" href="#myModal" class="trigger-btn" data-toggle="modal">Logout</a>
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                
+                </div>
+                <div class="continut flex-column">
+                    <div class="container mx-auto ">
+                        <div ng-app="demo" ng-controller="Ctrl">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                        <th scope="col" style="width:10%;">Title</th>
+                                        <th scope="col" style="width:10%;">Date</th>
+                                        <th scope="col" style="width:10%;">Time</th>
+                                        <th scope="col" style="width:10%;">Room</th>
+                                        <th scope="col" style="width:10%;">Actors</th>
+                                        <th scope="col" style="width:10%;">Year</th>
+                                        <th scope="col" style="width:25%;">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="contact in model.movies" ng-include="getTemplate(contact)">
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                
+                                <script type="text/ng-template" id="display">
+                                    <td style="width:10%;">{{contact.title}}</td>
+                                    <td style="width:10%;">{{contact.date}}</td>
+                                    <td style="width:10%;">{{contact.time}}</td>
+                                    <td style="width:10%;">{{contact.room}}</td>
+                                    <td style="width:10%;">{{contact.actors}}</td>
+                                    <td style="width:10%;">{{contact.year}}</td>
+                                    <td><div style="width:300px;height:auto;word-wrap: break-word">{{contact.description}}</div></td>
+                                    <td>
+                                        <button class="btn btn-dark latime" ng-click="editContact(contact)">Edit</button>
+                                    </td>
+                                    <td>
+                                            <button class="btn btn-danger latime" ng-click="deleteContact($index)">Delete</button>
+                                        </td>
+                                </script>
+                                <script type="text/ng-template" id="edit">
+                                    <td><input type="text" style="width:100px;" ng-model="model.selected.title" /></td>
+                                    <td><input type="text" style="width: 100px" ng-model="model.selected.date" /></td>
+                                    <td><input type="text" style="width:100px" ng-model="model.selected.time" /></td>
+                                    <td><input type="text" style="width:100px" ng-model="model.selected.room" /></td>
+                                    <td><input type="text"  style="width:150px"ng-model="model.selected.actors" /></td>
+                                    <td><input type="text" style="width: 100px" ng-model="model.selected.year" /></td>
+                                    <td><input type="text" style="width: 240px" ng-model="model.selected.description" /></td>
+                                    <td>
+                                        <button class="btn btn-info latime"ng-click="saveContact($index)">Save</button>
+                                        <button  class= "btn btn-danger latime" ng-click="reset()">Cancel</button>
+                                    </td>
+                                </script>
+<div class="well clearfix">
+	<fieldset class="scheduler-border">
+	 <legend class="scheduler-border">Add new movie</legend>
+	   <form>
+	 <div class="form-group">
+	   <label for="exampleInputName">Title</label>
+	   <input type="text" class="form-control" id="exampleInputName" ng-model="title" placeholder="Title">
+	 </div>
+		<div class="form-group">
+	  <label for="exampleInputage">Date</label>
+	  <input type="text" class="form-control" id="exampleInputAge" ng-model="date" placeholder="Date"/>
+		</div>
+		<div class="form-group">
+	  <label for="exampleInputSalary">Time</label>
+	  <input type="text" class="form-control" id="exampleInputSalary" ng-model="time" placeholder="Time">
+        </div>
+        <div class="form-group">
+         <label for="exampleInputSalary">Room</label>
+        <input type="text" class="form-control" id="exampleInputSalary" ng-model="room" placeholder="Room">
+        </div>
+        <div class="form-group">
+         <label for="exampleInputSalary">Actors</label>
+        <input type="text" class="form-control" id="exampleInputSalary" ng-model="actors" placeholder="Actors">
+        </div>
+        <div class="form-group">
+        <label for="exampleInputSalary">Year</label>
+         <input type="text" class="form-control" id="exampleInputSalary" ng-model="year" placeholder="Year">
+         </div>
+         <div class="form-group">
+        <label for="exampleInputSalary">Description</label>
+        <input type="text" class="form-control" id="exampleInputSalary" style="word-wrap: break-word" ng-model="description" placeholder="Description">
+        </div>
+		<button type="button" class="btn btn-warning" ng-click="addEmployee()">Add movie</button>
+	  </form>
+	</fieldset>
+</div>
+                            </div>
+                </div>
+               
+                </div>
+
+    </div>
+
+    <script src="//code.angularjs.org/1.6.0/angular.min.js"></script>
+    <script src="//code.angularjs.org/1.6.0/angular-route.min.js"></script>
+    <script src="//code.angularjs.org/1.6.0/angular-cookies.min.js"></script>
+<script>
+var demo = angular.module("demo", []);
+
+demo.controller("Ctrl",
+
+function Ctrl($scope) {
+    $scope.model = {
+        movies: [{
+            id: 1,
+            title: "Ben",
+            date: "7/10/2019",
+            time: "12:00-14:00",
+            room: "room 2",
+            actors: "John Snow, Emilia Clarke",
+            year: "2018",
+            description: "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd"
+
+        }, {
+            id: 2,
+            title: "Ben",
+            date: "7/10/2019",
+            time: "12:00-14:00",
+            room: "room 2",
+            actors: "John Snow, Emilia Clarke",
+            year: "2018",
+            description: "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd"
+        }, {
+            id: 3,
+            title: "Ben",
+            date: "7/10/2019",
+            time: "12:00-14:00",
+            room: "room 2",
+            actors: "John Snow, Emilia Clarke",
+            year: "2018",
+            description: "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd"
+        }, {
+            id: 4,
+            title: "Ben",
+            date: "7/10/2019",
+            time: "12:00-14:00",
+            room: "room 2",
+            actors: "John Snow, Emilia Clarke",
+            year: "2018",
+            description: "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd"
+        }],
+        selected: {}
+    };
+    $scope.addEmployee = function () {
+	//Add the new item to the Array.
+	var movie = {
+		id: $scope.model.movies.length+1,
+		title : $scope.title,
+		date : $scope.date,
+        time: $scope.time,
+        room: $scope.room,
+        actors: $scope.actors,
+        year: $scope.year,
+        description: $scope.description
+    };
+  
+    $scope.model.movies.push(movie);
+    console.log($scope.model.movies.length);
+    console.log($scope.model.movies);
+   $scope.reset();
+}
+    // gets the template to ng-include for a table row / item
+    $scope.getTemplate = function (contact) {
+        if (contact.id === $scope.model.selected.id) return 'edit';
+        else return 'display';
+    };
+
+    $scope.editContact = function (contact) {
+        $scope.model.selected = angular.copy(contact);
+    };
+
+    $scope.saveContact = function (idx) {
+        console.log("Saving contact");
+        $scope.model.movies[idx] = angular.copy($scope.model.selected);
+        $scope.reset();
+    };
+    $scope.deleteContact= function (i) {
+       $scope.model.movies.splice(i, 1);
+       console.log("S a sters contactul"+ i);
+     
+   };
+ 
+
+  
+    $scope.reset = function () {
+        $scope.model.selected = {};
+    };
+});
+</script>   
+  
+</body>
+</html>
