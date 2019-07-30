@@ -1,6 +1,10 @@
 (function() {
     'use strict';
-
+    var config = {
+        headers : {
+            'Content-Type': 'application/json'
+        }
+    }
     app.factory('AuthService', function($http) {
         var AuthService = {};
         AuthService.login = function(credentials) {
@@ -14,7 +18,8 @@
         };
         AuthService.register=function(signup){
             return $http
-            .post(`http://localhost:3000/date?username=${signup.rusername}&email=${signup.email}&password=${signup.password}&repeatpassword=${signup.rpassword}`,)
+            .post(`http://localhost:3000/users`,signup,
+            config)
             .then(function(response){
                 return response.data
             }
