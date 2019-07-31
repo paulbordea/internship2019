@@ -142,3 +142,4 @@ $RECYCLE.BIN/
 .DS_Store
 cinema/.vs/cinema/v16/Server/sqlite3/db.lock
 frontend/node_modules/
+frontend/dist/

@@ -2,7 +2,7 @@
 
 var app = angular.module('app', ['ngRoute', 'ngCookies']);
 app.config(config).run(run);
-app.config(['$qProvider', function ($qProvider) {
+app.config(['$qProvider', function($qProvider) {
     $qProvider.errorOnUnhandledRejections(false);
 }]);
 config.$inject = ['$routeProvider', '$locationProvider'];
@@ -23,10 +23,10 @@ function config($routeProvider, $locationProvider) {
             templateUrl: 'views/partials/modals/register/register.view.html',
             controllerAs: 'vm'
         })
-        .when('/views/movies',{
+        .when('/movies', {
             controller: 'moviesCtrl',
             templateUrl: 'views/movies.html',
-            controllerAs : 'vm'
+            controllerAs: 'vm'
 
         })
         .otherwise({ redirectTo: '/' });
