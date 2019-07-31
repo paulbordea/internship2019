@@ -23,9 +23,15 @@ function config($routeProvider, $locationProvider) {
             templateUrl: 'views/partials/modals/register/register.view.html',
             controllerAs: 'vm'
         })
-        .when('/views/movies',{
+        .when('/movies',{
             controller: 'moviesCtrl',
             templateUrl: 'views/movies.html',
+            controllerAs : 'vm'
+
+        })
+        .when('/adminpage',{
+            controller: 'moviesCtrl',
+            templateUrl: 'views/adminpage.html',
             controllerAs : 'vm'
 
         })

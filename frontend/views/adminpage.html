@@ -8,6 +8,10 @@
     
     
         <link rel="shortcut icon" type="image/png" src="./images/logos/favicon.png">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -33,14 +37,14 @@
     <div class="page-container">
             <div class="continut">
 
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" id="navigare">
+                    <nav class="navbar navbar-expand-md navbar-dark bg-dark static-top" id="navigare">
                         <div class="container">
                             <a class="navbar-brand" href="#">
                                 <img src="../images/logos/logo_transparent.png" style="height:150px; width:160px" alt="">
                             </a>
-                            <div class="center">
+                             <div class="center">
                                 Welcome to Cinemagic !
-                            </div>
+                            </div> 
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                               </button>
@@ -64,56 +68,116 @@
                     </nav>
                 
                 </div>
+                <div class="continut mx-auto  justify-content-center mt-5 mb-4">                             
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#addmovie">Add New Movie</button>
+                    </div>
                 <div class="continut flex-column">
                     <div class="container mx-auto ">
                         <div ng-app="demo" ng-controller="Ctrl">
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                        <th scope="col" style="width:10%;">Title</th>
-                                        <th scope="col" style="width:10%;">Date</th>
-                                        <th scope="col" style="width:10%;">Time</th>
-                                        <th scope="col" style="width:10%;">Room</th>
-                                        <th scope="col" style="width:10%;">Actors</th>
-                                        <th scope="col" style="width:10%;">Year</th>
-                                        <th scope="col" style="width:25%;">Description</th>
+                                <table class="table table-hover" role="table">
+                                    <thead role="rowgroup">
+                                        <tr role="row">
+                                        <th role="columnheader"  style="width:10%;">Title</th>
+                                        <th role="columnheader" style="width:10%;">Date</th>
+                                        <th role="columnheader" style="width:10%;">Time</th>
+                                        <th role="columnheader" style="width:10%;">Room</th>
+                                        <th role="columnheader" style="width:10%;">Actors</th>
+                                        <th role="columnheader" style="width:10%;">Year</th>
+                                        <th role="columnheader" style="width:25%;">Description</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr ng-repeat="contact in model.movies" ng-include="getTemplate(contact)">
+                                    <tbody role="rowgroup"> 
+                                        <tr role="row"
+                                        ng-repeat="contact in model.movies" ng-include="getTemplate(contact)">
                                         </tr>
                                     </tbody>
                                 </table>
                                 
                                 <script type="text/ng-template" id="display">
-                                    <td style="width:10%;">{{contact.title}}</td>
-                                    <td style="width:10%;">{{contact.date}}</td>
-                                    <td style="width:10%;">{{contact.time}}</td>
-                                    <td style="width:10%;">{{contact.room}}</td>
-                                    <td style="width:10%;">{{contact.actors}}</td>
-                                    <td style="width:10%;">{{contact.year}}</td>
-                                    <td><div style="width:300px;height:auto;word-wrap: break-word">{{contact.description}}</div></td>
-                                    <td>
+                                    <td style="width:auto;">{{contact.title}}</td>
+                                    <td style="width:auto;">{{contact.date}}</td>
+                                    <td style="width:auto;">{{contact.time}}</td>
+                                    <td style="width:auto;">{{contact.room}}</td>
+                                    <td style="width:auto;">{{contact.actors}}</td>
+                                    <td style="width:auto;">{{contact.year}}</td>
+                                    <td><div style="width:auto;height:auto;word-wrap: break-word">{{contact.description}}</div></td>
+                                    <td >
                                         <button class="btn btn-dark latime" ng-click="editContact(contact)">Edit</button>
                                     </td>
                                     <td>
                                             <button class="btn btn-danger latime" ng-click="deleteContact($index)">Delete</button>
-                                        </td>
+
+                                    </td>
+                                  
                                 </script>
                                 <script type="text/ng-template" id="edit">
-                                    <td><input type="text" style="width:100px;" ng-model="model.selected.title" /></td>
-                                    <td><input type="text" style="width: 100px" ng-model="model.selected.date" /></td>
-                                    <td><input type="text" style="width:100px" ng-model="model.selected.time" /></td>
-                                    <td><input type="text" style="width:100px" ng-model="model.selected.room" /></td>
-                                    <td><input type="text"  style="width:150px"ng-model="model.selected.actors" /></td>
-                                    <td><input type="text" style="width: 100px" ng-model="model.selected.year" /></td>
-                                    <td><input type="text" style="width: 240px" ng-model="model.selected.description" /></td>
-                                    <td>
+                                    <td><input type="text" style="width:90%;" ng-model="model.selected.title" /></td>
+                                    <td><input type="text" style="width: 90%" ng-model="model.selected.date" /></td>
+                                    <td><input type="text" style="width:90%" ng-model="model.selected.time" /></td>
+                                    <td><input type="text" style="width:90%" ng-model="model.selected.room" /></td>
+                                    <td><input type="text"  style="width:90%"ng-model="model.selected.actors" /></td>
+                                    <td><input type="text" style="width: 90%" ng-model="model.selected.year" /></td>
+                                    <td><input type="text" style="width: 90%" ng-model="model.selected.description" /></td>
+                                    <td >
                                         <button class="btn btn-info latime"ng-click="saveContact($index)">Save</button>
                                         <button  class= "btn btn-danger latime" ng-click="reset()">Cancel</button>
                                     </td>
                                 </script>
-<div class="well clearfix">
+                                
+   
+<div id="addmovie" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    Add New Movie
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" >&times;</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                      <label for="exampleInputName">Title</label>
+                      <input type="text" class="form-control" id="exampleInputName" ng-model="title" placeholder="Title">
+                    </div>
+                       <div class="form-group">
+                     <label for="exampleInputage">Date</label>
+                     <input type="text" class="form-control" id="exampleInputAge" ng-model="date" placeholder="Date"/>
+                       </div>
+                       <div class="form-group">
+                     <label for="exampleInputSalary">Time</label>
+                     <input type="text" class="form-control" id="exampleInputSalary" ng-model="time" placeholder="Time">
+                       </div>
+                       <div class="form-group">
+                        <label for="exampleInputSalary">Room</label>
+                       <input type="text" class="form-control" id="exampleInputSalary" ng-model="room" placeholder="Room">
+                       </div>
+                       <div class="form-group">
+                        <label for="exampleInputSalary">Actors</label>
+                       <input type="text" class="form-control" id="exampleInputSalary" ng-model="actors" placeholder="Actors">
+                       </div>
+                       <div class="form-group">
+                       <label for="exampleInputSalary">Year</label>
+                        <input type="text" class="form-control" id="exampleInputSalary" ng-model="year" placeholder="Year">
+                        </div>
+                        <div class="form-group">
+                       <label for="exampleInputSalary">Description</label>
+                       <input type="text" class="form-control" id="exampleInputSalary" style="word-wrap: break-word" ng-model="description" placeholder="Description">
+                       </div>
+                       <button type="button" class="btn btn-warning" ng-click="addEmployee()" data-dismiss="modal">Add movie</button>
+                     </form>
+            </div>
+            <div class="modal-footer">
+               
+
+            </div>
+        </div>
+    </div>
+</div>    
+</div>
+</div>
+</div>                         
+<!-- <div class="well clearfix mx-auto" style="margin-bottom: 30px;">
 	<fieldset class="scheduler-border">
 	 <legend class="scheduler-border">Add new movie</legend>
 	   <form>
@@ -152,106 +216,137 @@
                             </div>
                 </div>
                
+                </div> -->
+                <div class="continut footer">
+                    <!-- Footer -->
+                
+                    <footer class="site-footer">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <img src="../images/logos/logo_transparent.png" style="height:180px;width:200px">
+                                </div>
+                
+                                <div class="col-xs-6 col-md-3">
+                                    <h6>Categories</h6>
+                                    <ul class="footer-links">
+                                        <li><a href="http://scanfcode.com/category/c-language/">C</a></li>
+                                        <li><a href="http://scanfcode.com/category/front-end-development/">UI Design</a></li>
+                                        <li><a href="http://scanfcode.com/category/back-end-development/">PHP</a></li>
+                                        <li><a href="http://scanfcode.com/category/java-programming-language/">Java</a></li>
+                                        <li><a href="http://scanfcode.com/category/android/">Android</a></li>
+                                        <li><a href="http://scanfcode.com/category/templates/">Templates</a></li>
+                                    </ul>
+                                </div>
+                
+                                <div class="col-xs-6 col-md-3">
+                                    <h6>Quick Links</h6>
+                                    <ul class="footer-links">
+                                        <li><a href="http://scanfcode.com/about/">About Us</a></li>
+                                        <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
+                                        <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
+                                        <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
+                                        <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8 col-sm-6 col-xs-12">
+                                    <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by
+                                        <a href="#">Cinemagic</a>.
+                                    </p>
+                                </div>
+                
+                                <div class="col-md-4 col-sm-6 col-xs-12">
+                                    <ul class="social-icons">
+                                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
                 </div>
-
     </div>
+   
 
     <script src="//code.angularjs.org/1.6.0/angular.min.js"></script>
     <script src="//code.angularjs.org/1.6.0/angular-route.min.js"></script>
     <script src="//code.angularjs.org/1.6.0/angular-cookies.min.js"></script>
-<script>
-var demo = angular.module("demo", []);
+<script src="../src/controllers/admin.controller.js">
 
-demo.controller("Ctrl",
-
-function Ctrl($scope) {
-    $scope.model = {
-        movies: [{
-            id: 1,
-            title: "Ben",
-            date: "7/10/2019",
-            time: "12:00-14:00",
-            room: "room 2",
-            actors: "John Snow, Emilia Clarke",
-            year: "2018",
-            description: "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd"
-
-        }, {
-            id: 2,
-            title: "Ben",
-            date: "7/10/2019",
-            time: "12:00-14:00",
-            room: "room 2",
-            actors: "John Snow, Emilia Clarke",
-            year: "2018",
-            description: "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd"
-        }, {
-            id: 3,
-            title: "Ben",
-            date: "7/10/2019",
-            time: "12:00-14:00",
-            room: "room 2",
-            actors: "John Snow, Emilia Clarke",
-            year: "2018",
-            description: "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd"
-        }, {
-            id: 4,
-            title: "Ben",
-            date: "7/10/2019",
-            time: "12:00-14:00",
-            room: "room 2",
-            actors: "John Snow, Emilia Clarke",
-            year: "2018",
-            description: "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd"
-        }],
-        selected: {}
-    };
-    $scope.addEmployee = function () {
-	//Add the new item to the Array.
-	var movie = {
-		id: $scope.model.movies.length+1,
-		title : $scope.title,
-		date : $scope.date,
-        time: $scope.time,
-        room: $scope.room,
-        actors: $scope.actors,
-        year: $scope.year,
-        description: $scope.description
-    };
-  
-    $scope.model.movies.push(movie);
-    console.log($scope.model.movies.length);
-    console.log($scope.model.movies);
-   $scope.reset();
-}
-    // gets the template to ng-include for a table row / item
-    $scope.getTemplate = function (contact) {
-        if (contact.id === $scope.model.selected.id) return 'edit';
-        else return 'display';
-    };
-
-    $scope.editContact = function (contact) {
-        $scope.model.selected = angular.copy(contact);
-    };
-
-    $scope.saveContact = function (idx) {
-        console.log("Saving contact");
-        $scope.model.movies[idx] = angular.copy($scope.model.selected);
-        $scope.reset();
-    };
-    $scope.deleteContact= function (i) {
-       $scope.model.movies.splice(i, 1);
-       console.log("S a sters contactul"+ i);
-     
-   };
- 
-
-  
-    $scope.reset = function () {
-        $scope.model.selected = {};
-    };
-});
 </script>   
-  
+
+  <style>
+  /*
+	Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
+	*/
+	@media only screen 
+    and (max-width: 760px), (min-device-width: 768px) 
+    and (max-device-width: 1024px)  {
+
+		/* Force table to not be like tables anymore */
+		table, thead, tbody, th, td, tr {
+			display: block;
+		}
+
+		/* Hide table headers (but not display: none;, for accessibility) */
+		thead tr {
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+		}
+        .table td{
+            padding-left: 165px;
+            padding-top: 1px;
+            padding-right: 1px;
+            padding-bottom: 1px;
+            width:
+        }
+    tr {
+      margin: 0 0 1rem 0;
+    }
+      
+    
+    
+		td {
+			/* Behave  like a "row" */
+			border: none;
+			border-bottom: 1px solid #eee;
+			position: relative;
+			padding-left: 50%;
+		}
+
+		td:before {
+			/* Now like a table header */
+			position: absolute;
+			/* Top/left values mimic padding */
+			top: 0;
+			left: 6px;
+			width: 45%;
+			padding-right: 10px;
+			white-space: nowrap;
+		}
+
+		/*
+		Label the data
+    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
+		*/
+		td:nth-of-type(1):before { content: "Title"; }
+		td:nth-of-type(2):before { content: "Date"; }
+		td:nth-of-type(3):before { content: "Time"; }
+		td:nth-of-type(4):before { content: "Room"; }
+        td:nth-of-type(5):before { content: "Actors"; }
+		td:nth-of-type(6):before { content: "Year"; }
+		td:nth-of-type(7):before { content: "Description"; }
+		td:nth-of-type(8):before { content: ""; }
+	
+	}
+  </style>
 </body>
 </html>

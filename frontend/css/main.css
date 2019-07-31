@@ -42,16 +42,80 @@ footer{
   font-size:34px;
 }
 
-.continut.banner{
-  height:600px;
-  width:100%;
-  background-image: url("../images/background.png");
-  background-repeat: no-repeat;
-  background-size:cover;
 
- 
- 
+.color{
+  background-color: #b6b9bb;
+  width:auto;
+  height:auto;
 }
+
+  .continut.banner{
+    height:600px;
+    width:100%;
+    background-image: url("../images/background.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+  }
+  #carousel-img{
+    height:400px;
+    width:600px;
+  
+  }
+  @media only screen and (max-width: 1350px){
+    .continut.banner{
+      background-image: url("../images/bg-ipad.png");
+
+    }
+  }
+@media only screen and (max-width:1025px){
+  .continut.banner{
+    height:550px;
+    width:100%;
+    background-image: url("../images/bg-ipad.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+  }
+  #carousel-img{
+    height:350px;
+    width:450px;
+  
+  }
+}
+@media only screen and (max-width:1000px){
+  .continut.banner{
+    height:430px;
+    width:100%;
+    background-image :url("../images/bg-ipad.png")
+  }
+  #carousel-img{
+    width:350px;
+    height:auto;
+  }
+ 
+  }
+  @media only screen and (max-width:760px){
+    .continut.banner{
+      height:auto;
+      width:100%;
+      background-image :url("../images/bg-ipad.png")
+    }
+    #carousel-img{
+      width:260px;
+      height:auto;
+    }
+    }
+@media only screen and (max-width:590px){
+  .continut.banner{
+    height:270px;
+    width:100%;
+    background-image: url("../images/bg-small\ \(1\).png");
+  }
+  #carousel-img{
+    height:auto;
+    width:180px;
+  }
+}
+
 
 /* FOOTER */
 .site-footer
@@ -218,11 +282,7 @@ footer{
   }
 }
 
-#carousel-img{
-  height:450px;
-  width:750px;
 
-}
 
 .personal{
   height: 150px;

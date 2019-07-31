@@ -8,13 +8,25 @@
 .howitworks h3{
     font-size: 70px !important;
 }
+.height{
+    height:100%;
+}
 .card{
     box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
   cursor: pointer;
   transition: 0.4s;
+ 
+}
+.col-sm-4{
+    margin-bottom: 25px;
 }
 .card:hover {
     transform: scale(0.9, 0.9);
     box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25), 
       -5px -5px 30px 15px rgba(0,0,0,0.22);
+  }
+  @media only screen and (max-width: 500px){
+      .howitworks h3{
+          font-size: 34px !important;
+      }
   }
