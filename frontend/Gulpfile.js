@@ -75,3 +75,8 @@ exports.watch = function() {
     watch('views/**/*.html', html);
     watch('index.html', htmlIndex);
 };
+
+exports.images = function() {
+    return src(["images/**/*.jpg", "images/**/*.png"])
+        .pipe(dest("public/images/"));
+};
