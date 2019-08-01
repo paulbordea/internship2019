@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using cinema.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -11,16 +10,23 @@ namespace cinema.Controllers
     [ApiController]
     public class SeatsController : Controller
     {
+        private readonly CinemaContext _cinemaContext;
+
+        public SeatsController(CinemaContext cinemaContext)
+        {
+            _cinemaContext = cinemaContext;
+        }
         // GET: api/<controller>
         [HttpGet]
         
         public async Task<ActionResult<IEnumerable<Seats>>> GetSeats()
         {
             //return await _context.Seats.ToListAsync();
-            using (CinemaContext _context = new CinemaContext())
-            {
-                return await _context.Seats.ToListAsync();
-            }
+            //using (CinemaContext _context = new CinemaContext())
+            //{
+            //    return await _context.Seats.ToListAsync();
+            //}
+            return await _cinemaContext.Seats.ToListAsync();
         }
 
         // GET api/<controller>/5
