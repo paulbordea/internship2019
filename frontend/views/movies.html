@@ -1,298 +1,65 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="app" >
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Cinemagic | Home</title>
-  <link rel="shortcut icon" type="image/png" src="../../images/logos/favicon.png">
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
-  <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
 
-  <style>
-   @import url("../../css/main.css");
-  @import url('https://fonts.googleapis.com/css?family=Indie+Flower|Flavors|Rancho|Pacifico&display=swap');
-  @import url("../../css/navbar.css");
-  @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
-  .movie-title{
-    font-size: 35px;
-    font-family: 'Rancho',cursive;
-    color: rgb(70, 16, 30);
-}
-.bg-gray{
-  background-color: #dddada;
-}
-.butn {
-  background: #b52195;
-  background-image: -webkit-linear-gradient(top, #b52195, #630b75);
-  background-image: -moz-linear-gradient(top, #b52195, #630b75);
-  background-image: -ms-linear-gradient(top, #b52195, #630b75);
-  background-image: -o-linear-gradient(top, #b52195, #630b75);
-  background-image: linear-gradient(to bottom, #b52195, #630b75);
-  -webkit-border-radius: 15;
-  -moz-border-radius: 15;
-  border-radius: 15px;
-  font-family: Georgia;
-  color: #ede6ed;
-  font-size: 20px;
-  padding: 0px;
-  text-decoration: none;
-  width: 120px;
-  height:40px;
-}
-
-.butn:hover {
-  background: #e32b6b;
-  background-image: -webkit-linear-gradient(top, #e32b6b, #c42391);
-  background-image: -moz-linear-gradient(top, #e32b6b, #c42391);
-  background-image: -ms-linear-gradient(top, #e32b6b, #c42391);
-  background-image: -o-linear-gradient(top, #e32b6b, #c42391);
-  background-image: linear-gradient(to bottom, #e32b6b, #c42391);
-  text-decoration: none;
-}
-
-.book {
-  background: #f23a71;
-  background-image: -webkit-linear-gradient(top, #f23a71, #ff7dc2);
-  background-image: -moz-linear-gradient(top, #f23a71, #ff7dc2);
-  background-image: -ms-linear-gradient(top, #f23a71, #ff7dc2);
-  background-image: -o-linear-gradient(top, #f23a71, #ff7dc2);
-  background-image: linear-gradient(to bottom, #f23a71, #ff7dc2);
-  -webkit-border-radius: 15;
-  -moz-border-radius: 15;
-  border-radius: 15px;
-  font-family: Georgia;
-  color: #ffffff;
-  font-size: 20px;
-  padding:0px;
-  text-decoration: none;
-  width: 120px;
-  height:40px;
-}
-
-.book:hover {
-  background: #eb81b2;
-  background-image: -webkit-linear-gradient(top, #eb81b2, #ab527a);
-  background-image: -moz-linear-gradient(top, #eb81b2, #ab527a);
-  background-image: -ms-linear-gradient(top, #eb81b2, #ab527a);
-  background-image: -o-linear-gradient(top, #eb81b2, #ab527a);
-  background-image: linear-gradient(to bottom, #eb81b2, #ab527a);
-  text-decoration: none;
-}
-  </style>
- 
-
-  
-
-<style>
-.modal-dialog{
-    width:450px;
-    height: 800px;
-}
-</style>
-</head>
-<body ng-controller="moviesCtrl">
-    <div class="page-container">
-            <div class="continut">
-   
-      
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" id="navigare">
-                        <div class="container">
-                          <a class="navbar-brand" href="#">
-                                <img src="../../images/logos/logo_transparent.png" style="height:150px; width:160px" alt="">
-                              </a>
-                            <div class="center">
-                              Welcome to Cinemagic !
-                            </div>
-                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                              </button>
-                          <div class="collapse navbar-collapse" id="navbarResponsive">
-                            <ul class="navbar-nav ml-auto">
-                              <li class="nav-item  mystyle">
-                                <a class="nav-link" href="#">Home
-                                     
-                                    </a>
-                              </li>
-                              <li class="nav-item active mystyle">
-                                <a class="nav-link" href="#">Movies</a>
-                              </li>
-                              <li class="nav-item mystyle">
-                                <a class="nav-link" href="#myModal" class="trigger-btn" data-toggle="modal">Login/Register</a>
-                              </li>
-                              <li class="nav-item mystyle">
-                                <a class="nav-link" href="#">Contact</a>
-                              </li>
-                            </ul>
-                          </div>
+<div class="continut bg-gray">
+        <div class="wrapper-movies flex-column mx-auto" style="width:70%">
+        <div class="row">
+                <div class="form-group row">
+                        <label for="example-date-input" class="col-2 col-form-label">Select a date</label>
+                        <div class="col-10">
+                          <input class="form-control" type="date" value="2011-08-19" id="example-date-input">
                         </div>
-                      </nav>
-                    
                       </div>
-                      <div class="continut bg-gray">
-                          <div class="wrapper-movies flex-column mx-auto" style="width:70%">
-                          <div class="row">
-                            <div class="form-group col-md-10">
-                                    <label for="datepicker" ng-model="picked.date">Choose a date  </label>
-                                    <input id="datepicker" width="276" />
-                                </div>
-                                </div>
-                                <div class="row">
-                                    All movies
-                                </div>
-                                <div class="row">
-                                <table class="table table-hover">
-                                        <thead>
-                                          <tr>
-                                            <th>Movie</th>
-                                            <th>Time</th>
-                                            <th>Room</th>
-                                            <th>Details</th>
-                                            <th>Book</th>
-                                          </tr>
-                                        </thead>
-                                        <tbody>
-                                          <tr>
-                                            <td><p class="movie-title"><img src="../images/john-wick-chapter-2-poster.jpg" style="float:left; width:60px;height:60px; margin-right:20px;">  John Wick Chapter 3</p></td>
-                                            <td>12:00-13:00</td>
-                                            <td>Room 1 </td>
-                                            <td><button class="btn btn-warning">About</button></td>
-                                            <td><button class="btn btn-danger">Book</button></td>
-                                          </tr>
-                                          <tr>
-                                            <td><p class="movie-title"><img src="../images/star-is-born-web.jpg" style="width:60px;height:60px;margin-right:20px;">A star is born</p></td>
-                                            <td>14:00-16:00</td>
-                                            <td>Room 4</td>
-                                            <td><button class="btn btn-warning">About</button></td>
-                                          </tr>
-                                          <tr>
-                                            <td><p class="movie-title"><img src="../images/1f759f3c0869ef9f52beb75ee5f41db7.jpg" style="height:60px;width:60px;margin-right:20px">Beauty and the beast</p></td>
-                                            <td>10:00-12:25</td>
-                                            <td>
-                                              Room 3
-                                            </td>
-                                            <td><button class="btn btn-warning" data-toggle="modal" data-target="#detailModal">About</button></td>
-                                       
-                                  
-                                        </tr>
-                                          <tr>
-                                            <td><p class="movie-title"><img src="../images/1f759f3c0869ef9f52beb75ee5f41db7.jpg" style="height:60px;width:60px;margin-right:20px">Beauty and the beast</p></td>
-                                            <td>10:00-12:25</td>
-                                            <td>
-                                              Room 3
-                                            </td>
-                                            <td> <button type="button" id="details" class="btn btn-warning" data-toggle="modal" data-target="#detailModal">About</button></td>
-                                          </tr>
-                                        </tbody>
-                                      </table>
-                                      </div>
-                                      </div>
-                      </div>
+              </div>
+              <div class="row">
+                  All movies
+              </div>
+              <div class="row">
+              <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>Movie</th>
+                          <th>Time</th>
+                          <th>Room</th>
+                          <th>Details</th>
+                          <th>Book</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><p class="movie-title"><img src="../images/john-wick-chapter-2-poster.jpg" style="float:left; width:60px;height:60px; margin-right:20px;">  John Wick Chapter 3</p></td>
+                          <td>12:00-13:00</td>
+                          <td>Room 1 </td>
+                          <td><button class="btn btn-warning">About</button></td>
+                          <td><button class="btn btn-danger">Book</button></td>
+                        </tr>
+                        <tr>
+                          <td><p class="movie-title"><img src="../images/star-is-born-web.jpg" style="width:60px;height:60px;margin-right:20px;">A star is born</p></td>
+                          <td>14:00-16:00</td>
+                          <td>Room 4</td>
+                          <td><button class="btn btn-warning">About</button></td>
+                        </tr>
+                        <tr>
+                          <td><p class="movie-title"><img src="../images/1f759f3c0869ef9f52beb75ee5f41db7.jpg" style="height:60px;width:60px;margin-right:20px">Beauty and the beast</p></td>
+                          <td>10:00-12:25</td>
+                          <td>
+                            Room 3
+                          </td>
+                          <td><button class="btn btn-warning" data-toggle="modal" data-target="#detailModal">About</button></td>
                      
-                      <div class="continut footer">
-                            <!-- Footer -->
-                            
-                                <footer class="site-footer">
-                                    <div class="container">
-                                      <div class="row">
-                                        <div class="col-sm-12 col-md-6">
-                                          <img src="../../images/logos/logo_transparent.png" style="height:180px;width:200px">
-                                        </div>
-                              
-                                        <div class="col-xs-6 col-md-3">
-                                          <h6>Categories</h6>
-                                          <ul class="footer-links">
-                                            <li><a href="http://scanfcode.com/category/c-language/">C</a></li>
-                                            <li><a href="http://scanfcode.com/category/front-end-development/">UI Design</a></li>
-                                            <li><a href="http://scanfcode.com/category/back-end-development/">PHP</a></li>
-                                            <li><a href="http://scanfcode.com/category/java-programming-language/">Java</a></li>
-                                            <li><a href="http://scanfcode.com/category/android/">Android</a></li>
-                                            <li><a href="http://scanfcode.com/category/templates/">Templates</a></li>
-                                          </ul>
-                                        </div>
-                              
-                                        <div class="col-xs-6 col-md-3">
-                                          <h6>Quick Links</h6>
-                                          <ul class="footer-links">
-                                            <li><a href="http://scanfcode.com/about/">About Us</a></li>
-                                            <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
-                                            <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
-                                            <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
-                                            <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
-                                          </ul>
-                                        </div>
-                                      </div>
-                                      <hr>
-                                    </div>
-                                    <div class="container">
-                                      <div class="row">
-                                        <div class="col-md-8 col-sm-6 col-xs-12">
-                                          <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by 
-                                       <a href="#">Cinemagic</a>.
-                                          </p>
-                                        </div>
-                              
-                                        <div class="col-md-4 col-sm-6 col-xs-12">
-                                          <ul class="social-icons">
-                                            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                                            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                                            <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-                                            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
-                                          </ul>
-                                        </div>
-                                      </div>
-                                    </div>
-                              </footer>
-                            
-                            
-                            </div>
-                      </div>
+                
+                      </tr>
+                        <tr>
+                          <td><p class="movie-title"><img src="../images/1f759f3c0869ef9f52beb75ee5f41db7.jpg" style="height:60px;width:60px;margin-right:20px">Beauty and the beast</p></td>
+                          <td>10:00-12:25</td>
+                          <td>
+                            Room 3
+                          </td>
+                          <td> <button type="button" id="details" class="btn btn-warning" data-toggle="modal" data-target="#detailModal">About</button></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
+                    </div>
+    </div>
 
-                      <!--MOVIES DETAILS MODAL-->
-                      <div class="modal fade" id="detailModal" tabindex="-1" role="dialog">
-                        <div class="modal-dialog">
-                          <div class="modal-content">
-                      
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                              <img src="../images/john-wick-chapter-2-poster.jpg" class="mx-auto" style="width:50%;height: 150px">
-                              
-                            </div>
-                      
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                              <p>Title : LALALALALA</p>
-                              <p>Year : LALALALA</p>
-                              <p>Duration: fgdfdfdfddd</p>
-                              <p>Actors: LLls, LSLSLS, LSLSLSLS</p>
-                              <p style="word-wrap: break-word;">Description : gfhehvdvngjnjfnvsisjvnwjjnwjbwjipevjfnvdfnnfdfnvvndfnsnsnvggggggggggggggggggggggggggggggggggggggggggggggg</p>
-                            </div>
-                      
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            </div>
-                      
-                          </div>
-                        </div>
-                      </div>
-<script>
-$('#datepicker').datepicker({
-			uiLibrary: 'bootstrap4'
-		});
-</script>
-<script>
-$(document).ready(function() {
-    $('#details').click(function () {
-        $('#myModal').modal('show')
-    })});
-</script>
-</body>
-</html>

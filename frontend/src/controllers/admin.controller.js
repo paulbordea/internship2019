@@ -1,6 +1,6 @@
-var demo = angular.module("demo", []);
 
-demo.controller("Ctrl",
+
+app.controller('admin',
 
 function Ctrl($scope) {
     $scope.model = {
