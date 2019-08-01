@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
-
+<html lang="en" ng-app="app" >
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -99,141 +98,40 @@
 }
 </style>
 </head>
-
 <body ng-controller="moviesCtrl">
     <div class="page-container">
-        <div class="continut">
-
-
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" id="navigare">
-                <div class="container">
-                    <a class="navbar-brand" href="#">
-                        <img src="dist/images/logos/logo_transparent.png" style="height:150px; width:160px" alt="">
-                    </a>
-                    <div class="center">
-                        Welcome to Cinemagic !
-                    </div>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <div class="continut">
+   
+      
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top" id="navigare">
+                        <div class="container">
+                          <a class="navbar-brand" href="#">
+                                <img src="../../images/logos/logo_transparent.png" style="height:150px; width:160px" alt="">
+                              </a>
+                            <div class="center">
+                              Welcome to Cinemagic !
+                            </div>
+                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon"></span>
                               </button>
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item  mystyle">
+                          <div class="collapse navbar-collapse" id="navbarResponsive">
+                            <ul class="navbar-nav ml-auto">
+                              <li class="nav-item  mystyle">
                                 <a class="nav-link" href="#">Home
                                      
                                     </a>
-                            </li>
-                            <li class="nav-item active mystyle">
+                              </li>
+                              <li class="nav-item active mystyle">
                                 <a class="nav-link" href="#">Movies</a>
-                            </li>
-                            <li class="nav-item mystyle">
+                              </li>
+                              <li class="nav-item mystyle">
                                 <a class="nav-link" href="#myModal" class="trigger-btn" data-toggle="modal">Login/Register</a>
-                            </li>
-                            <li class="nav-item mystyle">
+                              </li>
+                              <li class="nav-item mystyle">
                                 <a class="nav-link" href="#">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-
-        </div>
-        <div class="continut bg-gray">
-            <div class="wrapper-movies flex-column mx-auto" style="width:70%">
-                <div class="row">
-                    <div class="form-group col-md-10">
-                        <label for="datepicker" ng-model="picked.date">Choose a date  </label>
-                        <input id="datepicker" width="276" />
-                    </div>
-                </div>
-                <div class="row">
-                    All movies
-                </div>
-                <div class="row">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Movie</th>
-                                <th>Time</th>
-                                <th>Room</th>
-                                <th>Details</th>
-                                <th>Book</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <p class="movie-title"><img src="../images/john-wick-chapter-2-poster.jpg" style="float:left; width:60px;height:60px; margin-right:20px;"> John Wick Chapter 3</p>
-                                </td>
-                                <td>12:00-13:00</td>
-                                <td>Room 1 </td>
-                                <td><button class="btn butn">Details</button></td>
-                                <td><button class="btn-danger">Book</button></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="movie-title"><img src="../images/star-is-born-web.jpg" style="width:60px;height:60px;margin-right:20px;">A star is born</p>
-                                </td>
-                                <td>14:00-16:00</td>
-                                <td>Room 4</td>
-                                <td><button class="btn butn">Details</button></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="movie-title"><img src="../images/1f759f3c0869ef9f52beb75ee5f41db7.jpg" style="height:60px;width:60px;margin-right:20px">Beauty and the beast</p>
-                                </td>
-                                <td>10:00-12:25</td>
-                                <td>
-                                    Room 3
-                                </td>
-                                <td><button class="btn butn" data-toggle="modal" data-target="#movieDetails">Details</button></td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="movie-title"><img src="../images/1f759f3c0869ef9f52beb75ee5f41db7.jpg" style="height:60px;width:60px;margin-right:20px">Beauty and the beast</p>
-                                </td>
-                                <td>10:00-12:25</td>
-                                <td>
-                                    Room 3
-                                </td>
-                                <td><button class="btn butn" data-toggle="modal" data-target="#movieDetails">Details</button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="continut footer">
-            <!-- Footer -->
-
-            <footer class="site-footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-6">
-                            <img src="dist/images/logos/logo_transparent.png" style="height:180px;width:200px">
-                        </div>
-
-                        <div class="col-xs-6 col-md-3">
-                            <h6>Categories</h6>
-                            <ul class="footer-links">
-                                <li><a href="http://scanfcode.com/category/c-language/">C</a></li>
-                                <li><a href="http://scanfcode.com/category/front-end-development/">UI Design</a></li>
-                                <li><a href="http://scanfcode.com/category/back-end-development/">PHP</a></li>
-                                <li><a href="http://scanfcode.com/category/java-programming-language/">Java</a></li>
-                                <li><a href="http://scanfcode.com/category/android/">Android</a></li>
-                                <li><a href="http://scanfcode.com/category/templates/">Templates</a></li>
+                              </li>
                             </ul>
-                        </div>
-
-                        <div class="col-xs-6 col-md-3">
-                            <h6>Quick Links</h6>
-                            <ul class="footer-links">
-                                <li><a href="http://scanfcode.com/about/">About Us</a></li>
-                                <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
-                                <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
-                                <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
-                                <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
-                            </ul>
+                          </div>
                         </div>
                       </nav>
                     
@@ -397,5 +295,4 @@ $(document).ready(function() {
     })});
 </script>
 </body>
-
 </html>
