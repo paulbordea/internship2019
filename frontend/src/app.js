@@ -28,6 +28,7 @@ function config($routeProvider, $locationProvider) {
             controller: 'moviesCtrl',
             templateUrl: 'views/movies.html',
             controllerAs: 'vm'
+         
 
         })
         .when('/adminpage',{

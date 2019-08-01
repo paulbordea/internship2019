@@ -7,3 +7,11 @@
 .bg-gray {
     background-color: #dddada;
 }
+.date-select{
+    font-family: 'Indie Flower',cursive;
+    font-size: 22px;
+    color: #52141a;
+    font-weight: bold;
+    float:left;
+    margin:auto;
+}
