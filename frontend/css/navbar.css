@@ -8,11 +8,21 @@
     
 }
 #navigare{
-    height: 160px;
+    height: auto;
     width:100%;
 }
 .mystyle{
     font-family:"Indie Flower",cursive;
     font-size:22px;
     font-weight: bold;
+}
+
+@media only screen and (max-width: 992px){
+    #navigare{
+        height:auto;
+
+    }
+    .center{
+        display: none;
+    }
 }

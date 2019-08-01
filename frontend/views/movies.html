@@ -1,113 +1,76 @@
-<style>
-    .movie-title {
-        font-size: 35px;
-        font-family: 'Rancho', cursive;
-        color: rgb(70, 16, 30);
-    }
-    
-    .bg-gray {
-        background-color: #dddada;
-    }
-    
-    .butn {
-        background: #b52195;
-        background-image: -webkit-linear-gradient(top, #b52195, #630b75);
-        background-image: -moz-linear-gradient(top, #b52195, #630b75);
-        background-image: -ms-linear-gradient(top, #b52195, #630b75);
-        background-image: -o-linear-gradient(top, #b52195, #630b75);
-        background-image: linear-gradient(to bottom, #b52195, #630b75);
-        -webkit-border-radius: 28;
-        -moz-border-radius: 28;
-        border-radius: 15px;
-        font-family: Georgia;
-        color: #ede6ed;
-        font-size: 15px;
-        padding: 10px 20px 10px 20px;
-        text-decoration: none;
-    }
-    
-    .butn:hover {
-        background: #e32b6b;
-        background-image: -webkit-linear-gradient(top, #e32b6b, #c42391);
-        background-image: -moz-linear-gradient(top, #e32b6b, #c42391);
-        background-image: -ms-linear-gradient(top, #e32b6b, #c42391);
-        background-image: -o-linear-gradient(top, #e32b6b, #c42391);
-        background-image: linear-gradient(to bottom, #e32b6b, #c42391);
-        text-decoration: none;
-    }
-</style>
 
 
 
-    <div class="continut bg-gray">
+<div class="continut bg-gray">
         <div class="wrapper-movies flex-column mx-auto" style="width:70%">
-            <div class="row">
-                <div class="form-group col-md-10">
-                    <label for="datepicker" ng-model="picked.date">Choose a date  </label>
-                    <input id="datepicker" width="276" />
-                </div>
-            </div>
-            <div class="row">
-                All movies
-            </div>
-            <div class="row">
-                <table class="table table-hover">
-                    <thead>
+        <div class="row flex-column justify-content-center">
+                <div class="form-group col-6 text-center">
+                        <label for="example-date-input"  class="date-select">Select a date</label>
+                      
+
+                          <input class="form-control text-input" type="date" value="2011-08-19" id="example-date-input">
+                     
+                      </div>
+              </div>
+              
+              <div class="row" ng-controller="movieUser">
+              <table class="table table-hover">
+                      <thead>
                         <tr>
-                            <th>Movie</th>
-                            <th>Time</th>
-                            <th>Room</th>
-                            <th>Details</th>
-                            <th>Book</th>
+                          <th>Movie</th>
+                          <th>Start hour</th>
+                          <th>Room</th>
+                          <th>Details</th>
+                          <th>Book</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <p class="movie-title"><img src="../images/john-wick-chapter-2-poster.jpg" style="float:left; width:60px;height:60px; margin-right:20px;"> John Wick Chapter 3</p>
-                            </td>
-                            <td>12:00-13:00</td>
-                            <td>Room 1 </td>
-                            <td><button class="btn butn">Details</button></td>
-                            <td><button class="btn-danger">Book</button></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p class="movie-title"><img src="../images/star-is-born-web.jpg" style="width:60px;height:60px;margin-right:20px;">A star is born</p>
-                            </td>
-                            <td>14:00-16:00</td>
-                            <td>Room 4</td>
-                            <td><button class="btn butn">Details</button></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p class="movie-title"><img src="../images/1f759f3c0869ef9f52beb75ee5f41db7.jpg" style="height:60px;width:60px;margin-right:20px">Beauty and the beast</p>
-                            </td>
-                            <td>10:00-12:25</td>
-                            <td>
-                                Room 3
-                            </td>
-                            <td><button class="btn butn" data-toggle="modal" data-target="#movieDetails">Details</button></td>
+                      </thead>
+                      <tbody role="rowgroup">
+                        <tr  role="row" ng-repeat="movie in model.usermovies" ng-include="getTemplate(movie)"
+                        >
+                      </tr>
+                      </tbody>
+              </table>
+              <script type="text/ng-template" id="display">
+                <td style="width:auto;"><p class="movie-title"><img src="../images/john-wick-chapter-2-poster.jpg" style="float:left,width:60px;height:60px;margin-right:20px;">  {{movie.title}}</p></td>
+                <td style="width:auto;"><p class="movie-title">{{movie.time}}</p></td>
+                
+                <td style="width:auto;"><p class="movie-title">{{movie.room}}</p></td>
+                <td><button class="btn btn-warning" data-toggle="modal" data-target="#detailModal">About</button></td>
+                <td><button class="btn btn-danger">Book</button></td>
+              </script>
+                          <!-- <td><p class="movie-title"><img src="../images/john-wick-chapter-2-poster.jpg" style="float:left; width:60px;height:60px; margin-right:20px;">  John Wick Chapter 3</p></td>
+                          <td>12:00-13:00</td>
+                          <td>Room 1 </td>
+                          <td><button class="btn btn-warning">About</button></td>
+                          <td><button class="btn btn-danger">Book</button></td>
                         </tr>
                         <tr>
-                            <td>
-                                <p class="movie-title"><img src="../images/1f759f3c0869ef9f52beb75ee5f41db7.jpg" style="height:60px;width:60px;margin-right:20px">Beauty and the beast</p>
-                            </td>
-                            <td>10:00-12:25</td>
-                            <td>
-                                Room 3
-                            </td>
-                            <td><button class="btn butn" data-toggle="modal" data-target="#movieDetails">Details</button></td>
+                          <td><p class="movie-title"><img src="../images/star-is-born-web.jpg" style="width:60px;height:60px;margin-right:20px;">A star is born</p></td>
+                          <td>14:00-16:00</td>
+                          <td>Room 4</td>
+                          <td><button class="btn btn-warning">About</button></td>
                         </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                        <tr>
+                          <td><p class="movie-title"><img src="../images/1f759f3c0869ef9f52beb75ee5f41db7.jpg" style="height:60px;width:60px;margin-right:20px">Beauty and the beast</p></td>
+                          <td>10:00-12:25</td>
+                          <td>
+                            Room 3
+                          </td>
+                          <td><button class="btn btn-warning" data-toggle="modal" data-target="#detailModal">About</button></td>
+                     
+                
+                      </tr>
+                        <tr>
+                          <td><p class="movie-title"><img src="../images/1f759f3c0869ef9f52beb75ee5f41db7.jpg" style="height:60px;width:60px;margin-right:20px">Beauty and the beast</p></td>
+                          <td>10:00-12:25</td>
+                          <td>
+                            Room 3
+                          </td>
+                          <td> <button type="button" id="details" class="btn btn-warning" data-toggle="modal" data-target="#detailModal">About</button></td>
+                        </tr>
+                      </tbody>
+                    </table> -->
+                    </div>
+                    </div>
     </div>
 
-
-<script>
-    $('#datepicker').datepicker({
-       uiLibrary: 'bootstrap4'
-     });
-</script>
