@@ -1,9 +1,22 @@
 (function() {
     'use strict';
-
+    app.factory("db", function() {
+        var obj = {};
+        obj.item = {
+       
+          date: 13082019
+        }
+      
+        return obj;
+      
+      });
     app.controller('moviesCtrl', function($scope) {
-
-    })
+    });
+    app.controller('EditCtrl', ['$scope', function($scope) {
+        $scope.dateBirth = new Date(2014, 3, 19);
+    }
+]);
+   
     app.controller('movieUser',
     function Control($scope){
         $scope.model={

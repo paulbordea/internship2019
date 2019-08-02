@@ -1,4 +1,5 @@
-
+(function() {
+    'use strict';
 
 app.controller('admin',
 
@@ -89,3 +90,4 @@ function Ctrl($scope) {
         $scope.model.selected = {};
     };
 });
+}());
