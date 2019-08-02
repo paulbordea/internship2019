@@ -6,7 +6,6 @@ using cinema.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace cinema.Controllers
 {
@@ -23,10 +22,6 @@ namespace cinema.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Bookings>>> GetBookings()
         {
-            //using (CinemaContext _context = new CinemaContext())
-            //{
-            //    return await _context.Bookings.ToListAsync();
-            //}
             return await _cinemaContext.Bookings.ToListAsync();
         }
 

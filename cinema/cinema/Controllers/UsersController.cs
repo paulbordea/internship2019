@@ -22,10 +22,6 @@ namespace cinema.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Users>>> GetUsers()
         {
-            //using ( CinemaContext _context = new CinemaContext() )
-            //{
-            //    return await _context.Users.ToListAsync();
-            //}
             return await _cinemaContext.Users.ToListAsync();
         }
 
@@ -33,11 +29,6 @@ namespace cinema.Controllers
         [HttpGet("{id}")]
         public ActionResult<Users> GetUser(int id)
         {
-            //using (CinemaContext context = new CinemaContext())
-            //{
-            //    return context.Users.FirstOrDefault(e => e.UserId == id);
-            //    //Task.FromResult(context.Users.FirstOrDefault(e => e.UserId == id));
-            //}
             return _cinemaContext.Users.FirstOrDefault(e => e.UserId == id);
         }
 
@@ -45,11 +36,6 @@ namespace cinema.Controllers
         [HttpPost]
         public void Post([FromBody] Users user)
         {
-            //using (CinemaContext context = new CinemaContext())
-            //{
-            //    context.Users.Add(user);
-            //    context.SaveChanges();
-            //}
             _cinemaContext.Users.Add(user);
             _cinemaContext.SaveChanges();
         }
@@ -58,17 +44,6 @@ namespace cinema.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody]Users user)
         {
-            //using (CinemaContext context = new CinemaContext())
-            //{
-            //    Users entity = context.Users.FirstOrDefault(e => e.UserId == id);
-            //    entity.UserId = user.UserId;
-            //    entity.UserName = user.UserName;
-            //    entity.UserEmail = user.UserEmail;
-            //    entity.UserPassword = user.UserPassword;
-            //    entity.UserIsAdmin = user.UserIsAdmin;
-            //    context.SaveChanges();
-
-            //}
             Users entity = _cinemaContext.Users.FirstOrDefault(e => e.UserId == id);
             entity.UserId = user.UserId;
             entity.UserName = user.UserName;
@@ -82,11 +57,6 @@ namespace cinema.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            //using (CinemaContext context = new CinemaContext())
-            //{
-            //    context.Users.Remove(context.Users.FirstOrDefault(e => e.UserId == id));
-            //    context.SaveChanges();
-            //}
             _cinemaContext.Users.Remove(_cinemaContext.Users.FirstOrDefault(e => e.UserId == id));
             _cinemaContext.SaveChanges();
         }

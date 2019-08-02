@@ -21,11 +21,6 @@ namespace cinema.Controllers
         
         public async Task<ActionResult<IEnumerable<Seats>>> GetSeats()
         {
-            //return await _context.Seats.ToListAsync();
-            //using (CinemaContext _context = new CinemaContext())
-            //{
-            //    return await _context.Seats.ToListAsync();
-            //}
             return await _cinemaContext.Seats.ToListAsync();
         }
 
