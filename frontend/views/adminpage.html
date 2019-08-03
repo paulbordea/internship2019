@@ -1,189 +1,199 @@
-
-    
 <style>
-.table-sortable tbody tr {
-    cursor: move;
-}
-.latime{
-    width: 80px;
-}
+    .table-sortable tbody tr {
+        cursor: move;
+    }
+    
+    .latime {
+        width: 80px;
+    }
 </style>
 
-                <div class="continut mx-auto  justify-content-center mt-5 mb-4">                             
-                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#addmovie">Add New Movie</button>
-                    </div>
-                <div class="continut flex-column">
-                    <div class="container mx-auto ">
-                        <div  ng-controller="admin">
-                                <table class="table table-hover" role="table">
-                                    <thead role="rowgroup">
-                                        <tr role="row">
-                                        <th role="columnheader"  style="width:10%;">Title</th>
-                                        <th role="columnheader" style="width:10%;">Date</th>
-                                        <th role="columnheader" style="width:10%;">Time</th>
-                                        <th role="columnheader" style="width:10%;">Room</th>
-                                        <th role="columnheader" style="width:10%;">Actors</th>
-                                        <th role="columnheader" style="width:10%;">Year</th>
-                                        <th role="columnheader" style="width:25%;">Description</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody role="rowgroup"> 
-                                        <tr role="row"
-                                        ng-repeat="contact in model.movies" ng-include="getTemplate(contact)">
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                
-                                <script type="text/ng-template" id="display">
-                                    <td style="width:auto;">{{contact.title}}</td>
-                                    <td style="width:auto;">{{contact.date}}</td>
-                                    <td style="width:auto;">{{contact.time}}</td>
-                                    <td style="width:auto;">{{contact.room}}</td>
-                                    <td style="width:auto;">{{contact.actors}}</td>
-                                    <td style="width:auto;">{{contact.year}}</td>
-                                    <td><div style="width:auto;height:auto;word-wrap: break-word">{{contact.description}}</div></td>
-                                    <td >
-                                        <button class="btn btn-dark latime" ng-click="editContact(contact)">Edit</button>
-                                    </td>
-                                    <td>
-                                            <button class="btn btn-danger latime" ng-click="deleteContact($index)">Delete</button>
+<div class="continut mx-auto  justify-content-center mt-5 mb-4">
+    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#addmovie">Add New Movie</button>
+</div>
+<div class="continut flex-column">
+    <div class="container mx-auto ">
+        <div ng-controller="admin">
+            <table class="table table-hover" role="table">
+                <thead role="rowgroup">
+                    <tr role="row">
+                        <th role="columnheader" style="width:10%;">Title</th>
+                        <th role="columnheader" style="width:10%;">Date</th>
+                        <th role="columnheader" style="width:10%;">Time</th>
+                        <th role="columnheader" style="width:10%;">Room</th>
+                        <th role="columnheader" style="width:10%;">Actors</th>
+                        <th role="columnheader" style="width:10%;">Year</th>
+                        <th role="columnheader" style="width:25%;">Description</th>
+                    </tr>
+                </thead>
+                <tbody role="rowgroup">
+                    <tr role="row" ng-repeat="contact in model.movies" ng-include="getTemplate(contact)">
+                    </tr>
+                </tbody>
+            </table>
 
-                                    </td>
-                                  
-                                </script>
-                                <script type="text/ng-template" id="edit">
-                                    <td><input type="text" style="width:90%;" ng-model="model.selected.title" /></td>
-                                    <td><input type="text" style="width: 90%" ng-model="model.selected.date" /></td>
-                                    <td><input type="text" style="width:90%" ng-model="model.selected.time" /></td>
-                                    <td><input type="text" style="width:90%" ng-model="model.selected.room" /></td>
-                                    <td><input type="text"  style="width:90%"ng-model="model.selected.actors" /></td>
-                                    <td><input type="text" style="width: 90%" ng-model="model.selected.year" /></td>
-                                    <td><input type="text" style="width: 90%" ng-model="model.selected.description" /></td>
-                                    <td >
-                                        <button class="btn btn-info latime"ng-click="saveContact($index)">Save</button>
-                                        <button  class= "btn btn-danger latime" ng-click="reset()">Cancel</button>
-                                    </td>
-                                </script>
-                                
-   
-<div id="addmovie" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">
-                    Add New Movie
-                </h4>
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" >&times;</button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                      <label for="exampleInputName">Title</label>
-                      <input type="text" class="form-control" id="exampleInputName" ng-model="title" placeholder="Title">
-                    </div>
-                       <div class="form-group">
-                     <label for="exampleInputage">Date</label>
-                     <input type="text" class="form-control" id="exampleInputAge" ng-model="date" placeholder="Date"/>
-                       </div>
-                       <div class="form-group">
-                     <label for="exampleInputSalary">Time</label>
-                     <input type="text" class="form-control" id="exampleInputSalary" ng-model="time" placeholder="Time">
-                       </div>
-                       <div class="form-group">
-                        <label for="exampleInputSalary">Room</label>
-                       <input type="text" class="form-control" id="exampleInputSalary" ng-model="room" placeholder="Room">
-                       </div>
-                       <div class="form-group">
-                        <label for="exampleInputSalary">Actors</label>
-                       <input type="text" class="form-control" id="exampleInputSalary" ng-model="actors" placeholder="Actors">
-                       </div>
-                       <div class="form-group">
-                       <label for="exampleInputSalary">Year</label>
-                        <input type="text" class="form-control" id="exampleInputSalary" ng-model="year" placeholder="Year">
+            <script type="text/ng-template" id="display">
+                <td style="width:auto;">{{contact.title}}</td>
+                <td style="width:auto;">{{contact.date}}</td>
+                <td style="width:auto;">{{contact.time}}</td>
+                <td style="width:auto;">{{contact.room}}</td>
+                <td style="width:auto;">{{contact.actors}}</td>
+                <td style="width:auto;">{{contact.year}}</td>
+                <td>
+                    <div style="width:auto;height:auto;word-wrap: break-word">{{contact.description}}</div>
+                </td>
+                <td>
+                    <button class="btn btn-dark latime" ng-click="editContact(contact)">Edit</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger latime" ng-click="deleteContact($index)">Delete</button>
+
+                </td>
+
+            </script>
+            <script type="text/ng-template" id="edit">
+                <td><input type="text" style="width:90%;" ng-model="model.selected.title" /></td>
+                <td><input type="text" style="width: 90%" ng-model="model.selected.date" /></td>
+                <td><input type="text" style="width:90%" ng-model="model.selected.time" /></td>
+                <td><input type="text" style="width:90%" ng-model="model.selected.room" /></td>
+                <td><input type="text" style="width:90%" ng-model="model.selected.actors" /></td>
+                <td><input type="text" style="width: 90%" ng-model="model.selected.year" /></td>
+                <td><input type="text" style="width: 90%" ng-model="model.selected.description" /></td>
+                <td>
+                    <button class="btn btn-info latime" ng-click="saveContact($index)">Save</button>
+                    <button class="btn btn-danger latime" ng-click="reset()">Cancel</button>
+                </td>
+            </script>
+
+
+            <div id="addmovie" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">
+                                Add New Movie
+                            </h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                         </div>
-                        <div class="form-group">
-                       <label for="exampleInputSalary">Description</label>
-                       <input type="text" class="form-control" id="exampleInputSalary" style="word-wrap: break-word" ng-model="description" placeholder="Description">
-                       </div>
-                       <button type="button" class="btn btn-warning" ng-click="addEmployee()" data-dismiss="modal">Add movie</button>
-                     </form>
-            </div>
-            <div class="modal-footer">
-               
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleInputName">Title</label>
+                                    <input type="text" class="form-control" id="exampleInputName" ng-model="title" placeholder="Title">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputage">Date</label>
+                                    <input type="text" class="form-control" id="exampleInputAge" ng-model="date" placeholder="Date" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputSalary">Time</label>
+                                    <input type="text" class="form-control" id="exampleInputSalary" ng-model="time" placeholder="Time">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputSalary">Room</label>
+                                    <input type="text" class="form-control" id="exampleInputSalary" ng-model="room" placeholder="Room">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputSalary">Actors</label>
+                                    <input type="text" class="form-control" id="exampleInputSalary" ng-model="actors" placeholder="Actors">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputSalary">Year</label>
+                                    <input type="text" class="form-control" id="exampleInputSalary" ng-model="year" placeholder="Year">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputSalary">Description</label>
+                                    <input type="text" class="form-control" id="exampleInputSalary" style="word-wrap: break-word" ng-model="description" placeholder="Description">
+                                </div>
+                                <button type="button" class="btn btn-warning" ng-click="addEmployee()" data-dismiss="modal">Add movie</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
 
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>    
 </div>
-</div>
-</div>                         
 
-  <style>
-  /*
+<style>
+    /*
 	Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
 	*/
-	@media only screen 
-    and (max-width: 760px), (min-device-width: 768px) 
-    and (max-device-width: 1024px)  {
-
-		/* Force table to not be like tables anymore */
-		table, thead, tbody, th, td, tr {
-			display: block;
-		}
-
-		/* Hide table headers (but not display: none;, for accessibility) */
-		thead tr {
-			position: absolute;
-			top: -9999px;
-			left: -9999px;
-		}
-        .table td{
+    
+    @media only screen and (max-width: 760px),
+    (min-device-width: 768px) and (max-device-width: 1024px) {
+        /* Force table to not be like tables anymore */
+        table,
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
+            display: block;
+        }
+        /* Hide table headers (but not display: none;, for accessibility) */
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+        }
+        .table td {
             padding-left: 165px;
             padding-top: 1px;
             padding-right: 1px;
             padding-bottom: 1px;
-           
         }
-    tr {
-      margin: 0 0 1rem 0;
-    }
-      
-    
-    
-		td {
-			/* Behave  like a "row" */
-			border: none;
-			border-bottom: 1px solid #eee;
-			position: relative;
-			padding-left: 50%;
-		}
-
-		td:before {
-			/* Now like a table header */
-			position: absolute;
-			/* Top/left values mimic padding */
-			top: 0;
-			left: 6px;
-			width: 45%;
-			padding-right: 10px;
-			white-space: nowrap;
-		}
-
-		/*
+        tr {
+            margin: 0 0 1rem 0;
+        }
+        td {
+            /* Behave  like a "row" */
+            border: none;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 50%;
+        }
+        td:before {
+            /* Now like a table header */
+            position: absolute;
+            /* Top/left values mimic padding */
+            top: 0;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+        /*
 		Label the data
     You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
 		*/
-		td:nth-of-type(1):before { content: "Title"; }
-		td:nth-of-type(2):before { content: "Date"; }
-		td:nth-of-type(3):before { content: "Time"; }
-		td:nth-of-type(4):before { content: "Room"; }
-        td:nth-of-type(5):before { content: "Actors"; }
-		td:nth-of-type(6):before { content: "Year"; }
-		td:nth-of-type(7):before { content: "Description"; }
-		td:nth-of-type(8):before { content: ""; }
-	
-	}
-  </style>
-<!-- </body>
-</html> -->
+        td:nth-of-type(1):before {
+            content: "Title";
+        }
+        td:nth-of-type(2):before {
+            content: "Date";
+        }
+        td:nth-of-type(3):before {
+            content: "Time";
+        }
+        td:nth-of-type(4):before {
+            content: "Room";
+        }
+        td:nth-of-type(5):before {
+            content: "Actors";
+        }
+        td:nth-of-type(6):before {
+            content: "Year";
+        }
+        td:nth-of-type(7):before {
+            content: "Description";
+        }
+        td:nth-of-type(8):before {
+            content: "";
+        }
+    }
+</style>
