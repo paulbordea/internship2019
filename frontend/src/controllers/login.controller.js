@@ -8,12 +8,7 @@
         }
         $scope.login = function(credentials) {
             AuthService.login(credentials).then(function(user) {
-                $log.info(JSON.stringify(user));
-                if(user.status==="ok")
-                {
-                    $location.path("/views/movies")
-                }
-
+              
                 $rootScope.$broadcast("AUTH_EVENTS.loginSuccess");
                 //$ScopedCredential.setCurrentUser(user);
             }, function() {

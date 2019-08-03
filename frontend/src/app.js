@@ -32,7 +32,7 @@ function config($routeProvider, $locationProvider) {
 
         })
         .when('/adminpage',{
-            controller: 'moviesCtrl',
+            controller: 'admin',
             templateUrl: 'views/adminpage.html',
             controllerAs : 'vm'
 
