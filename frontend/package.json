@@ -4,6 +4,7 @@
     "version": "5.1.2",
     "scripts": {
         "server": "http-server ./public",
+        "dbserver": "json-server db.json",
         "build": "gulp build",
         "watch": "gulp watch"
     },
