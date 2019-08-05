@@ -1,4 +1,4 @@
-<div class="continut">
+<div class="continut" ng-controller="homeCtrl">
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark" id="navigare">
         <div class="container">
@@ -12,13 +12,13 @@
                 <span class="navbar-toggler-icon"></span>
               </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active mystyle">
-                        <a class="nav-link" href="#">Home
-                      <span class="sr-only">(current)</span>
+                <ul class="navbar-nav ml-auto" >
+                    <li class="nav-item  mystyle" ng-repeat="item in menuItems.options " ng-class="{'active': activeMenu===item}">
+                        <a class="{{item.class}}"  href="{{item.link}}" data-toggle="{{item.datatoggle}}" ng-click="setActive(item)">{{item.menu}}
+                 
                     </a>
                     </li>
-                    <li class="nav-item mystyle">
+<!--                     <li class="nav-item mystyle">
                         <a class="nav-link" href="/index.html#!/movies">Movies</a>
                     </li>
                     <li class="nav-item mystyle">
@@ -26,7 +26,7 @@
                     </li>
                     <li class="nav-item mystyle">
                         <a class="nav-link" href="#">Contact</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>

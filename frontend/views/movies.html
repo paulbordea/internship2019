@@ -1,14 +1,15 @@
 <div class="continut bg-gray" ng-controller="moviesCtrl">
     <div class="wrapper-movies flex-column mx-auto" style="width:70%">
         <div class="row flex-column justify-content-center">
-                <div class="form-group col-6 text-center" ng-controller="EditCtrl">
+                <div class="form-group col-6 text-center" >
                 <label for="example-date-input" class="date-select">Select a date</label>
 
                         <div class="control">
                             <input id="date-birth" class="form-control" type="date" ng-model="dateBirth">
+                            <button type="submit" class="btn btn-danger" ng-click="search()">Search</button>
                         </div>
-                        <div class="row" >
-                       <p class="date-select">
+                        <div class="row" ng-if="clicked">
+                       <p class="date-select" >
                       
                             Date : {{ dateBirth | date: 'fullDate' }}</p>
                             </div>
@@ -16,7 +17,7 @@
             </div>
         </div>
 
-        <div class="row" ng-controller="movieUser">
+        <div class="row" >
                  
             <table class="table table-hover">
                 <thead>
@@ -29,24 +30,27 @@
                     </tr>
                 </thead>
                 <tbody role="rowgroup">
-                    <tr role="row" ng-repeat="movie in movies" ng-include="getTemplate(movie)">
+                    <tr role="row" ng-repeat="movie in model.movies" ng-include="getTemplate(movie)" >
                     </tr>
                 </tbody>
             </table>
             <script type="text/ng-template" id="display">
-                <td style="width:auto;"><p class="movie-title">
+                <td style="width:auto;"><p class="movie-title"><img src="{{movie.src}}" style="float:left;width:60px;height:60px;margin-right:20px">
               {{movie.title}}</p></td>
                 </td>
-                <td style="width:auto;">
+                <td style="width:auto;" >
                     <p class="movie-title">{{movie.time}}</p>
                 </td>
 
                 <td style="width:auto;">
                     <p class="movie-title">{{movie.room}}</p>
                 </td>
-                <td><button class="btn btn-warning" data-toggle="modal" data-target="#detailModal">About</button></td>
+                <td><button class="btn btn-warning" ng-click="showModal(movie.id)" data-toggle="modal"  data-target="#detailModal">About</button></td>
                 <td><button class="btn btn-danger">Book</button></td>
-            </script>
+                
+              </script>
+             
+           
             <!-- <td><p class="movie-title"><img src="../images/john-wick-chapter-2-poster.jpg" style="float:left; width:60px;height:60px; margin-right:20px;">  John Wick Chapter 3</p></td>
                           <td>12:00-13:00</td>
                           <td>Room 1 </td>
@@ -76,11 +80,20 @@
                             Room 3
                           </td>
                           <td> <button type="button" id="details" class="btn btn-warning" data-toggle="modal" data-target="#detailModal">About</button></td>
-                        </tr>
+                        </tr> -->
                       </tbody>
-                    </table> -->
+                    </table> 
         </div>
     </div>
+  
+    <style>
+    .movie-modal{
+    font-size: 19px;
+    font-family: 'Patrick Hand',cursive;
+    color: rgb(70, 16, 30);
+
+}
+    </style>
 </div>
     <style>
         /*
@@ -156,3 +169,4 @@
         
         }
         </style>
+        
