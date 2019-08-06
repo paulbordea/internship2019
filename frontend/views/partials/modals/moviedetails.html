@@ -1,14 +1,14 @@
-<div>
+<div class="styling">
     <div>
-        <div>
+        <div class="row">
             <!-- Modal Header -->
-            <div>
-                <img src="../images/john-wick-chapter-2-poster.jpg" class="mx-auto" style="width:auto;height: 150px">
+            <div class="col-md-6">
+                <img ng-src="../../../images/{{movie.src}}" class="mx-auto" style="width:100%;height: 100%">
 
             </div>
 
             <!-- Modal body -->
-            <div>
+            <div class="col-md-6 ">
                 <p class="movie-modal"><strong>Title : </strong>{{movie.title}}</p>
                 <p class="movie-modal"><strong>Release Year : </strong> {{movie.year}}</p>
                 <p class="movie-modal"><strong>Room : </strong>{{movie.room}}</p>

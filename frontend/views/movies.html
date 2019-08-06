@@ -1,23 +1,29 @@
-<div class="continut bg-gray">
-    <div class="wrapper-movies flex-column mx-auto" style="width:70%">
+<div class="continut bg-gray mt-5">
+    <div class="wrapper-movies flex-column mx-auto col-md-9">
         <div class="row flex-column justify-content-center">
-            <div class="form-group col-6 text-center">
-                <label for="example-date-input" class="date-select">Select a date</label>
+            
+                <div class="form-group col-md-12 text-center mb-5" >
+                    <div class="row">
+                <div  class="date-select col-md-3">Select a date</div>
+              
 
-                <div class="control">
-                    <input id="date-birth" class="form-control" type="date" ng-model="dateBirth">
-                </div>
-                <div class="row">
-                    <p class="date-select">
-
-                        Date : {{ dateBirth | date: 'fullDate' }}</p>
-                </div>
+                        <div class="control col-md-5">
+                            <input id="date-birth" class="form-control " type="date" ng-model="dateBirth"></div>
+                           <div class="col-md-4">
+                            <button type="submit" class="btn btn-danger float-left " ng-click="search()">Search</button>
+                        </div>
+                    </div>
+                        <div class="row" ng-if="clicked">
+                       <p class="date-select" >
+                      
+                            Date : {{ dateBirth | date: 'fullDate' }}</p>
+                            </div>
 
             </div>
         </div>
 
-        <div class="row">
-
+        <div class="row" >
+                 
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -31,7 +37,7 @@
                 <tbody role="rowgroup">
                     <tr role="row" ng-repeat="movie in movies">
                         <td style="width:auto;">
-                            <p class="movie-title">{{movie.title}}</p>
+                            <p class="movie-title"><img ng-src="../images/{{movie.src}}" style="width:60px;height:50px;float:left;margin-right:20px;">{{movie.title}}</p>
                         </td>
                         </td>
                         <td style="width:auto;">
@@ -41,13 +47,22 @@
                         <td style="width:auto;">
                             <p class="movie-title">{{movie.room}}</p>
                         </td>
-                        <td><button class="btn btn-warning" ng-click="openMovieDetails(movie.id)">About</button></td>
-                        <td><button class="btn btn-danger">Book</button></td>
+                        <td><button class="btn btn-about" ng-click="openMovieDetails(movie.id)">About</button></td>
+                        <td><button class="btn btn-book">Book</button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
+  
+    <style>
+    .movie-modal{
+    font-size: 23px;
+    font-family: 'Archivo Narrow',cursive;
+    color: rgb(70, 16, 30);
+
+}
+    </style>
 </div>
 <style>
     /*
@@ -59,7 +74,9 @@
         width: 60px;
         margin-right: 20px;
     }
-    
+    .table td{
+        text-align:center;
+    }
     @media only screen and (max-width: 760px),
     (min-device-width: 768px) and (max-device-width: 1024px) {
         /* Force table to not be like tables anymore */
@@ -82,6 +99,7 @@
             padding-top: 1px;
             padding-right: 1px;
             padding-bottom: 1px;
+        
         }
         tr {
             margin: 0 0 1rem 0;
@@ -128,4 +146,5 @@
             margin-right: 20px;
         }
     }
-</style>
+        </style>
+        

@@ -1,19 +1,41 @@
 .movie-title{
-    font-size: 20px;
+    font-size: 17px;
     font-family: 'Rancho',cursive;
-    color: rgb(70, 16, 30);
+	color:white;
+	font-weight:bold;
 
 }
-.bg-gray {
-    background-color: #dddada;
+/*.bg-gray {
+	background-image: url("../images/purrfect.jpg") ;
+	background-size:cover;
+	background-repeat: no-repeat;
+	height:auto;
+
+}*/
+.btn-about{
+	border: 3px solid #e0661f !important;
+	background-color:transparent;
+	color: #e0661f;
+	font-weight: bold;
+}
+.btn-book{
+	border: 3px solid #c92f44 !important;
+	background-color:transparent;
+	color: #c92f44;
+	font-weight:bold;
 }
 .date-select{
-    font-family: 'Indie Flower',cursive;
+    font-family: 'Patrick',cursive;
     font-size: 22px;
-    color: #52141a;
+    color: white;
     font-weight: bold;
     float:left;
     margin:auto;
+}
+th{
+text-align: center !important;
+color:white;
+font-size: 20px;
 }
 @media only screen 
     and (max-width: 760px), (min-device-width: 768px) 
@@ -66,13 +88,21 @@
 		Label the data
     You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
 		*/
-		td:nth-of-type(1):before { content: "Title"; }
+		td:nth-of-type(1):before { content: "Title"; color:white;}
 		
-		td:nth-of-type(3):before { content: "Time"; }
-		td:nth-of-type(4):before { content: "Room"; }
+		td:nth-of-type(2):before { content: "Time";color:white; }
+		td:nth-of-type(3):before { content: "Room"; color:white;}
      
 
-		td:nth-of-type(7):before { content: ""; }
-		td:nth-of-type(8):before { content: ""; }
+		td:nth-of-type(4):before { content: ""; }
+		td:nth-of-type(5):before { content: ""; }
 	
 	}
+
+.styling{
+	
+		background-image: url('../images/modal-bg.jpg') !important;
+		background-size:cover;
+		background-repeat: no-repeat;
+   
+}

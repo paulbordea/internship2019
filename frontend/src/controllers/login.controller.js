@@ -16,11 +16,14 @@
 
                 if (user[0].isAdmin === "true") {
                     $rootScope.isAdmin = true;
+                 
                     $location.path('/adminpage');
                 } else {
                     $rootScope.isAdmin = false;
                     $location.path('/movies');
                 }
+                $scope.user=$rootScope.isAdmin
+                console.log($scope.user);
             }, function() {
 
             });

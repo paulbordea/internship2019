@@ -367,5 +367,10 @@ footer{
 }
 .trigger-btn {
   display: inline-block;
-  margin: 100px auto;
+  
+}
+.body-bg{
+  background-image:url("../images/purrfect.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
 }

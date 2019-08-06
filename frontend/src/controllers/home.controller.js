@@ -3,7 +3,9 @@
 
     app.controller('homeCtrl', function($scope, $location) {
         $scope.isUserAdmin = () => {
-            return $scope.isUserLoggedIn && $scope.isUserAdmin;
+            
+            return $scope.isUserLoggedIn && $scope.isAdmin;
+
         };
 
         $scope.loginButtonText = () => {
