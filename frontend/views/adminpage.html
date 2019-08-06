@@ -27,26 +27,26 @@
                     </tr>
                 </thead>
                 <tbody role="rowgroup">
-                    <tr role="row" ng-repeat="contact in model.movies" ng-include="getTemplate(contact)">
+                    <tr role="row" ng-repeat="movie in model.movies" ng-include="getTemplate(movie)">
                     </tr>
                 </tbody>
             </table>
 
             <script type="text/ng-template" id="display">
-                <td style="width:auto;">{{contact.title}}</td>
-                <td style="width:auto;">{{contact.date}}</td>
-                <td style="width:auto;">{{contact.time}}</td>
-                <td style="width:auto;">{{contact.room}}</td>
-                <td style="width:auto;">{{contact.actors}}</td>
-                <td style="width:auto;">{{contact.year}}</td>
+                <td style="width:auto;">{{movie.title}}</td>
+                <td style="width:auto;">{{movie.date}}</td>
+                <td style="width:auto;">{{movie.time}}</td>
+                <td style="width:auto;">{{movie.room}}</td>
+                <td style="width:auto;">{{movie.actors}}</td>
+                <td style="width:auto;">{{movie.year}}</td>
                 <td>
-                    <div style="width:auto;height:auto;word-wrap: break-word">{{contact.description}}</div>
+                    <div style="width:auto;height:auto;word-wrap: break-word">{{movie.description}}</div>
                 </td>
                 <td>
-                    <button class="btn btn-dark latime" ng-click="editContact(contact)">Edit</button>
+                    <button class="btn btn-dark latime" ng-click="editMovie(movie)">Edit</button>
                 </td>
                 <td>
-                    <button class="btn btn-danger latime" ng-click="deleteContact($index)">Delete</button>
+                    <button class="btn btn-danger latime" ng-click="deleteMovie($index)">Delete</button>
 
                 </td>
 
@@ -60,7 +60,7 @@
                 <td><input type="text" style="width: 90%" ng-model="model.selected.year" /></td>
                 <td><input type="text" style="width: 90%" ng-model="model.selected.description" /></td>
                 <td>
-                    <button class="btn btn-info latime" ng-click="saveContact($index)">Save</button>
+                    <button class="btn btn-info latime" ng-click="saveMovie($index)">Save</button>
                     <button class="btn btn-danger latime" ng-click="reset()">Cancel</button>
                 </td>
             </script>

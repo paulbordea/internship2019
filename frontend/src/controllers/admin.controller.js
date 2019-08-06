@@ -23,7 +23,7 @@
                     $log.log("Error fetching movies: " + JSON.stringify(error));
                 });
 
-            $scope.addEmployee = function() {
+            $scope.addMovie = function() {
                     //Add the new item to the Array.
                     var movie = {
                         id: $scope.model.movies.length + 1,
@@ -42,27 +42,24 @@
                     $scope.reset();
                 }
                 // gets the template to ng-include for a table row / item
-            $scope.getTemplate = function(contact) {
-                if (contact.id === $scope.model.selected.id) return 'edit';
+            $scope.getTemplate = function(movie) {
+                if (movie.id === $scope.model.selected.id) return 'edit';
                 else return 'display';
             };
 
-            $scope.editContact = function(contact) {
-                $scope.model.selected = angular.copy(contact);
+            $scope.editMovie = function(movie) {
+                $scope.model.selected = angular.copy(movie);
             };
 
-            $scope.saveContact = function(idx) {
-                console.log("Saving contact");
+            $scope.saveMovie = function(idx) {
+                console.log("Saving movie");
                 $scope.model.movies[idx] = angular.copy($scope.model.selected);
                 $scope.reset();
             };
-            $scope.deleteContact = function(i) {
+            $scope.deleteMovie = function(i) {
                 $scope.model.movies.splice(i, 1);
-                console.log("S a sters contactul" + i);
-
+                console.log("S a sters filmul" + i);
             };
-
-
 
             $scope.reset = function() {
                 $scope.model.selected = {};

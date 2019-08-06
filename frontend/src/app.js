@@ -11,16 +11,6 @@ function config($routeProvider) {
             controller: 'homeCtrl',
             templateUrl: 'views/partials/carousel.html',
         })
-        .when('/login', {
-            controller: 'loginCtrl',
-            templateUrl: 'views/partials/modals/login/loginModal.view.html',
-            controllerAs: 'vm'
-        })
-        .when('/register', {
-            controller: 'registerCtrl',
-            templateUrl: 'views/partials/modals/register/register.view.html',
-            controllerAs: 'vm'
-        })
         .when('/movies', {
             controller: 'MoviesCtrl',
             templateUrl: 'views/movies.html',
