@@ -1,13 +1,18 @@
 <div class="continut bg-gray">
-    <div class="wrapper-movies flex-column mx-auto" style="width:70%">
+    <div class="wrapper-movies flex-column mx-auto col-md-9">
         <div class="row flex-column justify-content-center">
-                <div class="form-group col-6 text-center" >
-                <label for="example-date-input" class="date-select">Select a date</label>
+            
+                <div class="form-group col-md-12 text-center" >
+                    <div class="row">
+                <div  class="date-select col-md-3">Select a date</div>
+              
 
-                        <div class="control">
-                            <input id="date-birth" class="form-control" type="date" ng-model="dateBirth">
-                            <button type="submit" class="btn btn-danger" ng-click="search()">Search</button>
+                        <div class="control col-md-5">
+                            <input id="date-birth" class="form-control " type="date" ng-model="dateBirth"></div>
+                           <div class="col-md-4">
+                            <button type="submit" class="btn btn-danger " ng-click="search()">Search</button>
                         </div>
+                    </div>
                         <div class="row" ng-if="clicked">
                        <p class="date-select" >
                       
@@ -32,7 +37,7 @@
                 <tbody role="rowgroup">
                     <tr role="row" ng-repeat="movie in movies">
                         <td style="width:auto;">
-                            <p class="movie-title">{{movie.title}}</p>
+                            <p class="movie-title"><img src="../images/{{movie.src}}" style="width:60px;height:50px;float:left;margin-right:20px;">{{movie.title}}</p>
                         </td>
                         </td>
                         <td style="width:auto;">
@@ -52,8 +57,8 @@
   
     <style>
     .movie-modal{
-    font-size: 19px;
-    font-family: 'Patrick Hand',cursive;
+    font-size: 23px;
+    font-family: 'Archivo Narrow',cursive;
     color: rgb(70, 16, 30);
 
 }

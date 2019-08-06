@@ -5,7 +5,11 @@
 
 }
 .bg-gray {
-    background-color: #dddada;
+	background-image: url("../images/592465646_640x360.jpg") ;
+	background-size:cover;
+	background-repeat: no-repeat;
+	height:auto;
+
 }
 .date-select{
     font-family: 'Indie Flower',cursive;
@@ -76,3 +80,9 @@
 		td:nth-of-type(8):before { content: ""; }
 	
 	}
+
+.styling{
+	
+		background-color: rgba(0,0,0,.0001) !important;
+   
+}
