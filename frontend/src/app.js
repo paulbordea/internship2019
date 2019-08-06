@@ -25,14 +25,11 @@ function config($routeProvider) {
             controller: 'MoviesCtrl',
             templateUrl: 'views/movies.html',
             controllerAs: 'vm'
-
-
         })
         .when('/adminpage', {
             controller: 'admin',
             templateUrl: 'views/adminpage.html',
             controllerAs: 'vm'
-
         })
         .otherwise({ redirectTo: '/' });
 }

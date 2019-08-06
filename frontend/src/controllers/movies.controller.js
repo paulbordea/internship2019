@@ -3,7 +3,6 @@
     app.factory("db", function() {
         var obj = {};
         obj.item = {
-
             date: 13082019
         }
 
@@ -33,11 +32,10 @@
                     $log.log("Error fetching movies: " + JSON.stringify(error));
                 });
 
-            $scope.getTemplate = function(movie) {
-               
-                return 'display';
-               
+            $scope.getTemplate = function(movie) {               
+                return 'display';               
             }
+
             $scope.showModal = function() {
                 $scope.item={};
                 $scope.item=$scope.model.movies[id];

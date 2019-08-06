@@ -33,8 +33,7 @@
                 scope: modalScope,
                 controller: 'MovieDetailsCtrl',
                 width: 600,
-                height: 'auto',
-              
+                height: 'auto',              
                 showClose: true
             });
         };
