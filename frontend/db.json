@@ -3,13 +3,13 @@
     {
       "username": "123",
       "password": "123",
-      "isadmin": "false",
+      "isAdmin": "false",
       "status": "ok"
     },
     {
       "username": "admin",
       "password": "adm",
-      "isadmin": "true",
+      "isAdmin": "true",
       "status": "ok"
     }
   ],

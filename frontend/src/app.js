@@ -1,14 +1,11 @@
 'use strict';
 
 var app = angular.module('app', ['ngRoute', 'ngCookies', 'ngDialog']);
-app.config(config).run(run);
-// app.config(['$qProvider', function($qProvider) {
-//     $qProvider.errorOnUnhandledRejections(false);
-// }]);
+app.config(config);
 
-config.$inject = ['$routeProvider', '$locationProvider'];
+config.$inject = ['$routeProvider'];
 
-function config($routeProvider, $locationProvider) {
+function config($routeProvider) {
     $routeProvider
         .when('/', {
             controller: 'homeCtrl',
@@ -38,10 +35,4 @@ function config($routeProvider, $locationProvider) {
 
         })
         .otherwise({ redirectTo: '/' });
-}
-
-run.$inject = ['$rootScope', '$location', '$cookies', '$http'];
-
-function run($rootScope, $location, $cookies, $http) {
-
 }
