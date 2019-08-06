@@ -1,4 +1,4 @@
-<div class="continut bg-gray" ng-controller="moviesCtrl">
+<div class="continut bg-gray">
     <div class="wrapper-movies flex-column mx-auto" style="width:70%">
         <div class="row flex-column justify-content-center">
                 <div class="form-group col-6 text-center" >
@@ -30,59 +30,23 @@
                     </tr>
                 </thead>
                 <tbody role="rowgroup">
-                    <tr role="row" ng-repeat="movie in model.movies" ng-include="getTemplate(movie)" >
+                    <tr role="row" ng-repeat="movie in movies">
+                        <td style="width:auto;">
+                            <p class="movie-title">{{movie.title}}</p>
+                        </td>
+                        </td>
+                        <td style="width:auto;">
+                            <p class="movie-title">{{movie.time}}</p>
+                        </td>
+
+                        <td style="width:auto;">
+                            <p class="movie-title">{{movie.room}}</p>
+                        </td>
+                        <td><button class="btn btn-warning" ng-click="openMovieDetails(movie.id)">About</button></td>
+                        <td><button class="btn btn-danger">Book</button></td>
                     </tr>
                 </tbody>
             </table>
-            <script type="text/ng-template" id="display">
-                <td style="width:auto;"><p class="movie-title"><img src="{{movie.src}}" style="float:left;width:60px;height:60px;margin-right:20px">
-              {{movie.title}}</p></td>
-                </td>
-                <td style="width:auto;" >
-                    <p class="movie-title">{{movie.time}}</p>
-                </td>
-
-                <td style="width:auto;">
-                    <p class="movie-title">{{movie.room}}</p>
-                </td>
-                <td><button class="btn btn-warning" ng-click="showModal(movie.id)" data-toggle="modal"  data-target="#detailModal">About</button></td>
-                <td><button class="btn btn-danger">Book</button></td>
-                
-              </script>
-             
-           
-            <!-- <td><p class="movie-title"><img src="../images/john-wick-chapter-2-poster.jpg" style="float:left; width:60px;height:60px; margin-right:20px;">  John Wick Chapter 3</p></td>
-                          <td>12:00-13:00</td>
-                          <td>Room 1 </td>
-                          <td><button class="btn btn-warning">About</button></td>
-                          <td><button class="btn btn-danger">Book</button></td>
-                        </tr>
-                        <tr>
-                          <td><p class="movie-title"><img src="../images/star-is-born-web.jpg" style="width:60px;height:60px;margin-right:20px;">A star is born</p></td>
-                          <td>14:00-16:00</td>
-                          <td>Room 4</td>
-                          <td><button class="btn btn-warning">About</button></td>
-                        </tr>
-                        <tr>
-                          <td><p class="movie-title"><img src="../images/1f759f3c0869ef9f52beb75ee5f41db7.jpg" style="height:60px;width:60px;margin-right:20px">Beauty and the beast</p></td>
-                          <td>10:00-12:25</td>
-                          <td>
-                            Room 3
-                          </td>
-                          <td><button class="btn btn-warning" data-toggle="modal" data-target="#detailModal">About</button></td>
-                     
-                
-                      </tr>
-                        <tr>
-                          <td><p class="movie-title"><img src="../images/1f759f3c0869ef9f52beb75ee5f41db7.jpg" style="height:60px;width:60px;margin-right:20px">Beauty and the beast</p></td>
-                          <td>10:00-12:25</td>
-                          <td>
-                            Room 3
-                          </td>
-                          <td> <button type="button" id="details" class="btn btn-warning" data-toggle="modal" data-target="#detailModal">About</button></td>
-                        </tr> -->
-                      </tbody>
-                    </table> 
         </div>
     </div>
   
@@ -95,52 +59,51 @@
 }
     </style>
 </div>
-    <style>
-        /*
+<style>
+    /*
         Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
         */
-        .img-movie{
-          height:auto;
-          width:60px;
-          margin-right:20px;
-        }
-        @media only screen 
-          and (max-width: 760px), (min-device-width: 768px) 
-          and (max-device-width: 1024px)  {
-      
-          /* Force table to not be like tables anymore */
-          table, thead, tbody, th, td, tr {
+    
+    .img-movie {
+        height: auto;
+        width: 60px;
+        margin-right: 20px;
+    }
+    
+    @media only screen and (max-width: 760px),
+    (min-device-width: 768px) and (max-device-width: 1024px) {
+        /* Force table to not be like tables anymore */
+        table,
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
             display: block;
-          }
-      
-          /* Hide table headers (but not display: none;, for accessibility) */
-          thead tr {
+        }
+        /* Hide table headers (but not display: none;, for accessibility) */
+        thead tr {
             position: absolute;
             top: -9999px;
             left: -9999px;
-          }
-              .table td{
-                  padding-left: 165px;
-                  padding-top: 1px;
-                  padding-right: 1px;
-                  padding-bottom: 1px;
-                 
-              }
-          tr {
+        }
+        .table td {
+            padding-left: 165px;
+            padding-top: 1px;
+            padding-right: 1px;
+            padding-bottom: 1px;
+        }
+        tr {
             margin: 0 0 1rem 0;
-          }
-            
-          
-          
-          td {
+        }
+        td {
             /* Behave  like a "row" */
             border: none;
             border-bottom: 1px solid #eee;
             position: relative;
             padding-left: 50%;
-          }
-      
-          td:before {
+        }
+        td:before {
             /* Now like a table header */
             position: absolute;
             /* Top/left values mimic padding */
@@ -149,24 +112,31 @@
             width: 45%;
             padding-right: 10px;
             white-space: nowrap;
-          }
-      
-          /*
+        }
+        /*
           Label the data
           You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
           */
-          td:nth-of-type(1):before { content: "Title"; }
-        
-          td:nth-of-type(2):before { content: "Time"; }
-          td:nth-of-type(3):before { content: "Room"; }
-              td:nth-of-type(4):before { content: ""; }
-          td:nth-of-type(5):before { content: ""; }
-        .img-movie{
-          width:50px;
-          height:auto;
-          margin-right:20px;
+        td:nth-of-type(1):before {
+            content: "Title";
         }
-        
+        td:nth-of-type(2):before {
+            content: "Time";
         }
+        td:nth-of-type(3):before {
+            content: "Room";
+        }
+        td:nth-of-type(4):before {
+            content: "";
+        }
+        td:nth-of-type(5):before {
+            content: "";
+        }
+        .img-movie {
+            width: 50px;
+            height: auto;
+            margin-right: 20px;
+        }
+    }
         </style>
         

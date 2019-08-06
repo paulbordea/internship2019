@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('app', ['ngRoute', 'ngCookies']);
+var app = angular.module('app', ['ngRoute', 'ngCookies', 'ngDialog']);
 app.config(config).run(run);
 // app.config(['$qProvider', function($qProvider) {
 //     $qProvider.errorOnUnhandledRejections(false);
@@ -25,16 +25,16 @@ function config($routeProvider, $locationProvider) {
             controllerAs: 'vm'
         })
         .when('/movies', {
-            controller: 'moviesCtrl',
+            controller: 'MoviesCtrl',
             templateUrl: 'views/movies.html',
             controllerAs: 'vm'
-         
+
 
         })
-        .when('/adminpage',{
+        .when('/adminpage', {
             controller: 'admin',
             templateUrl: 'views/adminpage.html',
-            controllerAs : 'vm'
+            controllerAs: 'vm'
 
         })
         .otherwise({ redirectTo: '/' });
@@ -43,5 +43,5 @@ function config($routeProvider, $locationProvider) {
 run.$inject = ['$rootScope', '$location', '$cookies', '$http'];
 
 function run($rootScope, $location, $cookies, $http) {
-    
+
 }
