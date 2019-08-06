@@ -9,15 +9,15 @@ function scripts() {
         .pipe(sourcemaps.init())
         .pipe(concat("bundle.js"))
         .pipe(sourcemaps.write())
-        .pipe(dest("public/scripts/"))
-        .pipe(notify({ message: "JS task finished!" }));
+        .pipe(dest("public/scripts/"));
+    //.pipe(notify({ message: "JS task finished!" }));
 };
 
 function css() {
     return src(["css/**/*.css"])
         .pipe(concat("main.css"))
-        .pipe(dest("public/css/"))
-        .pipe(notify({ message: "CSS task finished!" }));
+        .pipe(dest("public/css/"));
+    // .pipe(notify({ message: "CSS task finished!" }));
 };
 
 function images() {
@@ -32,21 +32,21 @@ function icons() {
 
 function htmlIndex() {
     return src(["index.html"])
-        .pipe(dest("public/"))
-        .pipe(notify({ message: "HTML index task finished!" }));
+        .pipe(dest("public/"));
+    //.pipe(notify({ message: "HTML index task finished!" }));
 }
 
 function html() {
     return src(["views/**/*.html"])
-        .pipe(dest("public/views/"))
-        .pipe(notify({ message: "HTML task finished!" }));
+        .pipe(dest("public/views/"));
+    //.pipe(notify({ message: "HTML task finished!" }));
 }
 
 
 function config() {
     return src(["web.config"])
-        .pipe(dest("public/"))
-        .pipe(notify({ message: "Web.config index task finished!" }));
+        .pipe(dest("public/"));
+    //.pipe(notify({ message: "Web.config index task finished!" }));
 }
 
 exports.build = function() {

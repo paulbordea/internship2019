@@ -1,7 +1,7 @@
 {
     "credentials": [
-        { "username": "123", "password": "123", "isadmin": "false", "status": "ok" },
-        { "username": "admin", "password": "adm", "isadmin": "true", "status": "ok" }
+        { "username": "123", "password": "123", "isAdmin": "false", "status": "ok" },
+        { "username": "admin", "password": "adm", "isAdmin": "true", "status": "ok" }
     ],
     "movies": [{
             "id": "2",
