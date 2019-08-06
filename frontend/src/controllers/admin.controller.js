@@ -3,7 +3,13 @@
 
     app.controller('admin',
 
-        function Ctrl($scope, $http) {
+        function Ctrl($scope, $http, $location) {
+
+            if (!$scope.isUserLoggedIn || !$scope.isAdmin) {
+                $location.path('/');
+                return;
+            }
+
             $scope.model = {
                 movies: [],
                 selected: {}

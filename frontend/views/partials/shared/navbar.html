@@ -1,6 +1,6 @@
-<div class="continut">
+<div class="continut" ng-controller="homeCtrl">
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark" id="navigare">
+    <nav class="navbar navbar-expand-md" id="navigare" ng-class="{'navbar-dark' : !isUserAdmin(), 'bg-dark': !isUserAdmin(), 'navbar-light' : isUserAdmin(), 'bg-light': isUserAdmin() }">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="../../../images/logos/logo_transparent-small.png" style="height:90px; width:150px" alt="">
@@ -13,23 +13,19 @@
               </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active mystyle">
+                    <li class="nav-item mystyle" ng-class="{active: isCurrentRoute('/')}">
                         <a class="nav-link" href="#">Home
                       <span class="sr-only">(current)</span>
                     </a>
                     </li>
-                    <li class="nav-item mystyle">
+                    <li class="nav-item mystyle" ng-class="{active: isCurrentRoute('movies')}">
                         <a class="nav-link" href="/index.html#!/movies">Movies</a>
                     </li>
                     <li class="nav-item mystyle">
-                        <a class="nav-link" href="#myModal" class="trigger-btn" data-toggle="modal">Login/Register</a>
-                    </li>
-                    <li class="nav-item mystyle">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="#myModal" class="trigger-btn" data-toggle="modal">{{ loginButtonText() }}</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
 </div>
