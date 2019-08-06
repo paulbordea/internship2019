@@ -369,3 +369,8 @@ footer{
   display: inline-block;
   
 }
+.body-bg{
+  background-image:url("../images/purrfect.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
+}

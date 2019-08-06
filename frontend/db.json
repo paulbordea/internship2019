@@ -26,6 +26,28 @@
       "src": "john-wick-chapter-2-poster.jpg"
     },
     {
+      "id": "4",
+      "title": "John Wick Chapter 3",
+      "date": "7/11/2019",
+      "time": "17:00",
+      "room": "room 2",
+      "actors": "John Snow, Emilia Clarke",
+      "year": "2017",
+      "description": "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd",
+      "src": "john-wick-chapter-2-poster.jpg"
+    },
+    {
+      "id": "5",
+      "title": "John Wick Chapter 3",
+      "date": "7/11/2019",
+      "time": "17:00",
+      "room": "room 2",
+      "actors": "John Snow, Emilia Clarke",
+      "year": "2017",
+      "description": "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd",
+      "src": "john-wick-chapter-2-poster.jpg"
+    },
+    {
       "id": "2",
       "title": "A star is born ",
       "date": "7/12/2019",
@@ -46,6 +68,28 @@
       "year": "2018",
       "description": "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd",
       "src": "1f759f3c0869ef9f52beb75ee5f41db7.jpg"
+    },
+    {
+      "id": "6",
+      "title": "A star is born ",
+      "date": "7/12/2019",
+      "time": "11:00",
+      "room": "room 255",
+      "actors": "John Snow, Emilia Clarke",
+      "year": "2019",
+      "description": "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd",
+      "src": "star-is-born-web.jpg"
+    },
+    {
+      "id": "7",
+      "title": "A star is born ",
+      "date": "7/12/2019",
+      "time": "11:00",
+      "room": "room 255",
+      "actors": "John Snow, Emilia Clarke",
+      "year": "2019",
+      "description": "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd",
+      "src": "star-is-born-web.jpg"
     }
   ]
 }

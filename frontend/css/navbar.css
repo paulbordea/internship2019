@@ -7,14 +7,25 @@
     margin: auto;
     
 }
+.transparent{
+    background-color: transparent !important;
+}
 #navigare{
     height: auto;
     width:100%;
 }
-.mystyle{
+.nav-item.mystyle .nav-link{
     font-family:"Indie Flower",cursive;
     font-size:22px;
     font-weight: bold;
+    color: #f77369 !important;
+}
+.nav-item.mystyle.active .nav-link{
+    color: #d39582 !important;
+
+}
+.navbar-inner{
+    background-color: transparent !important;
 }
 
 @media only screen and (max-width: 992px){

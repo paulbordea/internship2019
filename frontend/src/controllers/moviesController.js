@@ -34,6 +34,7 @@
                 controller: 'MovieDetailsCtrl',
                 width: 600,
                 height: 'auto',
+              
                 showClose: true
             });
         };
