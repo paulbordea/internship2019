@@ -37,7 +37,7 @@
                 <tbody role="rowgroup">
                     <tr role="row" ng-repeat="movie in movies">
                         <td style="width:auto;">
-                            <p class="movie-title"><img src="../images/{{movie.src}}" style="width:60px;height:50px;float:left;margin-right:20px;">{{movie.title}}</p>
+                            <p class="movie-title"><img ng-src="../images/{{movie.src}}" style="width:60px;height:50px;float:left;margin-right:20px;">{{movie.title}}</p>
                         </td>
                         </td>
                         <td style="width:auto;">
@@ -59,7 +59,7 @@
     .movie-modal{
     font-size: 23px;
     font-family: 'Archivo Narrow',cursive;
-    color: rgb(70, 16, 30);
+    color: white;
 
 }
     </style>
