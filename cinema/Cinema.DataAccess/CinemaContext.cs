@@ -1,19 +1,14 @@
-﻿using System;
+﻿using Cinema.Domain.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace cinema.Models
+namespace Cinema.DataAccess
 {
-    public partial class CinemaContext : DbContext
-    {
-        public CinemaContext()
-        {
-        }
 
-        public CinemaContext(DbContextOptions<CinemaContext> options)
-            : base(options)
-        {
-        }
+    public class CinemaContext : DbContext
+    {
+        public CinemaContext() { }
+
+        public CinemaContext(DbContextOptions<CinemaContext> options) : base(options) { }
 
         public virtual DbSet<Bookings> Bookings { get; set; }
         public virtual DbSet<Movies> Movies { get; set; }
@@ -23,9 +18,8 @@ namespace cinema.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlServer("Server=.;Database=cinema;Trusted_Connection=True;MultipleActiveResultSets=True;Integrated Security=true;");
-            }
+                optionsBuilder.UseSqlServer(
+"Server=.;Database=cinema;Trusted_Connection=True;MultipleActiveResultSets=True;Integrated Security=true;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

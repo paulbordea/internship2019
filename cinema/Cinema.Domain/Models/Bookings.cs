@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 
-namespace cinema.Models
+namespace Cinema.Domain.Models
 {
-    public partial class Bookings
+    public class Bookings
     {
         public int BookingId { get; set; }
         public int MovieId { get; set; }

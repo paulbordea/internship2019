@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using cinema.Models;
+using Cinema.DataAccess;
+using Cinema.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,37 +17,33 @@ namespace cinema.Controllers
         {
             _cinemaContext = cinemaContext;
         }
-        // GET: api/<controller>
+
+        // GET: api/seats
         [HttpGet]
         
         public async Task<ActionResult<IEnumerable<Seats>>> GetSeats()
         {
-            return await _cinemaContext.Seats.ToListAsync();
+            var listAsync = _cinemaContext.Seats.ToListAsync();
+            return await listAsync;
         }
 
-        // GET api/<controller>/5
+        // GET api/seats/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public string GetSeat(int id)
         {
             return "value";
         }
 
-        // POST api/<controller>
+        // POST api/seats
         [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
+        public void PostSeat([FromBody]string value) { }
 
-        // PUT api/<controller>/5
+        // PUT api/seats/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+        public void PutSeat(int id, [FromBody]string value) { }
 
-        // DELETE api/<controller>/5
+        // DELETE api/seats/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        public void DeleteSeat(int id) { }
     }
 }

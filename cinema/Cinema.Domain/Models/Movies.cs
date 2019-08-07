@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace cinema.Models
+namespace Cinema.Domain.Models
 {
-    public partial class Movies
+    public sealed class Movies
     {
         public Movies()
         {
@@ -15,7 +15,7 @@ namespace cinema.Models
         public string MovieName { get; set; }
         public DateTime? MovieDate { get; set; }
 
-        public virtual ICollection<Bookings> Bookings { get; set; }
-        public virtual ICollection<Seats> Seats { get; set; }
+        public ICollection<Bookings> Bookings { get; set; }
+        public ICollection<Seats> Seats { get; set; }
     }
 }

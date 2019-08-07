@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using cinema.Models;
+using Cinema.DataAccess;
+using Cinema.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,46 +20,54 @@ namespace cinema.Controllers
         {
             _cinemaContext = cinemaContext;
         }
-        // GET: api/Users
+
+        // GET: api/users
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Users>>> GetUsers()
         {
-            return await _cinemaContext.Users.ToListAsync();
+            var listAsync = _cinemaContext.Users.ToListAsync();
+            return await listAsync;
         }
 
-        // GET api/Users/5
+        // GET api/users/5
         [HttpGet("{id}")]
         public ActionResult<Users> GetUser(int id)
         {
-            return _cinemaContext.Users.FirstOrDefault(e => e.UserId == id);
+            var firstOrDefault = _cinemaContext.Users.FirstOrDefault(e => e.UserId == id);
+            return firstOrDefault;
         }
 
-        // POST api/<controller>
+        // POST api/users
         [HttpPost]
-        public void Post([FromBody] Users user)
+        public void PostUser([FromBody] Users user)
         {
-            _cinemaContext.Users.Add(user);
+            if (user != null)
+                _cinemaContext.Users.Add(user);
             _cinemaContext.SaveChanges();
         }
 
-        // PUT api/<controller>/5
+        // PUT api/users/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]Users user)
+        public void PutUser(int id, [FromBody]Users user)
         {
             Users entity = _cinemaContext.Users.FirstOrDefault(e => e.UserId == id);
-            entity.UserId = user.UserId;
-            entity.UserName = user.UserName;
-            entity.UserEmail = user.UserEmail;
-            entity.UserPassword = user.UserPassword;
-            entity.UserIsAdmin = user.UserIsAdmin;
+            if (entity != null)
+            {
+                entity.UserId = user.UserId;
+                entity.UserName = user.UserName;
+                entity.UserEmail = user.UserEmail;
+                entity.UserPassword = user.UserPassword;
+                entity.UserIsAdmin = user.UserIsAdmin;
+            }
+
             _cinemaContext.SaveChanges();
         }
 
-        // DELETE api/<controller>/5
+        // DELETE api/users/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public void DeleteUser(int id)
         {
-            _cinemaContext.Users.Remove(_cinemaContext.Users.FirstOrDefault(e => e.UserId == id));
+            _cinemaContext.Users.Remove(_cinemaContext.Users.FirstOrDefault(e => e.UserId == id) ?? throw new InvalidOperationException());
             _cinemaContext.SaveChanges();
         }
     }

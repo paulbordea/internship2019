@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace cinema.Models
+namespace Cinema.Domain.Models
 {
-    public partial class Users
+    public sealed class Users
     {
         public Users()
         {
@@ -17,7 +16,7 @@ namespace cinema.Models
         public string UserPassword { get; set; }
         public bool UserIsAdmin { get; set; }
 
-        public virtual ICollection<Bookings> Bookings { get; set; }
-        public virtual ICollection<Seats> Seats { get; set; }
+        public ICollection<Bookings> Bookings { get; set; }
+        public ICollection<Seats> Seats { get; set; }
     }
 }
