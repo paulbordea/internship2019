@@ -45,6 +45,7 @@ namespace cinema
                 app.UseHsts();
             }
 
+            app.UseCors();
             app.UseHttpsRedirection();
             app.UseMvc();
         }

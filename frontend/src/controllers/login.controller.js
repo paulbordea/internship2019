@@ -8,14 +8,14 @@
 
                 if (user && user.length > 0) { // login successful 
                     $rootScope.isUserLoggedIn = true;
-                    $rootScope.loggedInUser = user[0].username;
+                    $rootScope.loggedInUser = user[0].userName;
                 } else {
                     $scope.closeThisDialog(true);
                     $location.path('/');
                     return;
                 }
 
-                if (user[0].isAdmin === "true") {
+                if (user[0].userIsAdmin === "true") {
                     $rootScope.isAdmin = true;
                     $scope.closeThisDialog(true);
                     $location.path('/adminpage');
@@ -24,7 +24,7 @@
                     $scope.closeThisDialog(true);
                     $location.path('/movies');
                 }
-                $scope.user=$rootScope.isAdmin
+                $scope.user = $rootScope.isAdmin
                 console.log($scope.user);
             }, function() {
 
@@ -32,8 +32,8 @@
         };
 
         $scope.register = function(data) {
-            AuthService.register(JSON.stringify(data)).then(function(newuser){
-                $log.info(`User registered`+ JSON.stringify(newuser));
+            AuthService.register(JSON.stringify(data)).then(function(newuser) {
+                $log.info(`User registered` + JSON.stringify(newuser));
             })
         };
     })

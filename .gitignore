@@ -144,3 +144,4 @@ cinema/.vs/cinema/v16/Server/sqlite3/db.lock
 frontend/node_modules/
 frontend/dist/
 frontend/public/
+cinema/cinema/.vs/cinema/v15/Server/sqlite3/db.lock

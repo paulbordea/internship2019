@@ -4,12 +4,13 @@ using System.Threading.Tasks;
 using cinema.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Web.Http.Cors;
 
 namespace cinema.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [Route("api/[controller]")]
     [ApiController]
-    
     public class UsersController : Controller
     {
         private readonly CinemaContext _cinemaContext;
@@ -23,6 +24,13 @@ namespace cinema.Controllers
         public async Task<ActionResult<IEnumerable<Users>>> GetUsers()
         {
             return await _cinemaContext.Users.ToListAsync();
+        }
+
+        // GET: api/Users/123/abc
+        [HttpGet("{username}/{password}")]
+        public ActionResult<Users> GetUser(string username, string password)
+        {
+            return _cinemaContext.Users.FirstOrDefault(user => user.UserName == username && user.UserPassword == password);
         }
 
         // GET api/Users/5
