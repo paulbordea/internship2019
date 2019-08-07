@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Seat Reservation System</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+
+
+
+  <style>
+body
+    {
+      margin: auto;
+    }
+
+    .wrapper {
+      width: 40%;
+      margin: auto;
+      margin-top: 20px;
+      height: 100vh;
+    }
+
+
+    .seat {
+      background-color: #7E7E7E;
+      margin: 2px;
+      border-radius: 20%;
+      text-align: center;
+      padding: 2px;
+      font-size: 14px;
+    }
+
+    .selectedSeat {
+      background-color: #00d063;
+    }
+
+    .reservedSeat {
+      background-color: red;
+    }
+
+    table, td, th {
+      border: 1px solid black !important;
+      text-align: center;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th {
+      height: 50px;
+    }
+
+    *:hover {
+      outline: none;
+    }
+
+
+  </style>
+
+
+
+</head>
+<body ng-app="bookSeatApp" ng-cloak ng-controller="bookSeatAppCtrl">
+  <div class="wrapper">
+    <div layout="row">
+        <div flex="50">
+          <md-input-container>
+            <md-label>Enter Name :</md-label>
+            <input placeholder="" type="text" name="Name"
+                   ng-model="booking.name">
+          </md-input-container>
+        </div>
+        <div flex="50">
+          <md-input-container>
+            <md-label>Enter no. of Seats :</md-label>
+            <input placeholder="" type="number" name="number" id="count"
+                   ng-model="booking.count">
+          </md-input-container>
+        </div>
+      </div>
+
+    <div layout="column" layout-align="center center">
+      <md-button class="md-raised" layout="row" flex="30" ng-click="takeData()">Start Selecting</md-button>
+    </div>
+
+    <div layout="column">
+      <md-button class="md-raised md-primary">SCREEN</md-button>
+    </div>
+
+    <div layout="row" layout-margin>
+
+      <div flex="40" layout="column">
+        <div ng-repeat="row in rows.slice(0,rows.length/2)" layout="column">{{row}}
+          <div layout="row">
+            <div flex="20" ng-repeat="column in columns.slice(0,columns.length/2 )">
+              <div class="seat" ng-click="selected = !selected" ng-attr-id="{{row}}{{column}}"
+                   ng-disabled="{{}}"
+                   ng-model="booking.seats"
+                   ng-class="{'selectedSeat' : selected, 'reservedSeat' : reserved.indexOf(this.id) !== -1}">
+                {{row}}{{column}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div flex="10" layout="column"></div>
+
+      <div flex="40" layout="column">
+          <div ng-repeat="row in rows.slice(0,rows.length/2)" layout="column">{{row}}
+            <div layout="row">
+              <div flex="20" ng-repeat="column in columns.slice(columns.length/2 ,columns.length)">
+                <div class="seat" ng-click="selected = !selected" ng-attr-id="{{row}}{{column}}"
+                     ng-model="booking.seats"
+                     ng-class="{'selectedSeat' : selected, 'reservedSeat' : reserved.indexOf(this.id) !== -1}">
+                  {{row}}{{column}}
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div layout="row" layout-margin>
+
+      <div flex="40" layout="column">
+        <div ng-repeat="row in rows.slice(rows.length/2,rows.length)" layout="column">{{row}}
+          <div layout="row">
+            <div flex="20" ng-repeat="column in columns.slice(0,columns.length/2 )">
+              <div class="seat" ng-click="selected = !selected" ng-attr-id="{{row}}{{column}}"
+                   ng-model="booking.seats"
+                   ng-class="{'selectedSeat' : selected, 'reservedSeat' : reserved.indexOf(this.id) !== -1}">
+                {{row}}{{column}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div flex="10" layout="column"></div>
+
+      <div flex="40" layout="column">
+        <div ng-repeat="row in rows.slice(rows.length/2,rows.length)" layout="column">{{row}}
+          <div layout="row">
+            <div flex="20" ng-repeat="column in columns.slice(columns.length/2 ,columns.length)">
+              <div class="seat" ng-click="selected = !selected" ng-attr-id="{{row}}{{column}}"
+                   ng-model="booking.seats"
+                   ng-class="{'selectedSeat' : selected, 'reservedSeat' : reserved.indexOf(this.id) !== -1}">
+                {{row}}{{column}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div layout="row">
+      <div flex="70" layout="column" layout-align="center center">
+        <md-button class="md-raised md-warn" layout="row" flex="30"
+                   ngclick="takeData()">
+          Confirm Selection
+        </md-button>
+      </div>
+      <div flex="30" layout="column">
+        <div flex="33" layout="row">
+          <div flex="20" class="seat selectedSeat"></div>
+          <span>Selected</span>
+        </div>
+        <div flex="33" layout="row">
+          <div flex="20" class="seat reservedSeat"></div>
+          <span>Reserved</span>
+        </div>
+        <div flex="33" layout="row">
+          <div flex="20" class="seat"></div>
+          <span>Empty</span>
+        </div>
+      </div>
+    </div>
+
+    <div layout-margin layout-paddinh>
+      <table style="min-height: 200px">
+        <tr>
+          <th>Name</th>
+          <th>No. of Seats</th>
+          <th>Seats</th>
+        </tr>
+
+        <tr ng-repeat="booking in bookings">
+          <td>{{booking.name}}</td>
+          <td>{{booking.count}}</td>
+          <td>{{booking.seats}}</td>
+        </tr>
+      </table>
+    </div>
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+  <script>
+
+    var app = angular.module('bookSeatApp', ['ngMaterial']);
+
+
+     app.controller('bookSeatAppCtrl',function($scope, $timeout){
+
+     $scope.rows = ['A', 'B', 'C', 'D', 'E','F','G','H','I','J'];
+
+     $scope.columns = [1,2,3,4,5,6,7,8,9,10];
+
+     $scope.storage = [];
+
+       $scope.saveBooking = function(booking) {
+         $scope.booking = {
+           'name' :'',
+           'count' :'',
+           'seats' :[]
+         };
+         $scope.storage.push($scope.booking);
+       };
+       $scope.takeData=function(){
+        $scope.userData = {
+           'name ': $scope.booking.name,
+           'nrOfSeats' :$scope.booking.count,
+           'seatsSelected': $scope.booking.seats
+           
+         };
+         console.log($scope.userData);
+       }
+       
+$scope.saveBooking();
+       $scope.takeData();
+
+       $scope.confirmBooking = function () {
+      /* $scope.booking = {
+           name : null,
+           count : null,
+           seats : []
+       };
+       $scope.storage.push($scope.booking);*/
+      alert("Boooking Confirmed");
+     };
+
+       $scope.numItems = function(className) {
+         return angular.element(document.getElementsByClassName('selectedSeat')).length;
+       };
+
+       $scope.disableSelection = function () {
+         var counter = $scope.numItems();
+         console.log(counter);
+         var enteredCount = angular.element(document.getElementById("Text1"));
+         console.log(name);
+       };
+
+       $scope.disableSelection();
+
+
+       $scope.bookings = [
+       {
+         name : 'John Doe',
+         count : 4,
+         seats : ['C4','C5','F7','F8']
+       },
+       {
+         name : 'Charlie X',
+         count : 4,
+         seats : ['J4','J5','A1','A2']
+       }
+     ];
+
+     $scope.reserved = [];
+
+
+     $scope.reservedSeats = function ($timeout) {
+       for(var i=0; i<$scope.bookings.length; i++){
+         for(var j=0; j<$scope.bookings[i].seats.length; j++){
+           $scope.reserved.push($scope.bookings[i].seats[j]);
+           var id = '#'+ $scope.bookings[i].seats[j];
+           var Elm = angular.element(document.querySelector(id));
+           Elm.addClass('reservedSeat');
+         }
+       }
+     };
+
+       $timeout( function(){ $scope.reservedSeats(); }, 500);
+
+    /* $scope.reservedSeats();*/
+
+
+
+     });
+
+  </script>
+
+
+</body>
+</html>
