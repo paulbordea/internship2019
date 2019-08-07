@@ -22,8 +22,7 @@
                     $rootScope.isAdmin = false;
                     $location.path('/movies');
                 }
-                $scope.user=$rootScope.isAdmin
-                console.log($scope.user);
+               
             }, function() {
 
             });
