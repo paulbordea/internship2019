@@ -4,11 +4,9 @@ using System.Threading.Tasks;
 using cinema.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Web.Http.Cors;
 
 namespace cinema.Controllers
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : Controller

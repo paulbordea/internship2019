@@ -6,16 +6,16 @@
         $scope.login = function(user) {
             AuthService.login(user).then(function(user) {
 
-                if (user && user.length > 0) { // login successful 
+                if (angular.isDefined(user)) { // login successful 
                     $rootScope.isUserLoggedIn = true;
-                    $rootScope.loggedInUser = user[0].userName;
+                    $rootScope.loggedInUser = user.userName;
                 } else {
                     $scope.closeThisDialog(true);
                     $location.path('/');
                     return;
                 }
 
-                if (user[0].userIsAdmin === "true") {
+                if (user.userIsAdmin === true) {
                     $rootScope.isAdmin = true;
                     $scope.closeThisDialog(true);
                     $location.path('/adminpage');

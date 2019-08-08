@@ -27,6 +27,17 @@ namespace cinema
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CinemaCustomPolicy",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    });
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             //services.AddDbContext<CinemaContext>(opt => opt.UseInMemoryDatabase("cinema"));
             services.AddScoped<CinemaContext, CinemaContext>();
@@ -45,7 +56,7 @@ namespace cinema
                 app.UseHsts();
             }
 
-            app.UseCors();
+            app.UseCors("CinemaCustomPolicy");
             app.UseHttpsRedirection();
             app.UseMvc();
         }
