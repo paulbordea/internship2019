@@ -1,4 +1,4 @@
-﻿namespace cinema
+﻿namespace Cinema.TestClasses
 {
     public interface IExchange
     {

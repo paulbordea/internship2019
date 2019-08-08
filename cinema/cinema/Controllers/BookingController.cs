@@ -6,23 +6,23 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace cinema.Controllers
+namespace Cinema.Controllers
 {
     [Route("api/[controller]")]
-    public class BookingsController : Controller
+    public class BookingController : Controller
     {
         private readonly CinemaContext _cinemaContext;
 
-        public BookingsController(CinemaContext cinemaContext)
+        public BookingController(CinemaContext cinemaContext)
         {
             _cinemaContext = cinemaContext;
         }
 
         // GET: api/bookings
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Bookings>>> GetBookings()
+        public async Task<ActionResult<IEnumerable<Booking>>> GetBookings()
         {
-            var listAsync = _cinemaContext.Bookings.ToListAsync();
+            var listAsync = _cinemaContext.Booking.ToListAsync();
             return await listAsync;
         }
 

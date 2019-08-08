@@ -5,15 +5,15 @@ using Cinema.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace cinema.Controllers
+namespace Cinema.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SeatsController : Controller
+    public class SeatController : Controller
     {
         private readonly CinemaContext _cinemaContext;
 
-        public SeatsController(CinemaContext cinemaContext)
+        public SeatController(CinemaContext cinemaContext)
         {
             _cinemaContext = cinemaContext;
         }
@@ -21,9 +21,9 @@ namespace cinema.Controllers
         // GET: api/seats
         [HttpGet]
         
-        public async Task<ActionResult<IEnumerable<Seats>>> GetSeats()
+        public async Task<ActionResult<IEnumerable<Seat>>> GetSeats()
         {
-            var listAsync = _cinemaContext.Seats.ToListAsync();
+            var listAsync = _cinemaContext.Seat.ToListAsync();
             return await listAsync;
         }
 
