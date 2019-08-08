@@ -27,7 +27,10 @@
 .navbar-inner{
     background-color: transparent !important;
 }
-
+.navbar-admin{
+    background-image: url('../images/purrfect.jpg');
+    background-size: cover;
+}
 @media only screen and (max-width: 992px){
     #navigare{
         height:auto;
