@@ -2,7 +2,7 @@
     font-size: 17px;
     font-family: 'Rancho',cursive;
 	color:white;
-	font-weight:bold;
+
 
 }
 /*.bg-gray {
@@ -37,13 +37,16 @@ text-align: center !important;
 color:white;
 font-size: 20px;
 }
-@media only screen 
-    and (max-width: 760px), (min-device-width: 768px) 
-    and (max-device-width: 1024px)  {
+.table td{
+	border-top: none !important;
+}
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
 
 		/* Force table to not be like tables anymore */
 		table, thead, tbody, th, td, tr {
 			display: block;
+			
 		}
 
 		/* Hide table headers (but not display: none;, for accessibility) */
@@ -56,7 +59,10 @@ font-size: 20px;
             padding-left: 165px;
             padding-top: 1px;
             padding-right: 1px;
-            padding-bottom: 1px;
+			padding-bottom: 1px;
+			height:90px;
+			font-size:17px;
+			border-top: 1px solid white !important
         
         }
     tr {
@@ -66,15 +72,15 @@ font-size: 20px;
     
     
 		td {
-			/* Behave  like a "row" */
+			/* Behave  like a "row"*/ 
 			border: none;
-			border-bottom: 1px solid #eee;
+		
 			position: relative;
 			padding-left: 50%;
 		}
 
 		td:before {
-			/* Now like a table header */
+			/* Now like a table header 
 			position: absolute;
 			/* Top/left values mimic padding */
 			top: 0;
@@ -86,12 +92,12 @@ font-size: 20px;
 
 		/*
 		Label the data
-    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
-		*/
-		td:nth-of-type(1):before { content: "Title"; color:white;}
+    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.*/
 		
-		td:nth-of-type(2):before { content: "Time";color:white; }
-		td:nth-of-type(3):before { content: "Room"; color:white;}
+		td:nth-of-type(1):before { content: "Title"; color:white;margin-top:25px;}
+		
+		td:nth-of-type(2):before { content: "Time";color:white; margin-top:25px;}
+		td:nth-of-type(3):before { content: "Room"; color:white;margin-top:25px;}
      
 
 		td:nth-of-type(4):before { content: ""; }

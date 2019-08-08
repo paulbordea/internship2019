@@ -296,17 +296,21 @@ footer{
   border-radius: 50% !important;
 }
 
+#myModal{
+  background-color:white;
+}
 .modal-login {
   color:white;
   width: 350px;
-  background-color: rgba(0,0,0,0.4);
+  background-color: white;
+  
 
 }
 .modal-login .modal-content {
   padding: 20px;
   border-radius: 5px;
   border: none;
-  background-color: rgba(0,0,0,0.4);
+
 }
 .modal-login .modal-header {
   border-bottom: none;
@@ -370,7 +374,7 @@ footer{
   
 }
 .body-bg{
-  background-image:url("../images/purrfect.jpg");
+  background-image:url("../images/10.png");
   background-size:cover;
   background-repeat: no-repeat;
 }

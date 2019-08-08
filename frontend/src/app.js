@@ -11,6 +11,7 @@ function config($routeProvider) {
             controller: 'homeCtrl',
             templateUrl: 'views/partials/carousel.html',
         })
+
         .when('/movies', {
             controller: 'MoviesCtrl',
             templateUrl: 'views/movies.html',
