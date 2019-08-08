@@ -1,7 +1,7 @@
-(function() {
+(function () {
     'use strict';
 
-    app.controller('MovieDetailsCtrl', ['$scope', '$http', function($scope, $http) {
+    app.controller('MovieDetailsCtrl', ['$scope', '$http', function ($scope, $http) {
 
         let movieId = $scope.movieId;
 

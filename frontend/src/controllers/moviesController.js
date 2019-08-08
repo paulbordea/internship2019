@@ -1,17 +1,17 @@
-(function() {
+(function () {
     'use strict';
 
     app.controller('MoviesCtrl', function Control($scope, $http, $log, ngDialog) {
-   
+
         $scope.dateBirth = new Date(2019, 3, 19);
-      
-       console.log($scope.dateBirth);
-       $scope.clicked=false;
-       $scope.search=function(){
-           $scope.clicked=true;
-           $scope.selectedDate=$scope.dateBirth;
-           console.log($scope.selectedDate);
-       }
+
+        console.log($scope.dateBirth);
+        $scope.clicked = false;
+        $scope.search = function () {
+            $scope.clicked = true;
+            $scope.selectedDate = $scope.dateBirth;
+            console.log($scope.selectedDate);
+        }
         $scope.movies = {};
 
         $http.get("http://localhost:3000/movies")
@@ -22,7 +22,7 @@
                 $log.log("Error fetching movies: " + JSON.stringify(error));
             });
 
-        $scope.openMovieDetails = function(movieId) {
+        $scope.openMovieDetails = function (movieId) {
 
             let modalScope = $scope;
             modalScope.movieId = movieId;
@@ -33,7 +33,7 @@
                 scope: modalScope,
                 controller: 'MovieDetailsCtrl',
                 width: 600,
-                height: 'auto',              
+                height: 'auto',
                 showClose: true
             });
         };

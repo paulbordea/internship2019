@@ -1,10 +1,10 @@
-(function() {
+(function () {
     'use strict';
 
-    app.controller('loginCtrl', function($scope, $location, $rootScope, $log, AuthService) {
+    app.controller('loginCtrl', function ($scope, $location, $rootScope, $log, AuthService) {
 
-        $scope.login = function(user) {
-            AuthService.login(user).then(function(user) {
+        $scope.login = function (user) {
+            AuthService.login(user).then(function (user) {
 
                 if (user && user.length > 0) { // login successful 
                     $rootScope.isUserLoggedIn = true;
@@ -24,16 +24,14 @@
                     $scope.closeThisDialog(true);
                     $location.path('/movies');
                 }
-                $scope.user=$rootScope.isAdmin
-                console.log($scope.user);
-            }, function() {
+            }, function () {
 
             });
         };
 
-        $scope.register = function(data) {
-            AuthService.register(JSON.stringify(data)).then(function(newuser){
-                $log.info(`User registered`+ JSON.stringify(newuser));
+        $scope.register = function (data) {
+            AuthService.register(JSON.stringify(data)).then(function (newuser) {
+                $log.info(`User registered` + JSON.stringify(newuser));
             })
         };
     })

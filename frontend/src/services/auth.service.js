@@ -21,21 +21,8 @@
             config)
             .then(function(response){
                 return response.data
-            }
-            )
-        }
-        AuthService.isAuthenticated = function() {
-            //return !!Session.userId;
-            return true;
+            });
         };
-        AuthService.isAuthorized = function(authorizedRoles) {
-            /*  if(!angular.isArray(authorizedRoles)){
-                 authorizedRoles=[authorizedRoles];
-             }
-             return (authService.isAuthenticated() && authorizedRoles.indexOf(Session.userRole)!== -1); */
-        };
-
-        return AuthService;
+       return AuthService;
     });
-
 }());

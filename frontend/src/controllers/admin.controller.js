@@ -46,11 +46,9 @@
                 if (movie.id === $scope.model.selected.id) return 'edit';
                 else return 'display';
             };
-
             $scope.editMovie = function(movie) {
                 $scope.model.selected = angular.copy(movie);
             };
-
             $scope.saveMovie = function(id) {
                 console.log("Saving movie");
                 $scope.model.movies[id] = angular.copy($scope.model.selected);
@@ -61,9 +59,6 @@
                 console.log("Movie deleted" + i);
 
             };
-
-
-
             $scope.reset = function() {
                 $scope.model.selected = {};
             };
