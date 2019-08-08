@@ -52,10 +52,13 @@
             $scope.saveMovie = function(id) {
                 console.log("Saving movie");
                 $scope.model.movies[id] = angular.copy($scope.model.selected);
+
+           
                 $scope.reset();
             };
             $scope.deleteMovie = function(i) {
                 $scope.model.movies.splice(i, 1);
+
                 console.log("Movie deleted" + i);
 
             };

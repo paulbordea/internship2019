@@ -6,7 +6,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             </div>
             <div class="modal-body">
-                <form name="form" role="form" ng-controller="registerCtrl">
+                <form name="form" role="form">
                     <div class="form-group" ng-class="{ 'has-erros' : form.email.$dirty && form.email.$error.required}">
                         <i class="fa fa-user"></i>
                         <input type="text" id="email" ng-model="signup.email" class="form-control" placeholder="Email" required>

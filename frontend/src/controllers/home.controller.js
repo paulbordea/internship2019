@@ -32,7 +32,9 @@
                     className: 'ngdialog-theme-default',
                     scope: $scope,
                     controller: 'loginCtrl',
+
                     width: 400,
+
                     height: 'auto',              
                     showClose: true
                 });
