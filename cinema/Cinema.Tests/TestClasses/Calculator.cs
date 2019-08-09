@@ -1,4 +1,8 @@
-﻿namespace Cinema.TestClasses
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Cinema.Tests.TestClasses
 {
     public class Calculator : ICalculator
     {
@@ -9,7 +13,7 @@
         }
 
         #region ICalculator Members
-        
+
         public int Divide(int param1, int param2)
         {
             return param1 / param2;

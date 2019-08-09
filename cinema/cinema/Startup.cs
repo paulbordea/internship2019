@@ -1,4 +1,6 @@
 ﻿using Cinema.DataAccess;
+using Cinema.Domain.Interfaces;
+using Cinema.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +22,10 @@ namespace Cinema
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddScoped<CinemaContext, CinemaContext>();
+            services.AddScoped<IMoviesService, MoviesService>();
+            services.AddScoped<IBookingsService, BookingsService>();
+            services.AddScoped<ISeatsService, SeatsService>();
+            services.AddScoped<IUsersService, UsersService>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

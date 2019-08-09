@@ -1,4 +1,8 @@
-﻿namespace Cinema.TestClasses
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Cinema.Tests.TestClasses
 {
     public interface ICalculator
     {

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Cinema.DataAccess;
+using Cinema.Domain.Interfaces;
 using Cinema.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace Cinema.Controllers
 {
@@ -13,61 +10,45 @@ namespace Cinema.Controllers
     [ApiController]
     public class MovieController : Controller
     {
-        private readonly CinemaContext _cinemaContext;
-
-        public MovieController(CinemaContext cinemaContext)
+        private readonly IMoviesService _movieService;
+        public MovieController(IMoviesService movieService)
         {
-            _cinemaContext = cinemaContext;
+            _movieService = movieService;
         }
 
         // GET: api/movie
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Movie>>> GetMovie()
+        public Task<List<Movie>> GetMovies()
         {
-            var listAsync = _cinemaContext.Movie.ToListAsync();
-            return await listAsync;
+            return _movieService.GetMovies();
         }
 
-        // GET api/movies/5
+        // GET api/movie/5
         [HttpGet("{id}")]
         public ActionResult<Movie> GetMovie(int id)
         {
-            var firstOrDefault = _cinemaContext.Movie.FirstOrDefault(e => e.Id == id);
-            return firstOrDefault;
+            return _movieService.GetMovie(id);
         }
 
-        // POST api/movies
+        // POST api/movie
         [HttpPost]
         public void PostMovie([FromBody] Movie movie)
         {
-            if (_cinemaContext != null)
-            {
-                _cinemaContext.Movie.Add(movie);
-                _cinemaContext.SaveChanges();
-            }
+            _movieService.PostMovie(movie);
         }
 
-        // PUT api/movies/5
+        // PUT api/movie/5
         [HttpPut("{id}")]
         public void PutMovie(int id, [FromBody]Movie movie)
         {
-            var entity = _cinemaContext.Movie.FirstOrDefault(e => e.Id == id);
-            if (entity != null)
-            {
-                entity.Id = movie.Id;
-                entity.Name = movie.Name;
-                entity.Date = movie.Date;
-            }
-
-            _cinemaContext.SaveChanges();
+            _movieService.PutMovie(id, movie);
         }
 
-        // DELETE api/movies/5
+        // DELETE api/movie/5
         [HttpDelete("{id}")]
         public void DeleteMovie(int id)
         {
-            _cinemaContext.Movie.Remove(_cinemaContext.Movie.FirstOrDefault(e => e.Id == id) ?? throw new InvalidOperationException());
-            _cinemaContext.SaveChanges();
+            _movieService.DeleteMovie(id);
         }
     }
 }

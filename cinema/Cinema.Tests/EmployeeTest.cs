@@ -1,6 +1,6 @@
 using System;
 using Cinema;
-using Cinema.TestClasses;
+using Cinema.Tests.TestClasses;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Cinema.Tests
