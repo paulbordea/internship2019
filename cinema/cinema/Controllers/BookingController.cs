@@ -1,49 +1,46 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Cinema.DataAccess;
+using Cinema.Domain.Interfaces;
 using Cinema.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-
 
 namespace Cinema.Controllers
 {
     [Route("api/[controller]")]
-    public class BookingController : Controller
+    public class BookingController : Controller, IBookingsService
     {
-        private readonly CinemaContext _cinemaContext;
-
-        public BookingController(CinemaContext cinemaContext)
+        private readonly IBookingsService _bookingService;
+        public BookingController(IBookingsService bookingService)
         {
-            _cinemaContext = cinemaContext;
+            _bookingService = bookingService;
         }
 
-        // GET: api/bookings
+        // GET: api/booking
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Booking>>> GetBookings()
+        public Task<List<Booking>> GetBookings()
         {
-            var listAsync = _cinemaContext.Booking.ToListAsync();
-            return await listAsync;
+            return _bookingService.GetBookings();
         }
 
-        // GET api/bookings/5
+        // GET api/booking/5
         [HttpGet("{id}")]
         public string GetBooking(int id)
         {
             return "value";
         }
 
-        // POST api/bookings
+        // POST api/booking
         [HttpPost]
         public void PostBooking([FromBody]string value) { }
 
-        // PUT api/bookings/5
+        // PUT api/booking/5
         [HttpPut("{id}")]
         public void PutBooking(int id, [FromBody] string value) { }
 
-        // DELETE api/bookings/5
+        // DELETE api/booking/5
         [HttpDelete("{id}")]
         public void DeleteBooking(int id) { }
 
+        
     }
 }
