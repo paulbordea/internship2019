@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cinema.Domain.Interfaces;
 using Cinema.Domain.Models;
@@ -18,15 +19,17 @@ namespace Cinema.Controllers
 
         // GET: api/seat
         [HttpGet]
-
-        //public async Task<ActionResult<IEnumerable<Seat>>> GetSeats()
-        //{
-        //    var listAsync = _cinemaContext.Seat.ToListAsync();
-        //    return await listAsync;
-        //}
         public Task<List<Seat>> GetSeats()
         {
-            return _seatService.GetSeats();
+            try
+            {
+                return _seatService.GetSeats();
+
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
         }
 
         // GET api/seat/5
