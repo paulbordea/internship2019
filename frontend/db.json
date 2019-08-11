@@ -13,11 +13,30 @@
       "status": "ok"
     }
   ],
+  "seats":[{
+"1":true,
+"2":false,
+"3":false,
+"4":true,
+"5":true,
+"6":false
+
+  },
+  {
+    "1":true,
+"2":true,
+"3":false,
+"4":true,
+"5":true,
+"6":true
+
+  }
+],
   "movies": [
     {
       "id": "1",
       "title": "John Wick Chapter 3",
-      "date": "7/11/2019",
+      "date": "01/20/2019",
       "time": "17:00",
       "room": "room 2",
       "actors": "John Snow, Emilia Clarke",

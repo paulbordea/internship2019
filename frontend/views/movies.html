@@ -8,7 +8,7 @@
 
 
                     <div class="control col-md-5">
-                        <input id="date-birth" class="form-control " type="date" ng-model="dateBirth"></div>
+                        <input id="date-birth" class="form-control " type="date" ng-model="movieDate"></div>
                     <div class="col-md-4">
                         <button type="submit" class="btn btn-danger float-left " ng-click="search()">Search</button>
                     </div>
@@ -16,7 +16,7 @@
                 <div class="row" ng-if="clicked">
                     <p class="date-select">
 
-                        Date : {{ dateBirth | date: 'fullDate' }}</p>
+                        Date : {{ movieDate | date: 'fullDate' }}</p>
                 </div>
 
             </div>
@@ -35,7 +35,8 @@
                     </tr>
                 </thead>
                 <tbody role="rowgroup">
-                    <tr role="row" ng-repeat="movie in movies">
+                    <tr role="row" ng-repeat="movie in movies | dateFilter: movieDate 
+                    ">
                         <td style="width:auto;">
                             <p class="movie-title"><img ng-src="../images/{{movie.src}}"
                                     class="movie-image">{{movie.title}}</p>

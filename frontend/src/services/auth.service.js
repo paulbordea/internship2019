@@ -7,7 +7,7 @@
         }
     }
 
-    app.factory('AuthService', function($http,$location) {
+    app.factory('AuthService', function($http) {
         var AuthService = {};
 
         AuthService.login = function(credentials) {
