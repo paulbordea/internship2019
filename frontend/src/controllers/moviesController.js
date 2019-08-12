@@ -2,30 +2,28 @@
     'use strict';
     app.filter("dateFilter",function() {
         return function datefilter(items, movieDate) {
+          
         var result = [];
         angular.forEach(items, function(value){
             if (Date.parse(value.date) === Date.parse(movieDate) )  {
                 result.push(value);
              }
          });
-         if(result.length===0)
-         {
-             alert("There are no movies for the selected date")
-         }
+       
          return result;
          };
      });
     app.controller('MoviesCtrl', function Control($scope,$filter, $http, $log, ngDialog) {
 
-        $scope.movieDate = new Date(2019, 3, 19);
-
+        $scope.movieDate = new Date(2019, 6, 12);
+        
         console.log($scope.movieDate);
-        $scope.clicked = false;
+        /* $scope.clicked = false;
         $scope.search = function () {
             $scope.clicked = true;
             $scope.selectedDate = $scope.movieDate;
             console.log($scope.selectedDate);
-           
+            */
         
         $scope.movies = {};
 
@@ -37,7 +35,7 @@
             .catch((error) => {
                 $log.log("Error fetching movies: " + JSON.stringify(error));
             });
-        }
+        
        
         $scope.openMovieDetails = function (movieId) {
 

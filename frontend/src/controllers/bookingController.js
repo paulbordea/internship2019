@@ -42,11 +42,14 @@
                 for (var i = 0; i < v.length; i++) {
                     $scope.alertMsg.push(v[i].val + v[i].letter);
                 }
+                console.log($scope.alertMsg)
             });
             
-            $window.alert('Thank you for Booking ' + sessionInfo.count + ' seats. ' + 
-                    'Your seats are: ' + $scope.alertMsg.join(', '));
+           /*  $window.alert('Thank you for Booking ' + sessionInfo.count + ' seats. ' + 
+                    'Your seats are: ' + $scope.alertMsg.join(', ')); */
+                 
         };
+      
 
     init();
 }]);

@@ -1,17 +1,16 @@
-<div class="continut bg-gray mt-5">
+<div class="continut bg-gray height mt-5"  >
     <div class="wrapper-movies flex-column mx-auto col-md-9">
         <div class="row flex-column justify-content-center">
 
             <div class="form-group col-md-12 text-center mb-5">
                 <div class="row">
-                    <div class="date-select col-md-3">Select a date</div>
+                    <!-- <div class="date-select col-md-3">Select a date</div> -->
 
 
-                    <div class="control col-md-5">
-                        <input id="date-birth" class="form-control " type="date" ng-model="movieDate"></div>
-                    <div class="col-md-4">
-                        <button type="submit" class="btn btn-danger float-left " ng-click="search()">Search</button>
-                    </div>
+                    <div class="control col-md-10 mx-auto">
+                        <laber for="date-birth" class="date-select">Select a date</laber>
+                        <input id="date-birth" class="form-control col-md-5  " type="date" style="margin-left:20px; "ng-model="movieDate"></div>
+                 
                 </div>
                 <div class="row" ng-if="clicked">
                     <p class="date-select">
@@ -35,8 +34,7 @@
                     </tr>
                 </thead>
                 <tbody role="rowgroup">
-                    <tr role="row" ng-repeat="movie in movies | dateFilter: movieDate 
-                    ">
+                    <tr role="row" ng-repeat="movie in movies | dateFilter: movieDate ">
                         <td style="width:auto;">
                             <p class="movie-title"><img ng-src="../images/{{movie.src}}"
                                     class="movie-image">{{movie.title}}</p>
