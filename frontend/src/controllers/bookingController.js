@@ -1,7 +1,8 @@
-
-    app.controller('quantityModuleController',['$scope','$window','$http','seatsManager', function($scope, $window, $http,seatsManager) {
+app.controller('bookingController', ['$scope', '$window', '$routeParams', 'seatsManager',
+    function($scope, $window, $routeParams, seatsManager) {
         var init = function() {
-          
+
+            $scope.movieId = $routeParams.movieId;
             $scope.standardSeats = seatsManager.getSeats('Standard');
             $scope.seats = seatsManager;
             $scope.quantities = [{
@@ -20,7 +21,7 @@
                 id: 4,
                 val: 4
             }, ];
-           
+
             $scope.seatQuality = 'Standard';
             $scope.selectedCount = $scope.quantities[1];
             seatsManager.setAvailCount($scope.selectedCount);
@@ -44,14 +45,13 @@
                 }
                 console.log($scope.alertMsg)
             });
-            
-           /*  $window.alert('Thank you for Booking ' + sessionInfo.count + ' seats. ' + 
-                    'Your seats are: ' + $scope.alertMsg.join(', ')); */
-                 
+
+            /*  $window.alert('Thank you for Booking ' + sessionInfo.count + ' seats. ' + 
+                     'Your seats are: ' + $scope.alertMsg.join(', ')); */
+
         };
-      
-
-    init();
-}]);
 
 
+        init();
+    }
+]);

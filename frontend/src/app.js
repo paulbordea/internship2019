@@ -21,9 +21,9 @@ function config($routeProvider) {
             templateUrl: 'views/adminpage.html',
             controllerAs: 'vm'
         })
-        .when('/book',{
-            controller: 'quantityModuleController',
-            templateUrl: 'views/book.html',
+        .when('/booking/:movieId', {
+            controller: 'bookingController',
+            templateUrl: 'views/booking.html',
             controllerAs: 'vm'
         })
         .otherwise({ redirectTo: '/' });

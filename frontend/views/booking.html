@@ -1,0 +1,306 @@
+<style>
+    .bms header {
+        margin: 40px 0;
+        font-size: 44px;
+        font-weight: bold;
+        color: orange;
+    }
+    
+    .bms .input-card {
+        display: block
+    }
+    
+    select {
+        width: auto;
+        font-size: 14px;
+        font-weight: bold;
+        border: 1px solid #aaa;
+        outline: 0;
+        cursor: pointer;
+        text-align: left;
+        float: left;
+        padding: 9px 20px;
+        box-shadow: 0 0 0 1px #dfe3e7;
+        background: #fff;
+        top: 0;
+        z-index: 1;
+    }
+    
+    .bms a {
+        margin: 0;
+        padding: 0;
+        ;
+        font-size: 100%;
+        vertical-align: baseline;
+        background: 0 0
+    }
+    
+    .cta {
+        padding: 10px 15px;
+        font-size: 18px;
+        font-weight: bold;
+        outline: 0;
+        border: 0;
+        margin-top: 20px;
+    }
+    
+    .proceed {
+        color: orange;
+        background: white;
+        border: 2px solid orange;
+        transition: all .3s ease-in-out;
+    }
+    
+    .proceed:hover,
+    .bms .proceed:focus {
+        color: white;
+        background: orange;
+    }
+    
+    .seatR {
+        margin-right: 6px;
+        margin-top: 4px;
+        font-size: 14px;
+        color: #b3b3b3;
+    }
+    
+    .seatI {
+        margin: 4px 2px;
+        float: left;
+        width: 21px;
+    }
+    
+    table a {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border-radius: 26%;
+        color: #aaa;
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 30px;
+        margin-right: 5px;
+    }
+    
+    table .available {
+        background: rgb(46, 148, 15);
+        box-shadow: inset 0 0 0 1px green;
+        cursor: pointer;
+    }
+    
+    table .available:hover {
+        background: orange;
+        color: white
+    }
+    
+    table .selected {
+        background: orange;
+        color: white
+    }
+    
+    table .blocked {
+        background: #df3333;
+        color: rgb(27, 26, 26);
+        box-shadow: 0;
+        border: 0;
+        cursor: default
+    }
+    
+    table .SRow1 {
+        display: flex
+    }
+    
+    table .Srow1 .itemSeat {
+        margin-left: 15px
+    }
+    
+    table .seatQuality {
+        width: auto
+    }
+    
+    table .thankyou .center {
+        display: block;
+        align-items: center;
+        justify-content: center
+    }
+    
+    table .thankyou a {
+        display: inline-block;
+        width: 21px;
+        height: 21px;
+        border-radius: 26%;
+        color: #aaa;
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 21px
+    }
+    
+    .thankyou .available {
+        background: #fff;
+        box-shadow: inset 0 0 0 1px orange
+    }
+    
+    .thankyou .available:hover {
+        background: orange;
+        color: white
+    }
+    
+    .thankyou .selected {
+        background: orange;
+        color: white
+    }
+    
+    .thankyou .blocked {
+        background: #eaeaea;
+        color: #aaa;
+        box-shadow: 0;
+        border: 0;
+        cursor: default
+    }
+    
+    .alignement {
+        margin-top: 20px;
+    }
+    
+    .screen {
+        height: 15px;
+        background-color: gray;
+        box-shadow: #aaa 3px solid;
+        margin-top: 0px;
+        font-size: 12px;
+        text-align: center;
+        width: 350px;
+    }
+    
+    .btn-legend {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        float: left;
+    }
+    
+    .Displaytable {
+        text-align: center;
+    }
+    
+    .Displaytable td,
+    .Displaytable th {
+        border: 1px solid;
+        text-align: left;
+    }
+    
+    textarea {
+        border: none;
+        background: transparent;
+    }
+    
+    .bg-book {
+        background-image: url('../../../images/book5.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        min-height: 600px;
+    }
+    
+    #white {
+        color: white;
+    }
+    
+    .top-margin {
+        margin-top: 40px;
+    }
+</style>
+
+
+<div class="row bg-book">
+
+
+    <div class="col-md-4 top-margin">
+        <div class="row mt-3 d-flex flex-column">
+            <div class="col-md-6 mx-auto">
+                <label for="sel1" id="white">Quantity:
+            </label>
+                <select class="form-control " id="sel1" ng-model="selectedCount" ng-change="seats.setAvailCount(selectedCount)" ng-options="count as count.val for count in quantities"></select>
+            </div>
+            <!--  <div class="col-md-6 mx-auto">
+            <label for="name" id="white">Name</label>   
+             <input type="text" id="name" ng-model="name" class="form-control">
+            </div> -->
+            <div class="col-md-6 mt-3 mx-auto">
+                <p for="seatsLeft" id="white">Seats left to choose : {{seats.availCount.val}}</p>
+
+
+            </div>
+            <div class="col-md-6 mx-auto">
+                <p for="seatsLeft" id="white">Movie : Lorem ipsum dolor sim amet</p>
+            </div>
+            <div class="col-md-6 mx-auto">
+                <p for="seatsLeft" id="white">Date : 07/12/2019 </p>
+            </div>
+            <div class="col-md-6 mx-auto">
+                <p for="seatsLeft" id="white">Time : 12:00</p>
+
+            </div>
+            <div class="col-md-6 mx-auto">
+
+                <p style="color:white;">Seats chosen : {{alertMsg.join(', ')}}</p>
+
+            </div>
+            <div class="col-md-6 mx-auto mb-3">
+
+                <button class="btn cta proceed" ng-click="storeSeat()">Confirm</button>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <div class=" col-md-4 top-margin">
+        <div class="table-responsive col-md-12">
+
+            <table class="table mx-auto" style="width: auto;float:right">
+                <tr>
+                    <td>
+                        <div class="screen">
+                            SCREEN
+                        </div>
+                    </td>
+                </tr>
+                <tr ng-repeat="row in seats.map[seatQuality].seats" class="row">
+
+                    <td class="SRow1">
+                        <div class="itemSeat d-flex flex-row" ng-repeat="seat in row">
+                            <div ng-show="$first" style="text-align: center;width:20px;color:white;">{{seat.letter}}</div>
+                            <a ng-class="{'selected': seat.check, 'available': (!seat.check && !seat.booked),  'blocked': seat.booked}" ng-click="seats.select({rang:seatQuality, row:row, seat: seat}, selectedCount)">{{seat.val}}</a>
+                        </div>
+                    </td>
+                </tr>
+
+
+
+            </table>
+
+        </div>
+    </div>
+    <div class="col-md-4 d-flex flex-column my-auto">
+
+        <div class="legend" style="margin-bottom: 20px;">
+
+            <button type="button" class="btn btn-danger btn-legend "></button>
+            <p style="overflow: hidden;color:white">Reserved Seat</p>
+        </div>
+        <div class="legend" style="margin-bottom: 20px;">
+
+            <button type="button" class="btn btn-success btn-legend "></button>
+            <p style="color:white;">Available Seat</p>
+        </div>
+        <div class="legend" style="margin-bottom: 20px;">
+
+            <button type="button" class="btn btn-warning btn-legend"></button>
+            <p style="color:white">Your Choice</p>
+        </div>
+    </div>
+</div>
