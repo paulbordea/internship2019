@@ -269,7 +269,7 @@
                         </div>
                     </td>
                 </tr>
-                <tr ng-repeat="row in seats.map[seatQuality].seats" class="row">
+                <!-- <tr ng-repeat="row in seats.map[seatQuality].seats" class="row">
 
                     <td class="SRow1">
                         <div class="itemSeat d-flex flex-row" ng-repeat="seat in row">
@@ -277,9 +277,17 @@
                             <a ng-class="{'selected': seat.check, 'available': (!seat.check && !seat.booked),  'blocked': seat.booked}" ng-click="seats.select({rang:seatQuality, row:row, seat: seat}, selectedCount)">{{seat.val}}</a>
                         </div>
                     </td>
+                </tr> -->
+
+                <tr ng-repeat="row in seats1" class="row">
+
+                    <td class="SRow1">
+                        <div class="itemSeat d-flex flex-row" ng-repeat="seat in row">
+                            <!-- <div ng-show="$first" style="text-align: center;width:20px;color:white;">{{seat.letter}}</div> -->
+                            <a ng-class="{'selected': seat.check, 'available': (!seat.check && !seat.free),  'blocked': seat.free}" ng-click="seats.select({rang:seatQuality, row:row, seat: seat}, selectedCount)">{{seat.seat_no}}</a>
+                        </div>
+                    </td>
                 </tr>
-
-
 
             </table>
 

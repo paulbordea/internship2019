@@ -1,10 +1,20 @@
-app.controller('bookingController', ['$scope', '$window', '$routeParams', 'seatsManager',
-    function($scope, $window, $routeParams, seatsManager) {
+app.controller('bookingController', ['$scope', '$window', '$http', '$routeParams', '$log', 'seatsManager',
+    function($scope, $window, $http, $routeParams, $log, seatsManager) {
         var init = function() {
 
             $scope.movieId = $routeParams.movieId;
             $scope.standardSeats = seatsManager.getSeats('Standard');
             $scope.seats = seatsManager;
+
+            $http.get("http://localhost:3000/seats1")
+                .then((response) => {
+                    $scope.seats1 = response.data;
+                    $log.log('Seats: ' + JSON.stringify($scope.seats1));
+                })
+                .catch((error) => {
+                    $log.log("Error fetching seats: " + JSON.stringify(error));
+                });
+
             $scope.quantities = [{
                 id: 0,
                 val: 0
@@ -26,6 +36,8 @@ app.controller('bookingController', ['$scope', '$window', '$routeParams', 'seats
             $scope.selectedCount = $scope.quantities[1];
             seatsManager.setAvailCount($scope.selectedCount);
         }
+
+
 
         $scope.storeSeat = function() {
             if ($scope.seats.availCount.val != 0) {
