@@ -42,12 +42,12 @@
                 </table>
 
                 <script type="text/ng-template" id="display">
-                <td style="width:auto;" class="details"><p class="paragraph my-auto">{{movie.title}}</p></td>
-                <td style="width:auto;" class="details"><p class="paragraph">{{movie.date}}</p></td>
-                <td style="width:auto;" class="details"><p class="paragraph">{{movie.time}}</p></td>
-                <td style="width:auto;" class="details"><p class="paragraph">{{movie.room}}</p></td>
-                <td style="width:auto;" class="details"><p class="paragraph">{{movie.actors}}</p></td>
-                <td style="width:auto;" class="details"><p class="paragraph">{{movie.year}}</p></td>
+                <td style="width:auto;" class="details"><p class="paragraph my-auto"><img class="movie-image" ng-src="../images/{{movie.src}}">{{movie.title}}</p></td>
+                <td style="width:auto;" class="details"><p class="paragraph my-auto">{{movie.date}}</p></td>
+                <td style="width:auto;" class="details"><p class="paragraph my-auto">{{movie.time}}</p></td>
+                <td style="width:auto;" class="details"><p class="paragraph my-auto">{{movie.room}}</p></td>
+                <td style="width:auto;" class="details"><p class="paragraph my-auto">{{movie.actors}}</p></td>
+                <td style="width:auto;" class="details"><p class="paragraph my-auto">{{movie.year}}</p></td>
                 <td style="height:auto;" class="details">
                     <div style="width:auto;height:auto;word-wrap: break-word; text-align: justify;
                     text-justify: inter-word;" class="details"><p class="paragraph">{{movie.description}}</p></div>
@@ -70,6 +70,7 @@
                 <td><input type="text" style="width:90%" ng-model="model.selected.actors" /></td>
                 <td><input type="text" style="width: 90%" ng-model="model.selected.year" /></td>
                 <td><input type="text" style="width: 90%" ng-model="model.selected.description" /></td>
+               
                 <td>
                     <button class="btn btn-info latime" ng-click="saveMovie($index)">Save</button>
                     <button class="btn btn-danger latime" ng-click="reset()">Cancel</button>
@@ -135,7 +136,8 @@
                                                 placeholder="Description">
                                         </div>
                                         <div class="col-md-6">
-
+                                                <input type="file" fileread="uploadme.src"/>
+                                              
                                         </div>
                                     </div>
                                     <button type="button" class="btn btn-warning" ng-click="addMovie()"
@@ -157,6 +159,12 @@
     /*
 	Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
     */
+    .movie-image {
+        width: 60px;
+        height: 50px;
+        float: left;
+        margin-right: 20px;
+    }
     .background {
         background-image: url("../../images/1.jpg");
         width: 100%;

@@ -28,11 +28,5 @@
 
             });
         };
-
-        $scope.register = function (data) {
-            AuthService.register(JSON.stringify(data)).then(function (newuser) {
-                $log.info(`User registered` + JSON.stringify(newuser));
-            })
-        };
     })
 }());

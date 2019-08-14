@@ -1,5 +1,3 @@
-'use strict';
-
 var app = angular.module('app', ['ngRoute', 'ngCookies', 'ngDialog']);
 app.config(config);
 

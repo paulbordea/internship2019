@@ -13,17 +13,17 @@
          return result;
          };
      });
-    app.controller('MoviesCtrl', function Control($scope,$filter, $http, $log, ngDialog) {
+    app.controller('MoviesCtrl', function Control($scope,$filter,$location, $http, $log, ngDialog) {
 
-        $scope.movieDate = new Date(2019, 6, 12);
+        $scope.movieDate = new Date(2019,6,11);
+        if (!$scope.isUserLoggedIn) {
+            alert("You have to be logged in! ");
+            $location.path('/');
+            return;
+        }
         
         console.log($scope.movieDate);
-        /* $scope.clicked = false;
-        $scope.search = function () {
-            $scope.clicked = true;
-            $scope.selectedDate = $scope.movieDate;
-            console.log($scope.selectedDate);
-            */
+        
         
         $scope.movies = {};
 

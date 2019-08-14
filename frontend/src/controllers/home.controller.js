@@ -31,7 +31,7 @@
             } else {
                 ngDialog.open({
                     template: 'views/partials/modals/login/loginModal.html',
-                    className: 'ngdialog-theme-default',
+                    className: 'ngdialog-theme-default ',
                     scope: $scope,
                     controller: 'loginCtrl',
                     width: 400,

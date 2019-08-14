@@ -19,7 +19,15 @@
             }, {
                 id: 4,
                 val: 4
-            }, ];
+            },
+        {
+            id:5,
+            val:5
+        },
+    {
+        id:6,
+        val:6
+    } ];
            
             $scope.seatQuality = 'Standard';
             $scope.selectedCount = $scope.quantities[1];
