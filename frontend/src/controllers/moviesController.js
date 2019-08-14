@@ -1,6 +1,6 @@
-(function () {
+(function() {
     'use strict';
-    app.filter("dateFilter",function() {
+    app.filter("dateFilter", function() {
         return function datefilter(items, movieDate) {
           
         var result = [];
@@ -30,14 +30,14 @@
         $http.get("http://localhost:3000/movies")
             .then((response) => {
                 $scope.movies = response.data;
-                $filter('dateFilter')(movies,selectedDate);
+                $filter('dateFilter')(movies, selectedDate);
             })
             .catch((error) => {
                 $log.log("Error fetching movies: " + JSON.stringify(error));
             });
-        
-       
-        $scope.openMovieDetails = function (movieId) {
+
+
+        $scope.openMovieDetails = function(movieId) {
 
             let modalScope = $scope;
             modalScope.movieId = movieId;
@@ -52,5 +52,9 @@
                 showClose: true
             });
         };
+
+        $scope.bookMovie = function(movieId) {
+            $location.path('/booking/' + movieId);
+        };
     })
-    }());
+}());

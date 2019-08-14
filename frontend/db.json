@@ -1,115 +1,406 @@
 {
-  "credentials": [
-    {
-      "username": "123",
-      "password": "123",
-      "isAdmin": "false",
-      "status": "ok"
-    },
-    {
-      "username": "admin",
-      "password": "adm",
-      "isAdmin": "true",
-      "status": "ok"
-    }
-  ],
-  "seats":[{
-    "length":6,
-"1":true,
-"2":false,
-"3":false,
-"4":true,
-"5":true,
-"6":false
-
-  },
-  {"length": 6,
-    "1":true,
-"2":true,
-"3":false,
-"4":true,
-"5":true,
-"6":true
-
-  }
-],
-  "movies": [
-    {
-      "id": "1",
-      "title": "John Wick Chapter 3",
-      "date": "01/20/2019",
-      "time": "17:00",
-      "room": "room 2",
-      "actors": "John Snow, Emilia Clarke",
-      "year": "2017",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque elit eget gravida cum sociis natoque penatibus et.",
-      "src": "john-wick-chapter-2-poster.jpg"
-    },
-    {
-      "id": "4",
-      "title": "John Wick Chapter 3",
-      "date": "7/11/2019",
-      "time": "17:00",
-      "room": "room 2",
-      "actors": "John Snow, Emilia Clarke",
-      "year": "2017",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque elit eget gravida cum sociis natoque penatibus et.",
-      "src": "john-wick-chapter-2-poster.jpg"
-    },
-    {
-      "id": "5",
-      "title": "John Wick Chapter 3",
-      "date": "7/11/2019",
-      "time": "17:00",
-      "room": "room 2",
-      "actors": "John Snow, Emilia Clarke",
-      "year": "2017",
-      "description": "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd",
-      "src": "john-wick-chapter-2-poster.jpg"
-    },
-    {
-      "id": "2",
-      "title": "A star is born ",
-      "date": "7/12/2019",
-      "time": "11:00",
-      "room": "room 255",
-      "actors": "John Snow, Emilia Clarke",
-      "year": "2019",
-      "description": "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd",
-      "src": "star-is-born-web.jpg"
-    },
-    {
-      "id": "3",
-      "title": "Beauty and the beast ",
-      "date": "7/10/2019",
-      "time": "12:00",
-      "room": "room 2",
-      "actors": "Jnow, Emilia Clarke",
-      "year": "2018",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque elit eget gravida cum sociis natoque penatibus et.",
-      "src": "1f759f3c0869ef9f52beb75ee5f41db7.jpg"
-    },
-    {
-      "id": "6",
-      "title": "A star is born ",
-      "date": "7/12/2019",
-      "time": "11:00",
-      "room": "room 255",
-      "actors": "John Snow, Emilia Clarke",
-      "year": "2019",
-      "description": "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd",
-      "src": "star-is-born-web.jpg"
-    },
-    {
-      "id": "7",
-      "title": "A star is born ",
-      "date": "7/12/2019",
-      "time": "11:00",
-      "room": "room 255",
-      "actors": "John Snow, Emilia Clarke",
-      "year": "2019",
-      "description": "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd",
-      "src": "star-is-born-web.jpg"
-    }
-  ]
+    "credentials": [{
+            "username": "123",
+            "password": "123",
+            "isAdmin": false,
+            "status": "ok"
+        },
+        {
+            "username": "admin",
+            "password": "adm",
+            "isAdmin": true,
+            "status": "ok"
+        }
+    ],
+   
+    "seats1": [
+        [{
+            "seat_no": "1",
+            "free": true
+        }, {
+            "seat_no": "2",
+            "free": true
+        }, {
+            "seat_no": "3",
+            "free": false
+        }, {
+            "seat_no": "4",
+            "free": false
+        }, {
+            "seat_no": "5",
+            "free": true
+        }, {
+            "seat_no": "6",
+            "free": true
+        }, {
+            "seat_no": "7",
+            "free": true
+        }, {
+            "seat_no": "8",
+            "free": false
+        }, {
+            "seat_no": "9",
+            "free": true
+        }, {
+            "seat_no": "10",
+            "free": true
+        }],
+        [{
+            "seat_no": "11",
+            "free": true
+        }, {
+            "seat_no": "12",
+            "free": true
+        }, {
+            "seat_no": "13",
+            "free": false
+        }, {
+            "seat_no": "14",
+            "free": false
+        }, {
+            "seat_no": "15",
+            "free": true
+        }, {
+            "seat_no": "16",
+            "free": true
+        }, {
+            "seat_no": "17",
+            "free": true
+        }, {
+            "seat_no": "18",
+            "free": true
+        }, {
+            "seat_no": "19",
+            "free": true
+        }, {
+            "seat_no": "20",
+            "free": true
+        }],
+        [{
+            "seat_no": "21",
+            "free": false
+        }, {
+            "seat_no": "22",
+            "free": true
+        }, {
+            "seat_no": "23",
+            "free": false
+        }, {
+            "seat_no": "24",
+            "free": false
+        }, {
+            "seat_no": "25",
+            "free": true
+        }, {
+            "seat_no": "26",
+            "free": true
+        }, {
+            "seat_no": "27",
+            "free": true
+        }, {
+            "seat_no": "28",
+            "free": false
+        }, {
+            "seat_no": "29",
+            "free": false
+        }, {
+            "seat_no": "30",
+            "free": true
+        }],
+        [{
+            "seat_no": "31",
+            "free": false
+        }, {
+            "seat_no": "32",
+            "free": true
+        }, {
+            "seat_no": "33",
+            "free": false
+        }, {
+            "seat_no": "34",
+            "free": false
+        }, {
+            "seat_no": "35",
+            "free": true
+        }, {
+            "seat_no": "36",
+            "free": true
+        }, {
+            "seat_no": "37",
+            "free": false
+        }, {
+            "seat_no": "38",
+            "free": false
+        }, {
+            "seat_no": "39",
+            "free": true
+        }, {
+            "seat_no": "40",
+            "free": true
+        }],
+        [{
+            "seat_no": "41",
+            "free": false
+        }, {
+            "seat_no": "42",
+            "free": true
+        }, {
+            "seat_no": "43",
+            "free": false
+        }, {
+            "seat_no": "44",
+            "free": false
+        }, {
+            "seat_no": "45",
+            "free": true
+        }, {
+            "seat_no": "46",
+            "free": false
+        }, {
+            "seat_no": "47",
+            "free": true
+        }, {
+            "seat_no": "48",
+            "free": false
+        }, {
+            "seat_no": "49",
+            "free": false
+        }, {
+            "seat_no": "50",
+            "free": true
+        }],
+        [{
+            "seat_no": "51",
+            "free": true
+        }, {
+            "seat_no": "52",
+            "free": true
+        }, {
+            "seat_no": "53",
+            "free": false
+        }, {
+            "seat_no": "54",
+            "free": false
+        }, {
+            "seat_no": "55",
+            "free": true
+        }, {
+            "seat_no": "56",
+            "free": true
+        }, {
+            "seat_no": "57",
+            "free": true
+        }, {
+            "seat_no": "58",
+            "free": true
+        }, {
+            "seat_no": "59",
+            "free": true
+        }, {
+            "seat_no": "60",
+            "free": true
+        }],
+        [{
+            "seat_no": "61",
+            "free": true
+        }, {
+            "seat_no": "62",
+            "free": false
+        }, {
+            "seat_no": "63",
+            "free": false
+        }, {
+            "seat_no": "64",
+            "free": true
+        }, {
+            "seat_no": "65",
+            "free": true
+        }, {
+            "seat_no": "66",
+            "free": true
+        }, {
+            "seat_no": "67",
+            "free": false
+        }, {
+            "seat_no": "68",
+            "free": false
+        }, {
+            "seat_no": "69",
+            "free": false
+        }, {
+            "seat_no": "70",
+            "free": true
+        }],
+        [{
+            "seat_no": "71",
+            "free": false
+        }, {
+            "seat_no": "72",
+            "free": true
+        }, {
+            "seat_no": "73",
+            "free": true
+        }, {
+            "seat_no": "74",
+            "free": false
+        }, {
+            "seat_no": "75",
+            "free": true
+        }, {
+            "seat_no": "76",
+            "free": false
+        }, {
+            "seat_no": "77",
+            "free": false
+        }, {
+            "seat_no": "78",
+            "free": false
+        }, {
+            "seat_no": "79",
+            "free": false
+        }, {
+            "seat_no": "80",
+            "free": true
+        }],
+        [{
+            "seat_no": "81",
+            "free": true
+        }, {
+            "seat_no": "82",
+            "free": false
+        }, {
+            "seat_no": "83",
+            "free": false
+        }, {
+            "seat_no": "84",
+            "free": false
+        }, {
+            "seat_no": "85",
+            "free": true
+        }, {
+            "seat_no": "86",
+            "free": false
+        }, {
+            "seat_no": "87",
+            "free": false
+        }, {
+            "seat_no": "88",
+            "free": false
+        }, {
+            "seat_no": "89",
+            "free": false
+        }, {
+            "seat_no": "90",
+            "free": false
+        }],
+        [{
+            "seat_no": "91",
+            "free": true
+        }, {
+            "seat_no": "92",
+            "free": true
+        }, {
+            "seat_no": "93",
+            "free": false
+        }, {
+            "seat_no": "94",
+            "free": false
+        }, {
+            "seat_no": "95",
+            "free": true
+        }, {
+            "seat_no": "96",
+            "free": true
+        }, {
+            "seat_no": "97",
+            "free": true
+        }, {
+            "seat_no": "98",
+            "free": false
+        }, {
+            "seat_no": "99",
+            "free": false
+        }, {
+            "seat_no": "100",
+            "free": true
+        }]
+    ],
+    "movies": [{
+            "id": "1",
+            "title": "John Wick Chapter 3",
+            "date": "01/20/2019",
+            "time": "17:00",
+            "room": "room 2",
+            "actors": "John Snow, Emilia Clarke",
+            "year": "2017",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque elit eget gravida cum sociis natoque penatibus et.",
+            "src": "john-wick-chapter-2-poster.jpg"
+        },
+        {
+            "id": "4",
+            "title": "John Wick Chapter 3",
+            "date": "7/11/2019",
+            "time": "17:00",
+            "room": "room 2",
+            "actors": "John Snow, Emilia Clarke",
+            "year": "2017",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque elit eget gravida cum sociis natoque penatibus et.",
+            "src": "john-wick-chapter-2-poster.jpg"
+        },
+        {
+            "id": "5",
+            "title": "John Wick Chapter 3",
+            "date": "7/11/2019",
+            "time": "17:00",
+            "room": "room 2",
+            "actors": "John Snow, Emilia Clarke",
+            "year": "2017",
+            "description": "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd",
+            "src": "john-wick-chapter-2-poster.jpg"
+        },
+        {
+            "id": "2",
+            "title": "A star is born ",
+            "date": "7/12/2019",
+            "time": "11:00",
+            "room": "room 255",
+            "actors": "John Snow, Emilia Clarke",
+            "year": "2019",
+            "description": "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd",
+            "src": "star-is-born-web.jpg"
+        },
+        {
+            "id": "3",
+            "title": "Beauty and the beast ",
+            "date": "7/10/2019",
+            "time": "12:00",
+            "room": "room 2",
+            "actors": "Jnow, Emilia Clarke",
+            "year": "2018",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque elit eget gravida cum sociis natoque penatibus et.",
+            "src": "1f759f3c0869ef9f52beb75ee5f41db7.jpg"
+        },
+        {
+            "id": "6",
+            "title": "A star is born ",
+            "date": "7/12/2019",
+            "time": "11:00",
+            "room": "room 255",
+            "actors": "John Snow, Emilia Clarke",
+            "year": "2019",
+            "description": "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd",
+            "src": "star-is-born-web.jpg"
+        },
+        {
+            "id": "7",
+            "title": "A star is born ",
+            "date": "7/12/2019",
+            "time": "11:00",
+            "room": "room 255",
+            "actors": "John Snow, Emilia Clarke",
+            "year": "2019",
+            "description": "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd",
+            "src": "star-is-born-web.jpg"
+        }
+    ]
 }
