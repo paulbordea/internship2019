@@ -16,10 +16,12 @@
     "seats1": [
         [{
             "seat_no": "1",
-            "free": true
+            "free": true,
+            "check": false
         }, {
             "seat_no": "2",
-            "free": true
+            "free": false,
+            "check":true
         }, {
             "seat_no": "3",
             "free": false
