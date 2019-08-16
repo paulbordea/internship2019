@@ -1,6 +1,6 @@
 <div class="continut">
 
-    <nav class="navbar  navbar-expand-md" id="navigare" ng-class="{'transparent' : !isUserAdmin(), 'navbar-admin' :isCurrentRoute('/adminpage'),'transparent': isCurrentRoute('/movies'),'navbar-dark bg-dark': isCurrentRoute('/') || isCurrentRoute('/book')}">
+    <nav class="navbar  navbar-expand-md" id="navigare" ng-class="{'transparent' : !isUserAdmin(), 'navbar-admin' :isCurrentRoute('/adminpage'),'transparent': isCurrentRoute('/movies')&& isUserLogged(),'navbar-dark bg-dark': isCurrentRoute('/') ||!isCurrentRoute('/movies') && isUserLogged()}">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="../../../images/logos/logo_transparent-small.png" style="height:90px; width:150px" alt="">
@@ -20,8 +20,8 @@
                     <li class="nav-item mystyle" ng-class="{'active': isCurrentRoute('/movies')}">
                         <a class="nav-link" href="/index.html#!/movies"><i class="fa fa-film"></i>  Movies</a>
                     </li>
-                    <li ng-if="isCurrentRoute('/book') " class="nav-item mystyle" ng-class="{'active': isCurrentRoute('/book')}">
-                        <a class="nav-link" href="/index.html#!/book"><i class="fa fa-ticket"></i>  Booking</a>
+                    <li ng-if="isCurrentRoute('/booking/:movieId') " class="nav-item mystyle" ng-class="{'active': isCurrentRoute('/booking/:movieId')}">
+                        <a class="nav-link" href="/index.html#!/booking"><i class="fa fa-ticket"></i>  Booking</a>
                     </li>
                     <li ng-if="isUserAdmin()" class="nav-item mystyle" ng-class="{'active': isCurrentRoute('/adminpage')}">
                         <a class="nav-link" href="/index.html#!/adminpage"><i class="fa fa-edit"></i> Edit </a>
