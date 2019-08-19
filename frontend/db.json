@@ -438,80 +438,102 @@
   "movies": [
     {
       "id": "1",
-      "title": "John Wick Chapter 3",
-      "date": "01/20/2019",
+      "title": "John Wick : Chapter 3 - Parabellum",
+      "date": "8/10/2019",
       "time": "17:00",
       "room": "room 2",
-      "actors": "John Snow, Emilia Clarke",
-      "year": "2017",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque elit eget gravida cum sociis natoque penatibus et.",
-      "src": "john-wick-chapter-2-poster.jpg"
-    },
-    {
-      "id": "4",
-      "title": "John Wick Chapter 3",
-      "date": "7/11/2019",
-      "time": "17:00",
-      "room": "room 2",
-      "actors": "John Snow, Emilia Clarke",
-      "year": "2017",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque elit eget gravida cum sociis natoque penatibus et.",
-      "src": "john-wick-chapter-2-poster.jpg"
-    },
-    {
-      "id": "5",
-      "title": "John Wick Chapter 3",
-      "date": "7/11/2019",
-      "time": "17:00",
-      "room": "room 2",
-      "actors": "John Snow, Emilia Clarke",
-      "year": "2017",
-      "description": "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd",
-      "src": "john-wick-chapter-2-poster.jpg"
-    },
-    {
-      "id": "2",
-      "title": "A star is born ",
-      "date": "7/12/2019",
-      "time": "11:00",
-      "room": "room 255",
-      "actors": "John Snow, Emilia Clarke",
+      "actors": "Keanu Reeves, Halle Berry",
       "year": "2019",
-      "description": "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd",
-      "src": "star-is-born-web.jpg"
+      "description": "Super-assassin John Wick is on the run after killing a member of the international assassin's guild, and with a $14 million price tag on his head - he is the target of hit men and women everywhere.",
+      "src": "JohnWickCh3.jpg"
     },
     {
       "id": "3",
       "title": "Beauty and the beast ",
-      "date": "7/10/2019",
+      "date": "8/10/2019",
       "time": "12:00",
       "room": "room 2",
-      "actors": "Jnow, Emilia Clarke",
-      "year": "2018",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pellentesque elit eget gravida cum sociis natoque penatibus et.",
+      "actors": "Emma Watson,Dan Stevens",
+      "year": "2017",
+      "description": "A selfish prince is cursed to become a monster for the rest of his life, unless he learns to fall in love with a beautiful young woman he keeps prisoner.",
       "src": "1f759f3c0869ef9f52beb75ee5f41db7.jpg"
     },
     {
-      "id": "6",
-      "title": "A star is born ",
-      "date": "7/12/2019",
-      "time": "11:00",
-      "room": "room 255",
-      "actors": "John Snow, Emilia Clarke",
+      "id": "4",
+      "title": "The Art of Self Defence",
+      "date": "8/11/2019",
+      "time": "14:00",
+      "room": "room 3",
+      "actors": "Jesse Eisenberg,Alessandro Nivola",
       "year": "2019",
-      "description": "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd",
-      "src": "star-is-born-web.jpg"
+      "description": "A man is attacked at random on the street. He enlists at a local dojo, led by a charismatic and mysterious sensei, in an effort to learn how to defend himself.",
+      "src": "TheArtofSelfDefense.jpg"
+    },
+    {
+      "id": "5",
+      "title": "Fast Color",
+      "date": "8/12/2019",
+      "time": "17:00",
+      "room": "room 4",
+      "actors": "Lorraine Toussaint, Gugu Mbatha-Raw, Christopher Denham",
+      "year": "2019",
+      "description": "A woman is forced to go on the run when her superhuman abilities are discovered. Years after having abandoned her family, the only place she has left to hide is home.",
+      "src": "FastColor.jpg"
+    },
+    {
+      "id": "6",
+      "title": "The Lion King",
+      "date": "8/12/2019",
+      "time": "12:00",
+      "room": "room 1",
+      "actors": "Donald Glover, Beyoncé",
+      "year": "2019",
+      "description": "After the murder of his father, a young lion prince flees his kingdom only to learn the true meaning of responsibility and bravery.",
+      "src": "TheLionKing.jpg"
     },
     {
       "id": "7",
-      "title": "A star is born ",
-      "date": "7/12/2019",
-      "time": "11:00",
-      "room": "room 255",
-      "actors": "John Snow, Emilia Clarke",
+      "title": "Dora and The Lost City of Gold",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "room": "room 1",
+      "actors": "Isabela Moner, Eugenio Derbez",
       "year": "2019",
-      "description": "A fascinating story about a little boy who is going to cnjhnbhjfdnjjfjfjjdjdjghjdhhgjd",
-      "src": "star-is-born-web.jpg"
+      "description": "Dora, a teenage explorer, leads her friends on an adventure to save her parents and solve the mystery behind a lost city of gold.",
+      "src": "Dora.jpg"
+    },
+    {
+      "id": "8",
+      "title": "Alita: Battle Angel",
+      "date": "8/13/2019",
+      "time": "16:00",
+      "room": "room 3",
+      "actors": "Rosa Salazar, Jennifer Connelly",
+      "year": "2019",
+      "description": "A deactivated cyborg is revived, but cannot remember anything of her past life and goes on a quest to find out who she is.",
+      "src": "Alita.jpg"
+    },
+    {
+      "id": "9",
+      "title": "The LightHouse",
+      "date": "8/13/2019",
+      "time": "14:00",
+      "room": "room 2",
+      "actors": "Robert Pattinson, Valeriia Karaman",
+      "year": "2019",
+      "description": "The story of two lighthouse keepers on a remote and mysterious New England island in the 1890s.",
+      "src": "TheLightHouse.jpg"
+    },
+    {
+      "id": "10",
+      "title": "Bohemian Rhapsody",
+      "date": "8/14/2019",
+      "time": "18:00",
+      "room": "room 2",
+      "actors": "Rami Malek, Lucy Boynton",
+      "year": "2018",
+      "description": "The story of the legendary rock band Queen and lead singer Freddie Mercury, leading up to their famous performance at Live Aid (1985).",
+      "src": "BohemianRhapsody.jpg"
     }
   ]
 }

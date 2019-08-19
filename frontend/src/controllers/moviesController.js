@@ -9,19 +9,19 @@
                 result.push(value);
              }
          });
-       
+        
          return result;
          };
      });
     app.controller('MoviesCtrl', function Control($scope,$filter,$location, $http, $log, ngDialog) {
 
-        $scope.movieDate = new Date(2019,6,11);
-        if (!$scope.isUserLoggedIn) {
+        $scope.movieDate = new Date(2019,7,13);
+       /*  if (!$scope.isUserLoggedIn) {
             alert("You have to be logged in! ");
             $location.path('/');
             return;
         }
-        
+         */
         console.log($scope.movieDate);
         
         
@@ -29,8 +29,11 @@
 
         $http.get("http://localhost:3000/movies")
             .then((response) => {
+        
                 $scope.movies = response.data;
+                
                 $filter('dateFilter')(movies, selectedDate);
+             
             })
             .catch((error) => {
                 $log.log("Error fetching movies: " + JSON.stringify(error));
@@ -54,6 +57,7 @@
         };
 
         $scope.bookMovie = function(movieId) {
+           
             $location.path('/booking/' + movieId);
         };
     })

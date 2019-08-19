@@ -9,7 +9,7 @@
 
                     <div class="control col-md-10 mx-auto">
                         <laber for="date-birth" class="date-select">Select a date</laber>
-                        <input id="date-birth" class="form-control col-md-5  " type="date" style="margin-left:20px; " ng-model="movieDate"></div>
+                        <input id="date-birth" class="form-control col-md-5  " type="date" style="margin-left:20px; width:200px" ng-model="movieDate"></div>
 
                 </div>
                 <div class="row" ng-if="clicked">
@@ -41,6 +41,7 @@
                         </td>
                         <td style="width:auto;">
                             <p class="movie-title movie-attr">{{movie.time}}</p>
+                            <p ng-if="noEntries===true" class="movie-title">No movies found !</p>
                         </td>
 
                         <td style="width:auto;">
@@ -71,11 +72,7 @@
         margin-right: 20px;
     }
     
-    .img-movie {
-        height: auto;
-        width: 60px;
-        margin-right: 20px;
-    }
+     
     
     .table td {
         text-align: center;
@@ -91,6 +88,7 @@
         .movie-title.movie-attr {
             margin-top: 25px;
         }
+        
         table,
         thead,
         tbody,

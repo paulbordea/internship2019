@@ -15,7 +15,7 @@
                     return;
                 }
 
-                if (user[0].isAdmin === "true") {
+                if (user[0].isAdmin === true) {
                     $rootScope.isAdmin = true;
                     $scope.closeThisDialog(true);
                     $location.path('/adminpage');

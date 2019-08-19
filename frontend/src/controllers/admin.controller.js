@@ -51,8 +51,16 @@
                         description: $scope.description,
                         src: $scope.uploadme.src.name
                     };
-                    console.log($scope.uploadme.src.name);
+                    console.log($scope.model.movies.length);
+                   // console.log($scope.uploadme.src.name);
                     $scope.model.movies.push(movie);
+                    $http.post("http://localhost:3000/movies",movie,config)
+                    .then((response)=>{
+                        console.log(response.data)
+                    })
+                    .catch((error) => {
+                        $log.log("Error fetching movies: " + JSON.stringify(error));
+                    });
                     console.log($scope.model.movies.length);
                     console.log($scope.model.movies);
                     $scope.reset();
@@ -72,6 +80,14 @@
             };
             $scope.deleteMovie = function(i) {
                 $scope.model.movies.splice(i, 1);
+                $http
+                .delete(`http://localhost:3000/movies/${$scope.model.movies[i].id}`)
+                .then((response)=>{
+                    console.log(response.data)
+                })
+                .catch((error) => {
+                    $log.log("Error fetching movies: " + JSON.stringify(error));
+                });
                 console.log("Movie deleted" + i);
 
             };

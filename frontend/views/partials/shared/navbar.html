@@ -20,9 +20,7 @@
                     <li class="nav-item mystyle" ng-class="{'active': isCurrentRoute('/movies')}">
                         <a class="nav-link" href="/index.html#!/movies"><i class="fa fa-film"></i>  Movies</a>
                     </li>
-                    <li ng-if="isCurrentRoute('/booking/:movieId') " class="nav-item mystyle" ng-class="{'active': isCurrentRoute('/booking/:movieId')}">
-                        <a class="nav-link" href="/index.html#!/booking"><i class="fa fa-ticket"></i>  Booking</a>
-                    </li>
+                   
                     <li ng-if="isUserAdmin()" class="nav-item mystyle" ng-class="{'active': isCurrentRoute('/adminpage')}">
                         <a class="nav-link" href="/index.html#!/adminpage"><i class="fa fa-edit"></i> Edit </a>
                     </li>

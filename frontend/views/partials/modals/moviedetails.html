@@ -3,10 +3,11 @@
         <div class="row">
             <!-- Modal Header -->
             <div class="col-md-6">
-                <img ng-src="../../../images/{{movie.src}}" class="mx-auto" style="width:100%;height: 100%">
+                <img ng-src="../../../images/{{movie.src}}" class="mx-auto movie-modal-details" >
             </div>
             <!-- Modal body -->
             <div class="col-md-6 mt-5">
+                <div class="details-responsive mx-auto">
                 <p class="movie-modal"><strong>Title : </strong>{{movie.title}}</p>
                 <p class="movie-modal"><strong>Release Year : </strong> {{movie.year}}</p>
                 <p class="movie-modal"><strong>Room : </strong>{{movie.room}}</p>
@@ -15,6 +16,30 @@
                 <p class="movie-modal" style="word-wrap: break-word;"><strong>Description :
                     </strong>{{movie.description}} </p>
             </div>
+            </div>
         </div>
     </div>
+    <style>
+    .movie-modal-details{
+            width:100%;
+            height: 100%;
+        }
+    @media only screen and (max-width:900px){
+        .movie-modal-details{
+            width:70%;
+            height:70%;
+            margin-top:40px;
+        }
+        .mx-auto{
+            margin-left:50px !important;
+            margin-right: unset;
+
+        }
+        .details-responsive{
+            width:80%;
+            margin-top: -80px !important;
+
+        }
+    }
+    </style>
 </div>

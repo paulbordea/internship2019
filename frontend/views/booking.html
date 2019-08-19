@@ -1,8 +1,4 @@
 <style>
-  
-    
-    
-   
     
     .cta {
         padding: 10px 15px;
@@ -179,23 +175,92 @@
     .top-margin {
         margin-top: 40px;
     }
+    @media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+
+		/* Force table to not be like tables anymore */
+		table, thead, tbody, th, td, tr {
+			display: block;
+			
+		}
+        table a {
+            width:25px;
+            height:25px;
+            line-height: 25px;
+        }
+		/* Hide table headers (but not display: none;, for accessibility) */
+		thead tr {
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+        }
+        table .SRow1{
+            margin-left:30px;
+        }
+        .table td{
+        
+            padding-top: 1px;
+            padding-right: 1px;
+			padding-bottom: 1px;
+			height:40px;
+			font-size:17px;
+			border-top: 1px solid white !important
+        
+        }
+    tr {
+      margin: 0 0 1rem 0;
+    }
+      
+    
+    
+		td {
+			/* Behave  like a "row"*/ 
+			border: none;
+		
+			position: relative;
+			padding-left: 50%;
+		}
+
+		td:before {
+			/* Now like a table header 
+			position: absolute;
+			/* Top/left values mimic padding */
+			top: 0;
+			left: 6px;
+			width: 45%;
+			padding-right: 10px;
+			white-space: nowrap;
+		}
+
+		/*
+		Label the data
+    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.*/
+		
+		td:nth-of-type(1):before { content: ""; color:white;margin-top:25px;}
+		
+		td:nth-of-type(2):before { content: "";color:white; margin-top:25px;}
+		td:nth-of-type(3):before { content: ""; color:white;margin-top:25px;}
+     
+
+		td:nth-of-type(4):before { content: ""; }
+		td:nth-of-type(5):before { content: ""; }
+	
+	}
 </style>
 
-<div class="row bg-book">
+<div class="row bg-book" style="margin: 0px">
     <div class="col-md-3 top-margin">
         <div class="row mt-3 d-flex flex-column">
             <div class="col-md-6 mx-auto">
-                <p for="seatsLeft" id="white">Movie : Lorem ipsum dolor sim amet</p>
+                <p for="seatsLeft" id="white">Movie : {{bookMovie.title}}</p>
             </div>
             <div class="col-md-6 mx-auto">
-                <p for="seatsLeft" id="white">Date : 07/12/2019 </p>
+                <p for="seatsLeft" id="white">Date : {{bookMovie.date}} </p>
             </div>
             <div class="col-md-6 mx-auto">
-                <p for="seatsLeft" id="white">Time : 12:00</p>
+                <p for="seatsLeft" id="white">Time : {{bookMovie.time}}</p>
             </div>
-            <div class="col-md-6 mx-auto">
-                <p style="color:white;">Seats chosen : {{selection.join(', ')}}</p>
-            </div>
+            
             <div class="col-md-6 mx-auto mb-3">
                 <button class="btn cta proceed" ng-click="storeSeat()">Confirm</button>
             </div>
