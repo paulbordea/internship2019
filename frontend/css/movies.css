@@ -12,6 +12,9 @@
 	height:auto;
 
 }*/
+.height{
+	min-height:270px;
+}
 .btn-about{
 	border: 3px solid #e0661f !important;
 	background-color:transparent;
@@ -30,7 +33,8 @@
     color: white;
     font-weight: bold;
     float:left;
-    margin:auto;
+	margin:auto;
+	margin-right:35px;
 }
 th{
 text-align: center !important;
@@ -64,7 +68,8 @@ font-size: 20px;
 			font-size:17px;
 			border-top: 1px solid white !important
         
-        }
+		}
+		
     tr {
       margin: 0 0 1rem 0;
     }

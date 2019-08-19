@@ -1,26 +1,44 @@
 (function() {
     'use strict';
+    app.filter("dateFilter", function() {
+        return function datefilter(items, movieDate) {
+          
+        var result = [];
+        angular.forEach(items, function(value){
+            if (Date.parse(value.date) === Date.parse(movieDate) )  {
+                result.push(value);
+             }
+         });
+        
+         return result;
+         };
+     });
+    app.controller('MoviesCtrl', function Control($scope,$filter,$location, $http, $log, ngDialog) {
 
-    app.controller('MoviesCtrl', function Control($scope, $http, $log, ngDialog) {
-   
-        $scope.dateBirth = new Date(2019, 3, 19);
-      
-       console.log($scope.dateBirth);
-       $scope.clicked=false;
-       $scope.search=function(){
-           $scope.clicked=true;
-           $scope.selectedDate=$scope.dateBirth;
-           console.log($scope.selectedDate);
-       }
+        $scope.movieDate = new Date(2019,7,13);
+       /*  if (!$scope.isUserLoggedIn) {
+            alert("You have to be logged in! ");
+            $location.path('/');
+            return;
+        }
+         */
+        console.log($scope.movieDate);
+        
+        
         $scope.movies = {};
 
         $http.get("http://localhost:3000/movies")
             .then((response) => {
+        
                 $scope.movies = response.data;
+                
+                $filter('dateFilter')(movies, selectedDate);
+             
             })
             .catch((error) => {
                 $log.log("Error fetching movies: " + JSON.stringify(error));
             });
+
 
         $scope.openMovieDetails = function(movieId) {
 
@@ -33,9 +51,14 @@
                 scope: modalScope,
                 controller: 'MovieDetailsCtrl',
                 width: 600,
-                height: 'auto',              
+                height: 'auto',
                 showClose: true
             });
+        };
+
+        $scope.bookMovie = function(movieId) {
+           
+            $location.path('/booking/' + movieId);
         };
     })
 }());

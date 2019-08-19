@@ -1,29 +1,28 @@
-<div class="continut bg-gray mt-5">
+<div class="continut bg-gray height mt-5">
     <div class="wrapper-movies flex-column mx-auto col-md-9">
         <div class="row flex-column justify-content-center">
-            
-                <div class="form-group col-md-12 text-center mb-5" >
-                    <div class="row">
-                <div  class="date-select col-md-3">Select a date</div>
-              
 
-                        <div class="control col-md-5">
-                            <input id="date-birth" class="form-control " type="date" ng-model="dateBirth"></div>
-                           <div class="col-md-4">
-                            <button type="submit" class="btn btn-danger float-left " ng-click="search()">Search</button>
-                        </div>
-                    </div>
-                        <div class="row" ng-if="clicked">
-                       <p class="date-select" >
-                      
-                            Date : {{ dateBirth | date: 'fullDate' }}</p>
-                            </div>
+            <div class="form-group col-md-12 text-center mb-5">
+                <div class="row">
+                    <!-- <div class="date-select col-md-3">Select a date</div> -->
+
+
+                    <div class="control col-md-10 mx-auto">
+                        <laber for="date-birth" class="date-select">Select a date</laber>
+                        <input id="date-birth" class="form-control col-md-5  " type="date" style="margin-left:20px; width:200px" ng-model="movieDate"></div>
+
+                </div>
+                <div class="row" ng-if="clicked">
+                    <p class="date-select">
+
+                        Date : {{ movieDate | date: 'fullDate' }}</p>
+                </div>
 
             </div>
         </div>
 
-        <div class="row" >
-                 
+        <div class="row">
+
             <table class="table  table-borderless">
                 <thead>
                     <tr>
@@ -35,63 +34,61 @@
                     </tr>
                 </thead>
                 <tbody role="rowgroup">
-                    <tr role="row" ng-repeat="movie in movies">
+                    <tr role="row" ng-repeat="movie in movies | dateFilter: movieDate ">
                         <td style="width:auto;">
-                            <p class="movie-title"><img ng-src="../images/{{movie.src}}" class="movie-image" >{{movie.title}}</p>
+                            <p class="movie-title"><img ng-src="../images/{{movie.src}}" class="movie-image">{{movie.title}}</p>
                         </td>
                         </td>
                         <td style="width:auto;">
                             <p class="movie-title movie-attr">{{movie.time}}</p>
+                            <p ng-if="noEntries===true" class="movie-title">No movies found !</p>
                         </td>
 
                         <td style="width:auto;">
                             <p class="movie-title movie-attr">{{movie.room}}</p>
                         </td>
                         <td><button class="btn btn-about" ng-click="openMovieDetails(movie.id)">About</button></td>
-                        <td><button class="btn btn-book">Book</button></td>
+                        <td><button class="btn btn-book" ng-click="bookMovie(movie.id)">Book</button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
-  
-    <style>
-    .movie-modal{
-    font-size: 23px;
-    font-family: 'Archivo Narrow',cursive;
-    color: white;
-
-}
-    </style>
 </div>
 <style>
+    .movie-modal {
+        font-size: 23px;
+        font-family: 'Archivo Narrow', cursive;
+        color: white;
+    }
     /*
         Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
         */
-    .movie-image{
-        width:60px;
-        height:50px;
-        float:left;
-        margin-right:20px;
-    }
-    .img-movie {
-        height: auto;
+    
+    .movie-image {
         width: 60px;
+        height: 50px;
+        float: left;
         margin-right: 20px;
     }
-    .table td{
-        text-align:center;
-        border-top :none !important;
+    
+     
+    
+    .table td {
+        text-align: center;
+        border-top: none !important;
     }
+    
     @media only screen and (max-width: 760px),
     (min-device-width: 768px) and (max-device-width: 1024px) {
         /* Force table to not be like tables anymore */
-        .movie-title{
-            font-size:14px;
+        .movie-title {
+            font-size: 14px;
         }
-        .movie-title.movie-attr{
-            margin-top:25px;
+        .movie-title.movie-attr {
+            margin-top: 25px;
         }
+        
         table,
         thead,
         tbody,
@@ -106,11 +103,11 @@
             top: -9999px;
             left: -9999px;
         }
-        .movie-image{
-            float:none;
-            margin-right:10px;
-            margin-top:10px;
-            height:70px;
+        .movie-image {
+            float: none;
+            margin-right: 10px;
+            margin-top: 10px;
+            height: 70px;
         }
         .table td {
             padding-left: 110px;
@@ -118,7 +115,6 @@
             padding-right: 1px;
             padding-bottom: 1px;
             border-top: 1px solid white !important;
-        
         }
         tr {
             margin: 0 0 1rem 0;
@@ -145,13 +141,16 @@
           You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
           */
         td:nth-of-type(1):before {
-            content: "Movie";margin-left:-25px;
+            content: "Movie";
+            margin-left: -25px;
         }
         td:nth-of-type(2):before {
-            content: "Start";margin-left:-25px;
+            content: "Start";
+            margin-left: -25px;
         }
         td:nth-of-type(3):before {
-            content: "Room";margin-left:-25px;
+            content: "Room";
+            margin-left: -25px;
         }
         td:nth-of-type(4):before {
             content: "";
@@ -159,7 +158,5 @@
         td:nth-of-type(5):before {
             content: "";
         }
-       
     }
-        </style>
-        
+</style>

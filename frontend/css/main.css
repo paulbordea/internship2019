@@ -30,6 +30,7 @@ nav{
   display:flex;
   width:100%;
 
+
 }
 .continut.footer{
   margin-bottom: 0%;
@@ -295,14 +296,19 @@ footer{
 .card-img-top{
   border-radius: 50% !important;
 }
-
-#myModal{
-  background-color:white;
+.ngdialog.ngdialog-theme-default .ngdialog-content{
+  padding: 0px;
 }
+#myModal{
+  background-color:  rgba(15, 15, 14, 0.9)
+}
+
 .modal-login {
   color:white;
   width: 350px;
-  background-color: white;
+  background-color: rgba(15, 15, 14, 0.9);
+
+  margin: 0px auto;
   
 
 }
@@ -320,6 +326,7 @@ footer{
 .modal-login h4 {
   text-align: center;
   font-size: 26px;
+  color: white;
 }
 .modal-login  .form-group {
   position: relative;

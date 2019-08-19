@@ -5,6 +5,9 @@
         $scope.isUserAdmin = () => {            
             return $scope.isUserLoggedIn && $scope.isAdmin;
         };
+        $scope.isUserLogged=()=>{
+            return $scope.isUserLoggedIn;
+        }
 
         $scope.loginButtonText = () => {
             if ($scope.isUserLoggedIn) {
@@ -24,17 +27,14 @@
                 $rootScope.isUserLoggedIn = false;
                 $rootScope.isUserAdmin = false;
                 $rootScope.loggedInUser = undefined;
-
                 $location.path("/");
             } else {
                 ngDialog.open({
                     template: 'views/partials/modals/login/loginModal.html',
-                    className: 'ngdialog-theme-default',
+                    className: 'ngdialog-theme-default ',
                     scope: $scope,
                     controller: 'loginCtrl',
-
                     width: 400,
-
                     height: 'auto',              
                     showClose: true
                 });

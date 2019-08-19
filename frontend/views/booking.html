@@ -1,0 +1,303 @@
+<style>
+    
+    .cta {
+        padding: 10px 15px;
+        font-size: 18px;
+        font-weight: bold;
+        outline: 0;
+        border: 0;
+        margin-top: 20px;
+    }
+    
+    .proceed {
+        color: orange;
+        background: white;
+        border: 2px solid orange;
+        transition: all .3s ease-in-out;
+    }
+    
+    .proceed:hover,
+    .bms .proceed:focus {
+        color: white;
+        background: orange;
+    }
+    
+    .seatR {
+        margin-right: 6px;
+        margin-top: 4px;
+        font-size: 14px;
+        color: #b3b3b3;
+    }
+    
+    .seatI {
+        margin: 4px 2px;
+    
+        width: 21px;
+    }
+    
+    table a {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border-radius: 26%;
+        color: #aaa;
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 30px;
+        margin-right: 5px;
+    }
+    
+    table .available {
+        background: rgb(46, 148, 15);
+        box-shadow: inset 0 0 0 1px green;
+        cursor: pointer;
+    }
+    
+    table .available:hover {
+        background: orange;
+        color: white
+    }
+    
+    table .selected {
+        background: orange;
+        color: white
+    }
+    
+    table .blocked {
+        background: #df3333;
+        color: rgb(27, 26, 26);
+        box-shadow: 0;
+        border: 0;
+        cursor: default
+    }
+    
+    table .SRow1 {
+        display: flex
+    }
+    
+    table .Srow1 .itemSeat {
+        margin-left: 15px
+    }
+    
+    table .seatQuality {
+        width: auto
+    }
+    
+    table .thankyou .center {
+        display: block;
+        align-items: center;
+        justify-content: center
+    }
+    
+    table .thankyou a {
+        display: inline-block;
+        width: 21px;
+        height: 21px;
+        border-radius: 26%;
+        color: #aaa;
+        text-align: center;
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 21px
+    }
+    
+    .thankyou .available {
+        background: #fff;
+        box-shadow: inset 0 0 0 1px orange
+    }
+    
+    .thankyou .available:hover {
+        background: orange;
+        color: white
+    }
+    
+    .thankyou .selected {
+        background: orange;
+        color: white
+    }
+    
+    .thankyou .blocked {
+        background: #eaeaea;
+        color: #aaa;
+        box-shadow: 0;
+        border: 0;
+        cursor: default
+    }
+    
+    .alignement {
+        margin-top: 20px;
+    }
+    
+    .screen {
+        height: 15px;
+        background-color: gray;
+        box-shadow: #aaa 3px solid;
+        margin-top: 0px;
+        font-size: 12px;
+        text-align: center;
+       
+    }
+    
+    .btn-legend {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        float: left;
+    }
+    
+    .Displaytable {
+        text-align: center;
+    }
+    
+    .Displaytable td,
+    .Displaytable th {
+        border: 1px solid;
+        text-align: left;
+    }
+    
+    textarea {
+        border: none;
+        background: transparent;
+    }
+    
+    .bg-book {
+        background-image: url('../../../images/book5.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        min-height: 600px;
+    }
+    
+    #white {
+        color: white;
+    }
+    
+    .top-margin {
+        margin-top: 40px;
+    }
+    @media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px) {
+
+		/* Force table to not be like tables anymore */
+		table, thead, tbody, th, td, tr {
+			display: block;
+			
+		}
+        table a {
+            width:25px;
+            height:25px;
+            line-height: 25px;
+        }
+		/* Hide table headers (but not display: none;, for accessibility) */
+		thead tr {
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+        }
+        table .SRow1{
+            margin-left:30px;
+        }
+        .table td{
+        
+            padding-top: 1px;
+            padding-right: 1px;
+			padding-bottom: 1px;
+			height:40px;
+			font-size:17px;
+			border-top: 1px solid white !important
+        
+        }
+    tr {
+      margin: 0 0 1rem 0;
+    }
+      
+    
+    
+		td {
+			/* Behave  like a "row"*/ 
+			border: none;
+		
+			position: relative;
+			padding-left: 50%;
+		}
+
+		td:before {
+			/* Now like a table header 
+			position: absolute;
+			/* Top/left values mimic padding */
+			top: 0;
+			left: 6px;
+			width: 45%;
+			padding-right: 10px;
+			white-space: nowrap;
+		}
+
+		/*
+		Label the data
+    You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.*/
+		
+		td:nth-of-type(1):before { content: ""; color:white;margin-top:25px;}
+		
+		td:nth-of-type(2):before { content: "";color:white; margin-top:25px;}
+		td:nth-of-type(3):before { content: ""; color:white;margin-top:25px;}
+     
+
+		td:nth-of-type(4):before { content: ""; }
+		td:nth-of-type(5):before { content: ""; }
+	
+	}
+</style>
+
+<div class="row bg-book" style="margin: 0px">
+    <div class="col-md-3 top-margin">
+        <div class="row mt-3 d-flex flex-column">
+            <div class="col-md-6 mx-auto">
+                <p for="seatsLeft" id="white">Movie : {{bookMovie.title}}</p>
+            </div>
+            <div class="col-md-6 mx-auto">
+                <p for="seatsLeft" id="white">Date : {{bookMovie.date}} </p>
+            </div>
+            <div class="col-md-6 mx-auto">
+                <p for="seatsLeft" id="white">Time : {{bookMovie.time}}</p>
+            </div>
+            
+            <div class="col-md-6 mx-auto mb-3">
+                <button class="btn cta proceed" ng-click="storeSeat()">Confirm</button>
+            </div>
+        </div>
+    </div>
+    <div class=" col-md-6 top-margin">
+        <div class="table-responsive col-md-12">
+            <table class="table mx-auto" style="width: auto;">
+                <tr>
+                    <td>
+                        <div class="screen mx-auto">
+                            SCREEN
+                        </div>
+                    </td>
+                </tr>
+                <tr ng-repeat="row in seats1" class="row">
+                    <td class="SRow1">
+                        <div class="itemSeat d-flex flex-row" ng-repeat="seat in row"> 
+                             <a ng-class="{'selected': seat.check, 'available': (!seat.check && seat.free),  'blocked': !seat.free}" ng-click="select(seat)">{{seat.seat_no}}</a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="col-md-3 d-flex flex-column my-auto">
+        <div class="legend" style="margin-bottom: 20px;">
+            <button type="button" class="btn btn-danger btn-legend "></button>
+            <p style="overflow: hidden;color:white">Reserved Seat</p>
+        </div>
+        <div class="legend" style="margin-bottom: 20px;">
+            <button type="button" class="btn btn-success btn-legend "></button>
+            <p style="color:white;">Available Seat</p>
+        </div>
+        <div class="legend" style="margin-bottom: 20px;">
+            <button type="button" class="btn btn-warning btn-legend"></button>
+            <p style="color:white">Your Choice</p>
+        </div>
+    </div>
+</div>

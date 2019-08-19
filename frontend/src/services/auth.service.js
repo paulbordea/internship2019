@@ -7,7 +7,7 @@
         }
     }
 
-    app.factory('AuthService', function($http,$location) {
+    app.factory('AuthService', function($http) {
         var AuthService = {};
 
         AuthService.login = function(credentials) {
@@ -24,9 +24,8 @@
             .post(`http://localhost:3000/users`, user, config)
             .then(function(response){
                 return response.data
-            })
-        }
-
-        return AuthService;
+            });
+        };
+       return AuthService;
     });
 }());

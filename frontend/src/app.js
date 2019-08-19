@@ -1,5 +1,3 @@
-'use strict';
-
 var app = angular.module('app', ['ngRoute', 'ngCookies', 'ngDialog']);
 app.config(config);
 
@@ -11,7 +9,6 @@ function config($routeProvider) {
             controller: 'homeCtrl',
             templateUrl: 'views/partials/carousel.html',
         })
-
         .when('/movies', {
             controller: 'MoviesCtrl',
             templateUrl: 'views/movies.html',
@@ -20,6 +17,11 @@ function config($routeProvider) {
         .when('/adminpage', {
             controller: 'admin',
             templateUrl: 'views/adminpage.html',
+            controllerAs: 'vm'
+        })
+        .when('/booking/:movieId', {
+            controller: 'bookingController',
+            templateUrl: 'views/booking.html',
             controllerAs: 'vm'
         })
         .otherwise({ redirectTo: '/' });
