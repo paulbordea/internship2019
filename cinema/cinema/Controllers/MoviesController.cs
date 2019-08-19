@@ -8,10 +8,10 @@ namespace Cinema.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MovieController : Controller
+    public class MoviesController : Controller
     {
         private readonly IMoviesService _movieService;
-        public MovieController(IMoviesService movieService)
+        public MoviesController(IMoviesService movieService)
         {
             _movieService = movieService;
         }

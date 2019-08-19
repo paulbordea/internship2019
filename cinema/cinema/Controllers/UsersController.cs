@@ -9,10 +9,10 @@ namespace Cinema.Controllers
     [Route("api/[controller]")]
     [ApiController]
     
-    public class UserController : Controller
+    public class UsersController : Controller
     {
         private readonly IUsersService _userService;
-        public UserController(IUsersService userService)
+        public UsersController(IUsersService userService)
         {
             _userService = userService;
         }

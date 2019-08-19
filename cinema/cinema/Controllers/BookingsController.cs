@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 namespace Cinema.Controllers
 {
     [Route("api/[controller]")]
-    public class BookingController : Controller
+    public class BookingsController : Controller
     {
         private readonly IBookingsService _bookingService;
-        public BookingController(IBookingsService bookingService)
+        public BookingsController(IBookingsService bookingService)
         {
             _bookingService = bookingService;
         }
