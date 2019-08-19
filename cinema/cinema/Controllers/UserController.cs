@@ -31,6 +31,13 @@ namespace Cinema.Controllers
             return _userService.GetUser(id);
         }
 
+        // GET api/user/username/password
+        [HttpGet("{username}/{password}")]
+        public ActionResult<User> GetUserByCredentials(string username, string password)
+        {
+            return _userService.GetUserByCredentials(username, password);
+        }
+
         // POST api/user
         [HttpPost]
         public void PostUser([FromBody] User user)

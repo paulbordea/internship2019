@@ -32,6 +32,13 @@ namespace Cinema.Services
             return firstOrDefault;
         }
 
+        //GET by {username}/{password}
+        public ActionResult<User> GetUserByCredentials(string username, string password)
+        {
+            var firstOrDefault = _cinemaContext.User.FirstOrDefault(e => e.Name == username && e.Password == password);
+            return firstOrDefault;
+        }
+
         //POST
         public void PostUser([FromBody] User user)
         {
