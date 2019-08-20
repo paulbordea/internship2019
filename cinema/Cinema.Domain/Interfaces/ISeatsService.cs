@@ -6,6 +6,7 @@ namespace Cinema.Domain.Interfaces
 {
     public interface ISeatsService
     {
-        Task<List<Seat>> GetSeats(MovieSchedule schedule);
+        //Task<List<Seat>> GetSeats(MovieSchedule schedule);
+        IEnumerable<bool> GetSeats(MovieSchedule schedule);
     }
 }

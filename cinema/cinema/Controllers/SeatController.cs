@@ -19,12 +19,14 @@ namespace Cinema.Controllers
 
         // GET: api/seat
         [HttpGet]
-        public Task<List<Seat>> GetSeats(MovieSchedule schedule)
+        public IEnumerable<bool> GetSeats(MovieSchedule schedule)
         {
             try
             {
-                return _seatService.GetSeats(schedule);
+                //return _seatService.GetSeats(schedule);
+                return null;
             }
+
             catch (Exception exception)
             {
                 throw exception;
