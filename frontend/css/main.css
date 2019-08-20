@@ -30,6 +30,7 @@ nav{
   display:flex;
   width:100%;
 
+
 }
 .continut.footer{
   margin-bottom: 0%;
@@ -295,18 +296,27 @@ footer{
 .card-img-top{
   border-radius: 50% !important;
 }
+.ngdialog.ngdialog-theme-default .ngdialog-content{
+  padding: 0px;
+}
+#myModal{
+  background-color:  rgba(15, 15, 14, 0.9)
+}
 
 .modal-login {
   color:white;
   width: 350px;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(15, 15, 14, 0.9);
+
+  margin: 0px auto;
+  
 
 }
 .modal-login .modal-content {
   padding: 20px;
   border-radius: 5px;
   border: none;
-  background-color: rgba(0,0,0,0.4);
+
 }
 .modal-login .modal-header {
   border-bottom: none;
@@ -316,6 +326,7 @@ footer{
 .modal-login h4 {
   text-align: center;
   font-size: 26px;
+  color: white;
 }
 .modal-login  .form-group {
   position: relative;
@@ -370,7 +381,7 @@ footer{
   
 }
 .body-bg{
-  background-image:url("../images/purrfect.jpg");
+  background-image:url("../images/10.png");
   background-size:cover;
   background-repeat: no-repeat;
 }

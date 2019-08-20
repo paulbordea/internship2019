@@ -9,10 +9,10 @@ namespace Cinema.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SeatController : Controller
+    public class SeatsController : Controller
     {
         private readonly ISeatsService _seatService;
-        public SeatController(ISeatsService seatService)
+        public SeatsController(ISeatsService seatService)
         {
             _seatService = seatService;
         }

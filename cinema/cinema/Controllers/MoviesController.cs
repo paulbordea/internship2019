@@ -1,31 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Cinema.Domain.Interfaces;
 using Cinema.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
+using NLog.Fluent;
 
 namespace Cinema.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    
-    public class UserController : Controller
+    public class MoviesController : Controller
     {
-        private readonly IUsersService _userService;
-        public UserController(IUsersService userService)
+        private readonly IMoviesService _movieService;
+        public MoviesController(IMoviesService movieService)
         {
-            _userService = userService;
+            _movieService = movieService;
         }
 
-        // GET: api/user
+        // GET: api/movie
         [HttpGet]
-        public Task<List<User>> GetUsers()
+        public IEnumerable<Movie> GetMovies(DateTime date)
         {
             try
             {
-                return _userService.GetUsers();
-
+                return _movieService.GetMovies(date);
             }
             catch (Exception exception)
             {
@@ -33,27 +31,28 @@ namespace Cinema.Controllers
             }
         }
 
-        // GET api/user/5
+        // GET api/movie/5
         [HttpGet("{id}")]
-        public ActionResult<User> GetUser(int id)
+        public ActionResult<Movie> GetMovie(int id)
         {
             try
             {
-                return _userService.GetUser(id);
+                return _movieService.GetMovie(id);
             }
             catch (NullReferenceException exception)
             {
+                Log.Error(string.Format("The movie with the following ID doesn't exist", id));
                 throw exception;
             }
         }
 
-        // POST api/user
+        // POST api/movie
         [HttpPost]
-        public void PostUser([FromBody] User user)
+        public void PostMovie(Movie movie)
         {
             try
             {
-                _userService.PostUser(user);
+                _movieService.PostMovie(movie);
             }
             catch (Exception exception)
             {
@@ -61,13 +60,13 @@ namespace Cinema.Controllers
             }
         }
 
-        // PUT api/user/5
+        // PUT api/movie/5
         [HttpPut("{id}")]
-        public void PutUser(int id, [FromBody] User user)
+        public void PutMovie(int id, [FromBody]Movie movie)
         {
             try
             {
-                _userService.PutUser(id, user);
+                _movieService.PutMovie(id, movie);
             }
             catch (Exception exception)
             {
@@ -75,13 +74,13 @@ namespace Cinema.Controllers
             }
         }
 
-        // DELETE api/user/5
+        // DELETE api/movie/5
         [HttpDelete("{id}")]
-        public void DeleteUser(int id)
+        public void DeleteMovie(int id)
         {
             try
             {
-                _userService.DeleteUser(id);
+                _movieService.DeleteMovie(id);
             }
             catch (Exception exception)
             {
