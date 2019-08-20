@@ -17,12 +17,12 @@
     }]);
     app.controller('admin',
 
-        function Ctrl($scope, $http, $location) {
+        function Ctrl($scope, $http, $location,$log) {
 
-            if (!$scope.isUserLoggedIn || !$scope.isAdmin) {
+            /* if (!$scope.isUserLoggedIn || !$scope.isAdmin) {
                 $location.path('/');
                 return;
-            }
+            } */
 
             $scope.model = {
                 movies: [],
@@ -51,10 +51,10 @@
                         description: $scope.description,
                         src: $scope.uploadme.src.name
                     };
-                    console.log($scope.model.movies.length);
+                   
                    // console.log($scope.uploadme.src.name);
-                    $scope.model.movies.push(movie);
-                    $http.post("http://localhost:3000/movies",movie,config)
+                  
+                    $http.post("http://localhost:3000/movies",movie)
                     .then((response)=>{
                         console.log(response.data)
                     })
@@ -63,6 +63,7 @@
                     });
                     console.log($scope.model.movies.length);
                     console.log($scope.model.movies);
+                      $scope.model.movies.push(movie);
                     $scope.reset();
                 }
                 // gets the template to ng-include for a table row / item
@@ -79,8 +80,7 @@
                 $scope.reset();
             };
             $scope.deleteMovie = function(i) {
-                $scope.model.movies.splice(i, 1);
-                $http
+                 $http
                 .delete(`http://localhost:3000/movies/${$scope.model.movies[i].id}`)
                 .then((response)=>{
                     console.log(response.data)
@@ -88,6 +88,8 @@
                 .catch((error) => {
                     $log.log("Error fetching movies: " + JSON.stringify(error));
                 });
+                $scope.model.movies.splice(i, 1);
+               
                 console.log("Movie deleted" + i);
 
             };

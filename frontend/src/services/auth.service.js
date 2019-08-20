@@ -15,7 +15,7 @@
         AuthService.login = function(user) {
             return $http
                 //.get(`http://localhost:3000/users?username=${user.name}&password=${user.password}`)
-                .get(`https://localhost:5001/api/users/${user.name}/${user.password}`)
+                .get(`https://localhost:5001/api/users/${user.username}/${user.password}`)
                 .then(function(res) {
                     return res.data
                 })

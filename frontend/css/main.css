@@ -288,7 +288,6 @@ footer{
 
 .personal{
   height: 150px;
-
   margin:auto;
   margin-top:10px;
   border-radius: 50%;
@@ -297,20 +296,16 @@ footer{
   border-radius: 50% !important;
 }
 .ngdialog.ngdialog-theme-default .ngdialog-content{
-  padding: 0px;
+  padding: 12px;
 }
 #myModal{
-  background-color:  rgba(15, 15, 14, 0.9)
+  width:300px;
 }
 
 .modal-login {
-  color:white;
-  width: 350px;
-  background-color: rgba(15, 15, 14, 0.9);
-
+  color:black;
+  width: 300px;
   margin: 0px auto;
-  
-
 }
 .modal-login .modal-content {
   padding: 20px;
@@ -326,7 +321,7 @@ footer{
 .modal-login h4 {
   text-align: center;
   font-size: 26px;
-  color: white;
+  color: black;
 }
 .modal-login  .form-group {
   position: relative;
