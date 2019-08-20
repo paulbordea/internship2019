@@ -39,9 +39,11 @@ http://127.0.0.1:8080/index.html
 ###BACKEND
 
 * Database
+
 Create the 'cinema' database locally. Run the db.sql script in order to create the tables and some sample data.
 
 * VS Code
+
 The API can be started and hosted by running the command
 *dotnet run*
 This will open the WebApi at URL http://localhost:5001

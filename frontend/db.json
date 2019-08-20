@@ -24,7 +24,7 @@
         "password": "admin",
         "isAdmin": true
     }],
-    "seats1": [
+    "seats": [
         [{
                 "seat_no": "1",
                 "free": false

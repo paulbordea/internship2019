@@ -1,5 +1,4 @@
 <style>
-    
     .cta {
         padding: 10px 15px;
         font-size: 18px;
@@ -31,7 +30,6 @@
     
     .seatI {
         margin: 4px 2px;
-    
         width: 21px;
     }
     
@@ -136,7 +134,6 @@
         margin-top: 0px;
         font-size: 12px;
         text-align: center;
-       
     }
     
     .btn-legend {
@@ -175,77 +172,84 @@
     .top-margin {
         margin-top: 40px;
     }
+    
     @media only screen and (max-width: 760px),
-(min-device-width: 768px) and (max-device-width: 1024px) {
-
-		/* Force table to not be like tables anymore */
-		table, thead, tbody, th, td, tr {
-			display: block;
-			
-		}
+    (min-device-width: 768px) and (max-device-width: 1024px) {
+        /* Force table to not be like tables anymore */
+        table,
+        thead,
+        tbody,
+        th,
+        td,
+        tr {
+            display: block;
+        }
         table a {
-            width:25px;
-            height:25px;
+            width: 25px;
+            height: 25px;
             line-height: 25px;
         }
-		/* Hide table headers (but not display: none;, for accessibility) */
-		thead tr {
-			position: absolute;
-			top: -9999px;
-			left: -9999px;
+        /* Hide table headers (but not display: none;, for accessibility) */
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
         }
-        table .SRow1{
-            margin-left:30px;
+        table .SRow1 {
+            margin-left: 30px;
         }
-        .table td{
-        
+        .table td {
             padding-top: 1px;
             padding-right: 1px;
-			padding-bottom: 1px;
-			height:40px;
-			font-size:17px;
-			border-top: 1px solid white !important
-        
+            padding-bottom: 1px;
+            height: 40px;
+            font-size: 17px;
+            border-top: 1px solid white !important
         }
-    tr {
-      margin: 0 0 1rem 0;
-    }
-      
-    
-    
-		td {
-			/* Behave  like a "row"*/ 
-			border: none;
-		
-			position: relative;
-			padding-left: 50%;
-		}
-
-		td:before {
-			/* Now like a table header 
+        tr {
+            margin: 0 0 1rem 0;
+        }
+        td {
+            /* Behave  like a "row"*/
+            border: none;
+            position: relative;
+            padding-left: 50%;
+        }
+        td:before {
+            /* Now like a table header 
 			position: absolute;
 			/* Top/left values mimic padding */
-			top: 0;
-			left: 6px;
-			width: 45%;
-			padding-right: 10px;
-			white-space: nowrap;
-		}
-
-		/*
+            top: 0;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+        /*
 		Label the data
     You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.*/
-		
-		td:nth-of-type(1):before { content: ""; color:white;margin-top:25px;}
-		
-		td:nth-of-type(2):before { content: "";color:white; margin-top:25px;}
-		td:nth-of-type(3):before { content: ""; color:white;margin-top:25px;}
-     
-
-		td:nth-of-type(4):before { content: ""; }
-		td:nth-of-type(5):before { content: ""; }
-	
-	}
+        td:nth-of-type(1):before {
+            content: "";
+            color: white;
+            margin-top: 25px;
+        }
+        td:nth-of-type(2):before {
+            content: "";
+            color: white;
+            margin-top: 25px;
+        }
+        td:nth-of-type(3):before {
+            content: "";
+            color: white;
+            margin-top: 25px;
+        }
+        td:nth-of-type(4):before {
+            content: "";
+        }
+        td:nth-of-type(5):before {
+            content: "";
+        }
+    }
 </style>
 
 <div class="row bg-book" style="margin: 0px">
@@ -260,7 +264,7 @@
             <div class="col-md-6 mx-auto">
                 <p for="seatsLeft" id="white">Time : {{bookMovie.time}}</p>
             </div>
-            
+
             <div class="col-md-6 mx-auto mb-3">
                 <button class="btn cta proceed" ng-click="storeSeat()">Confirm</button>
             </div>
@@ -276,10 +280,10 @@
                         </div>
                     </td>
                 </tr>
-                <tr ng-repeat="row in seats1" class="row">
+                <tr ng-repeat="row in seats" class="row">
                     <td class="SRow1">
-                        <div class="itemSeat d-flex flex-row" ng-repeat="seat in row"> 
-                             <a ng-class="{'selected': seat.check, 'available': (!seat.check && seat.free),  'blocked': !seat.free}" ng-click="select(seat)">{{seat.seat_no}}</a>
+                        <div class="itemSeat d-flex flex-row" ng-repeat="seat in row">
+                            <a ng-class="{'selected': seat.check, 'available': (!seat.check && seat.free),  'blocked': !seat.free}" ng-click="select(seat)">{{seat.seat_no}}</a>
                         </div>
                     </td>
                 </tr>
