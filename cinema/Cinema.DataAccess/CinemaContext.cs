@@ -1,21 +1,17 @@
-﻿using Cinema.Domain.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Cinema.Domain.Models;
 
 namespace Cinema.DataAccess
 {
     public class CinemaContext : DbContext
     {
-        public CinemaContext()
-        {
-        }
+        public CinemaContext() { }
 
-        public CinemaContext(DbContextOptions<CinemaContext> options)
-            : base(options)
-        {
-        }
+        public CinemaContext(DbContextOptions<CinemaContext> options) : base(options) { }
 
         public virtual DbSet<Booking> Booking { get; set; }
         public virtual DbSet<Movie> Movie { get; set; }
+        public virtual DbSet<MovieSchedule> MovieSchedule { get; set; }
         public virtual DbSet<Seat> Seat { get; set; }
         public virtual DbSet<User> User { get; set; }
 
@@ -43,19 +39,13 @@ namespace Cinema.DataAccess
                     .WithMany(p => p.Booking)
                     .HasForeignKey(d => d.MovieId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__bookings__movie_id");
-
-                entity.HasOne(d => d.Seat)
-                    .WithMany(p => p.Booking)
-                    .HasForeignKey(d => d.SeatId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__bookings__seat_id");
+                    .HasConstraintName("FK__booking__movie_id");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Booking)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__bookings__user_id");
+                    .HasConstraintName("FK__booking__user_id");
             });
 
             modelBuilder.Entity<Movie>(entity =>
@@ -64,11 +54,27 @@ namespace Cinema.DataAccess
                     .HasColumnName("ID")
                     .ValueGeneratedNever();
 
-                entity.Property(e => e.Date).HasColumnType("date");
+                entity.Property(e => e.Description).IsRequired();
 
                 entity.Property(e => e.Name)
+                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<MovieSchedule>(entity =>
+            {
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.Date).HasColumnType("date");
+
+                entity.HasOne(d => d.Movie)
+                    .WithMany(p => p.MovieSchedule)
+                    .HasForeignKey(d => d.MovieId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__movieschedule__movie_id");
             });
 
             modelBuilder.Entity<Seat>(entity =>
@@ -77,17 +83,13 @@ namespace Cinema.DataAccess
                     .HasColumnName("ID")
                     .ValueGeneratedNever();
 
+                entity.Property(e => e.Date).HasColumnType("date");
+
                 entity.HasOne(d => d.Movie)
                     .WithMany(p => p.Seat)
                     .HasForeignKey(d => d.MovieId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__seats__movie_id");
-
-                entity.HasOne(d => d.User)
-                    .WithMany(p => p.Seat)
-                    .HasForeignKey(d => d.UserId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__seats__user_id");
+                    .HasConstraintName("FK__seat__movie_id");
             });
 
             modelBuilder.Entity<User>(entity =>
@@ -97,14 +99,17 @@ namespace Cinema.DataAccess
                     .ValueGeneratedNever();
 
                 entity.Property(e => e.Email)
+                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Name)
+                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
                 entity.Property(e => e.Password)
+                    .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cinema.Domain.Interfaces;
 using Cinema.Domain.Models;
@@ -7,10 +8,11 @@ using Microsoft.AspNetCore.Mvc;
 namespace Cinema.Controllers
 {
     [Route("api/[controller]")]
-    public class BookingsController : Controller
+    [ApiController]
+    public class BookingController : Controller
     {
         private readonly IBookingsService _bookingService;
-        public BookingsController(IBookingsService bookingService)
+        public BookingController(IBookingsService bookingService)
         {
             _bookingService = bookingService;
         }
@@ -19,7 +21,15 @@ namespace Cinema.Controllers
         [HttpGet]
         public Task<List<Booking>> GetBookings()
         {
-            return _bookingService.GetBookings();
+            try
+            {
+                return _bookingService.GetBookings();
+
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
         }
 
         // GET api/booking/5

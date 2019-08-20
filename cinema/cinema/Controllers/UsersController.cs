@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cinema.Domain.Interfaces;
 using Cinema.Domain.Models;
@@ -21,14 +22,29 @@ namespace Cinema.Controllers
         [HttpGet]
         public Task<List<User>> GetUsers()
         {
-            return _userService.GetUsers();
+            try
+            {
+                return _userService.GetUsers();
+
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
         }
 
         // GET api/user/5
         [HttpGet("{id}")]
         public ActionResult<User> GetUser(int id)
         {
-            return _userService.GetUser(id);
+            try
+            {
+                return _userService.GetUser(id);
+            }
+            catch (NullReferenceException exception)
+            {
+                throw exception;
+            }
         }
 
         // GET api/user/username/password
@@ -42,21 +58,42 @@ namespace Cinema.Controllers
         [HttpPost]
         public void PostUser([FromBody] User user)
         {
-            _userService.PostUser(user);
+            try
+            {
+                _userService.PostUser(user);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
         }
 
         // PUT api/user/5
         [HttpPut("{id}")]
         public void PutUser(int id, [FromBody] User user)
         {
-            _userService.PutUser(id, user);
+            try
+            {
+                _userService.PutUser(id, user);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
         }
 
         // DELETE api/user/5
         [HttpDelete("{id}")]
         public void DeleteUser(int id)
         {
-            _userService.DeleteUser(id);
+            try
+            {
+                _userService.DeleteUser(id);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
         }
     }
 }

@@ -13,7 +13,6 @@ namespace Cinema.Services
     public class UsersService : IUsersService
     {
         private readonly CinemaContext _cinemaContext;
-
         public UsersService(CinemaContext cinemaContext)
         {
             _cinemaContext = cinemaContext;
