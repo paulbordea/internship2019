@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Cinema.Tests.TestClasses
+﻿namespace Cinema.Tests.TestClasses
 {
     public class Employee
     {

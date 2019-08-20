@@ -10,7 +10,6 @@ namespace Cinema.Services
     public class BookingsService : IBookingsService
     {
         private readonly CinemaContext _cinemaContext;
-
         public BookingsService(CinemaContext cinemaContext)
         {
             _cinemaContext = cinemaContext;

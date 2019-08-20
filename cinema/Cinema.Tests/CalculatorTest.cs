@@ -1,5 +1,4 @@
-﻿using Cinema;
-using Cinema.Tests.TestClasses;
+﻿using Cinema.Tests.TestClasses;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
