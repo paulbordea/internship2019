@@ -1,20 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
 
 namespace Cinema.Domain.Models
 {
-    public sealed class Seat
+    public class Seat
     {
-        public Seat()
-        {
-            Booking = new HashSet<Booking>();
-        }
-
         public int MovieId { get; set; }
         public int Id { get; set; }
-        public int UserId { get; set; }
+        public int SeatNumber { get; set; }
+        public DateTime Date { get; set; }
+        public TimeSpan Hour { get; set; }
 
-        public Movie Movie { get; set; }
-        public User User { get; set; }
-        public ICollection<Booking> Booking { get; set; }
+        public virtual Movie Movie { get; set; }
     }
 }

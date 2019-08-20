@@ -1,28 +1,37 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Cinema.DataAccess;
 using Cinema.Domain.Interfaces;
 using Cinema.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace Cinema.Services
 {
     public class MoviesService : IMoviesService
     {
         private readonly CinemaContext _cinemaContext;
-
         public MoviesService(CinemaContext cinemaContext)
         {
             _cinemaContext = cinemaContext;
         }
 
         //GET method
-        public Task<List<Movie>> GetMovies()
+        public IEnumerable<Movie> GetMovies(DateTime date)
         {
-            return _cinemaContext.Movie.ToListAsync();
+            var query = (from movie in _cinemaContext.Movie
+                join movieSchedule in _cinemaContext.MovieSchedule
+                    on movie.Id equals movieSchedule.MovieId
+                        where movieSchedule.Date == date
+                select new Movie
+                {
+                    Id = movie.Id,
+                    Name = movie.Name,
+                    Description = movie.Description,
+                    Actors = movie.Actors
+                }).ToList();
+
+            return query;
         }
 
         //GET by {id} method
@@ -33,7 +42,7 @@ namespace Cinema.Services
         }
 
         //POST method
-        public void PostMovie([FromBody] Movie movie)
+        public void PostMovie(Movie movie)
         {
             if (_cinemaContext != null)
             {
@@ -50,7 +59,8 @@ namespace Cinema.Services
             {
                 entity.Id = movie.Id;
                 entity.Name = movie.Name;
-                entity.Date = movie.Date;
+                entity.Description = movie.Description;
+                entity.Actors = movie.Actors;
             }
 
             _cinemaContext.SaveChanges();
