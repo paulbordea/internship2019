@@ -11,6 +11,7 @@
                     $rootScope.isUserLoggedIn = true;
                     //$rootScope.loggedInUser = user[0].name;
                     $rootScope.loggedInUser = user.name;
+                    $rootScope.userId=user.id;
                 } else {
                     $scope.closeThisDialog(true);
                     $location.path('/');

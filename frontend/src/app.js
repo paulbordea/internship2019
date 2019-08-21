@@ -19,6 +19,11 @@ function config($routeProvider) {
             templateUrl: 'views/adminpage.html',
             controllerAs: 'vm'
         })
+        .when('/bookingsAdmin', {
+            controller: 'bookingAdmin',
+            templateUrl: 'views/bookingsAdmin.html',
+            controllerAs: 'vm'
+        })
         .when('/booking/:movieId', {
             controller: 'bookingController',
             templateUrl: 'views/booking.html',
