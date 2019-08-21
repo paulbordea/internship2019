@@ -252,7 +252,7 @@
     }
 </style>
 
-<div class="row bg-book" style="margin: 0px">
+<div class="row bg-book" ng-if="!isConfirmed()" style="margin: 0px">
     <div class="col-md-3 top-margin">
         <div class="row mt-3 d-flex flex-column">
             <div class="col-md-6 mx-auto">
@@ -264,7 +264,9 @@
             <div class="col-md-6 mx-auto">
                 <p for="seatsLeft" id="white">Time : {{bookMovie.time}}</p>
             </div>
-
+             <div class="col-md-6 mx-auto">
+                <p for="seatsLeft" id="white">Ticket price : 5$</p>
+            </div>
             <div class="col-md-6 mx-auto mb-3">
                 <button class="btn cta proceed" ng-click="storeSeat()">Confirm</button>
             </div>
@@ -305,3 +307,48 @@
         </div>
     </div>
 </div>
+
+
+<div ng-if="isConfirmed()">
+    <div class="container mt-5 mb-5 d-flex flex-row" style="border: black 10px double">
+    <div class="col-md-6">
+        <div class="row text-center d-flex flex-column mt-5 mb-5">
+        <div class="col-md-10 mx-auto text-left">
+            <p class="confirmation"><strong style="color: red"> Movie :</strong> {{bookMovie.title}}</p>
+        </div>
+        <div class="col-md-10 mx-auto text-left">
+            <p class="confirmation"><strong style="color: red"> Date : </strong>{{bookMovie.date}}</p>
+        </div>
+        <div class="col-md-10 mx-auto text-left">
+            <p class="confirmation"><strong style="color: red"> No. of tickets : </strong> {{nrSeats}}</p>
+        </div>
+        <div class="col-md-10 mx-auto text-left">
+            <p class="confirmation"><strong style="color: red"> Seats chosen :</strong> {{selection.join(", ")}}</p>
+        </div>
+        <div class="col-md-10 mx-auto text-left">
+            <p class="confirmation"> <strong style="color: red">Total price:</strong> {{5*nrSeats}}$</p>
+        </div>
+        </div>
+        </div>
+
+      <div class="col-md-6 mt-5 mb-5">
+            <p class="confirmation">Thank You for your order!</p>
+            <p class="confirmation"> You can get your tickets from the pay office! </p>
+            <div class="col-md-9 mx-auto">
+        <img src="../../images/verif.png">
+        </div>
+        </div>
+        
+        </div>
+    </div>
+</div>
+
+<style>
+.confirmation{
+    font-family: 'Indie Flower',cursive;
+    font-size:25px;
+    color: black;
+    font-weight:bold;
+}
+
+</style>

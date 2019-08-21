@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    app.controller('loginCtrl', function($scope, $location, $window, AuthService) {
+    app.controller('loginCtrl', function($scope, $location, $window, $rootScope, AuthService) {
 
         $scope.login = function(user) {
             AuthService.login(user).then(function(user) {
@@ -11,6 +11,7 @@
                     $window.sessionStorage.loggedInUser = user.name;
                     $window.sessionStorage.isUserLoggedIn = true;
                     //$window.sessionStorage.loggedInUser = user[0].name;
+                    $rootScope.userId = user.id;
                 } else {
                     $scope.closeThisDialog(true);
                     $location.path('/');
