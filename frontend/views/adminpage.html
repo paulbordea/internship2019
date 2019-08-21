@@ -42,7 +42,7 @@
                 </table>
 
                 <script type="text/ng-template" id="display">
-                <td style="width:auto;" class="details"><p class="paragraph my-auto titlu" ><img class="movie-image" ng-src="../images/{{movie.src}}">{{movie.title}}</p></td>
+                <td style="width:auto;" class="details title-display"><p class="paragraph my-auto titlu" ><img class="movie-image" ng-src="../images/{{movie.src}}">{{movie.title}}</p></td>
                 <td style="width:auto;" class="details"><p class="paragraph my-auto">{{movie.date}}</p></td>
                 <td style="width:auto;" class="details"><p class="paragraph my-auto">{{movie.time}}</p></td>
                 <td style="width:auto;" class="details"><p class="paragraph my-auto">{{movie.room}}</p></td>
@@ -63,7 +63,7 @@
 
             </script>
                 <script type="text/ng-template" id="edit">
-                <td><input type="text" style="width:90%;" ng-model="model.selected.title" /></td>
+                <td class="title-resp"><input type="text" style="width:90%;" ng-model="model.selected.title" /></td>
                 <td><input type="text" style="width: 90%" ng-model="model.selected.date" /></td>
                 <td><input type="text" style="width:90%" ng-model="model.selected.time" /></td>
                 <td><input type="text" style="width:90%" ng-model="model.selected.room" /></td>
@@ -195,11 +195,11 @@
         td input[type="text"]{
         margin-top:0px;
     }
-        .paragraph {
+        /* .paragraph {
             margin-top: 25px;}
-
+ */
         .details{
-            margin-left:35px;
+            margin-left:20px;
 
         }
        .movie-image{
@@ -256,12 +256,17 @@
 		Label the data
     You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
 		*/
-        td:nth-of-type(1):before {
+        .title-display:before {
             content: "Title";
             color: black;
             margin-top:25px;
         }
-
+        .title-resp:before{
+            content:"Title";
+            color:black;
+            margin-top:0px;
+        }
+        
         td:nth-of-type(2):before {
             content: "Date";
             color: black;
@@ -292,6 +297,7 @@
         td:nth-of-type(7):before {
             content: "Description";
             color: black;
+         
     }
         }
 

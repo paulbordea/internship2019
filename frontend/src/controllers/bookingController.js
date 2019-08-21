@@ -1,5 +1,5 @@
-app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', '$location',
-    function($scope, $http, $routeParams, $log, $location) {
+app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', '$location','$rootScope',
+    function($scope, $http, $routeParams, $log, $location,$rootScope) {
 
         $scope.movieId = $routeParams.movieId;
 
@@ -29,8 +29,13 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
                 seat.check = true;
             }
         }
-
+        $scope.isConfirmed=function(){
+                return false;
+            }
         $scope.storeSeat = function() {
+            $scope.isConfirmed=function(){
+                return true;
+            }
             $scope.selection = [];
             for (var row = 0; row < $scope.seats.length; row++) {
                 for (var col = 0; col < $scope.seats[row].length; col++) {
@@ -41,8 +46,26 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
                     }
                 }
             }
-            alert("Your seats are : " + $scope.selection.join(', '))
-            $location.path("/movies");
+            $scope.nrSeats=$scope.selection.length;
+         var data=
+                {
+                movieId:$scope.movieId,
+                date: $scope.bookMovie.date,
+                time:$scope.bookMovie.time,
+                seatsBooked: $scope.selection.join(','),
+                userId:$rootScope.userId
+                }
+            
+            $http
+            .post('http://localhost:3000/bookingUser',data)
+            .then((response)=>{
+                console.log(response.data)
+            })
+            .catch((error)=>{
+                console.log(error);
+            })
+           /*  alert("Your seats are : " + $scope.selection.join(', '))
+            $location.path("/movies"); */
         }
     }
 ]);

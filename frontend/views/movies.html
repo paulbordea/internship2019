@@ -48,7 +48,8 @@
                             <p class="movie-title movie-attr">{{movie.room}}</p>
                         </td>
                         <td><button class="btn btn-about" ng-click="openMovieDetails(movie.id)">About</button></td>
-                        <td><button class="btn btn-book" ng-click="bookMovie(movie.id)">Book</button></td>
+                        <td><button class="btn btn-book" ng-disabled="!isUserLogged()" ng-click="bookMovie(movie.id)">Book</button>
+                        <p ng-if="!isUserLogged()" style="color:white;" >Only logged users can book a movie! Please Log In!</p></td>
                     </tr>
                 </tbody>
             </table>
