@@ -1,21 +1,24 @@
-(function () {
+(function() {
     'use strict';
 
-    app.controller('loginCtrl', function ($scope, $location, $rootScope, $log, AuthService) {
+    app.controller('loginCtrl', function($scope, $location, $rootScope, $log, AuthService) {
 
-        $scope.login = function (user) {
-            AuthService.login(user).then(function (user) {
+        $scope.login = function(user) {
+            AuthService.login(user).then(function(user) {
 
-                if (user && user.length > 0) { // login successful 
+                //if (user && user.length > 0) { // login successful 
+                if (user) { // login successful 
                     $rootScope.isUserLoggedIn = true;
-                    $rootScope.loggedInUser = user[0].username;
+                    //$rootScope.loggedInUser = user[0].name;
+                    $rootScope.loggedInUser = user.name;
                 } else {
                     $scope.closeThisDialog(true);
                     $location.path('/');
                     return;
                 }
 
-                if (user[0].isAdmin === true) {
+                //if (user[0].isAdmin === true) {
+                if (user.isAdmin === true) {
                     $rootScope.isAdmin = true;
                     $scope.closeThisDialog(true);
                     $location.path('/adminpage');
@@ -24,7 +27,7 @@
                     $scope.closeThisDialog(true);
                     $location.path('/movies');
                 }
-            }, function () {
+            }, function() {
 
             });
         };

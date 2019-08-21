@@ -7,7 +7,6 @@ namespace Cinema.Domain.Models
         public User()
         {
             Booking = new HashSet<Booking>();
-            Seat = new HashSet<Seat>();
         }
 
         public int Id { get; set; }
@@ -17,6 +16,5 @@ namespace Cinema.Domain.Models
         public bool IsAdmin { get; set; }
 
         public ICollection<Booking> Booking { get; set; }
-        public ICollection<Seat> Seat { get; set; }
     }
 }

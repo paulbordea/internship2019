@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Cinema.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,9 +8,9 @@ namespace Cinema.Domain.Interfaces
 {
     public interface IMoviesService
     {
-        Task<List<Movie>> GetMovies();
+        IEnumerable<Movie> GetMovies(DateTime date);
         ActionResult<Movie> GetMovie(int id);
-        void PostMovie([FromBody] Movie movie);
+        void PostMovie(Movie movie);
         void PutMovie(int id, [FromBody] Movie movie);
         void DeleteMovie(int id);
     }

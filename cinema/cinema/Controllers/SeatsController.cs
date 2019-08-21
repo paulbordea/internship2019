@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cinema.Domain.Interfaces;
 using Cinema.Domain.Models;
@@ -8,25 +9,28 @@ namespace Cinema.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SeatController : Controller
+    public class SeatsController : Controller
     {
         private readonly ISeatsService _seatService;
-        public SeatController(ISeatsService seatService)
+        public SeatsController(ISeatsService seatService)
         {
             _seatService = seatService;
         }
 
         // GET: api/seat
         [HttpGet]
-
-        //public async Task<ActionResult<IEnumerable<Seat>>> GetSeats()
-        //{
-        //    var listAsync = _cinemaContext.Seat.ToListAsync();
-        //    return await listAsync;
-        //}
-        public Task<List<Seat>> GetSeats()
+        public IEnumerable<bool> GetSeats(MovieSchedule schedule)
         {
-            return _seatService.GetSeats();
+            try
+            {
+                //return _seatService.GetSeats(schedule);
+                return null;
+            }
+
+            catch (Exception exception)
+            {
+                throw exception;
+            }
         }
 
         // GET api/seat/5

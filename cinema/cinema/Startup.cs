@@ -20,6 +20,17 @@ namespace Cinema
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CinemaCustomPolicy",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                            .AllowAnyHeader()
+                            .AllowAnyMethod();
+                    });
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddScoped<CinemaContext, CinemaContext>();
             services.AddScoped<IMoviesService, MoviesService>();
@@ -35,6 +46,7 @@ namespace Cinema
             else
                 app.UseHsts();
 
+            app.UseCors("CinemaCustomPolicy");
             app.UseHttpsRedirection();
             app.UseMvc();
         }

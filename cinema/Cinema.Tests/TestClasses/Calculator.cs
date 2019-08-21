@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Cinema.Tests.TestClasses
+﻿namespace Cinema.Tests.TestClasses
 {
     public class Calculator : ICalculator
     {
@@ -18,10 +14,12 @@ namespace Cinema.Tests.TestClasses
         {
             return param1 / param2;
         }
+
         public int ConvertUsdToClp(int unit)
         {
             return unit * _exchange.GetActualUsdValue();
         }
+
         #endregion
     }
 }

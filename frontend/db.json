@@ -1,19 +1,35 @@
 {
-  "credentials": [
+  "users": [
     {
-      "username": "123",
-      "password": "123",
-      "isAdmin": false,
-      "status": "ok"
+      "id": 1,
+      "name": "user 1 edit",
+      "email": "test1@test1.ro",
+      "password": "test1",
+      "isAdmin": false
     },
     {
-      "username": "admin",
-      "password": "adm",
-      "isAdmin": true,
-      "status": "ok"
+      "id": 2,
+      "name": "testez put",
+      "email": "test2@test2.ro",
+      "password": "test2",
+      "isAdmin": false
+    },
+    {
+      "id": 3,
+      "name": "ramona",
+      "email": "ramona@test.com",
+      "password": "123123",
+      "isAdmin": false
+    },
+    {
+      "id": 4,
+      "name": "admin",
+      "email": "admin@test.com",
+      "password": "admin",
+      "isAdmin": true
     }
   ],
-  "seats1": [
+  "seats": [
     [
       {
         "seat_no": "1",
@@ -438,17 +454,6 @@
   "movies": [
     {
       "id": "1",
-      "title": "John Wick : Chapter 3 - Parabellum",
-      "date": "8/10/2019",
-      "time": "17:00",
-      "room": "room 2",
-      "actors": "Keanu Reeves, Halle Berry",
-      "year": "2019",
-      "description": "Super-assassin John Wick is on the run after killing a member of the international assassin's guild, and with a $14 million price tag on his head - he is the target of hit men and women everywhere.",
-      "src": "JohnWickCh3.jpg"
-    },
-    {
-      "id": "3",
       "title": "Beauty and the beast ",
       "date": "8/10/2019",
       "time": "12:00",
@@ -459,18 +464,7 @@
       "src": "1f759f3c0869ef9f52beb75ee5f41db7.jpg"
     },
     {
-      "id": "4",
-      "title": "The Art of Self Defence",
-      "date": "8/11/2019",
-      "time": "14:00",
-      "room": "room 3",
-      "actors": "Jesse Eisenberg,Alessandro Nivola",
-      "year": "2019",
-      "description": "A man is attacked at random on the street. He enlists at a local dojo, led by a charismatic and mysterious sensei, in an effort to learn how to defend himself.",
-      "src": "TheArtofSelfDefense.jpg"
-    },
-    {
-      "id": "5",
+      "id": "2",
       "title": "Fast Color",
       "date": "8/12/2019",
       "time": "17:00",
@@ -481,7 +475,7 @@
       "src": "FastColor.jpg"
     },
     {
-      "id": "6",
+      "id": "3",
       "title": "The Lion King",
       "date": "8/12/2019",
       "time": "12:00",
@@ -492,7 +486,7 @@
       "src": "TheLionKing.jpg"
     },
     {
-      "id": "7",
+      "id": "4",
       "title": "Dora and The Lost City of Gold",
       "date": "8/13/2019",
       "time": "15:00",
@@ -503,7 +497,18 @@
       "src": "Dora.jpg"
     },
     {
-      "id": "9",
+      "id": "5",
+      "title": "Alita: Battle Angel",
+      "date": "8/13/2019",
+      "time": "16:00",
+      "room": "room 3",
+      "actors": "Rosa Salazar, Jennifer Connelly",
+      "year": "2019",
+      "description": "A deactivated cyborg is revived, but cannot remember anything of her past life and goes on a quest to find out who she is.",
+      "src": "Alita.jpg"
+    },
+    {
+      "id": "6",
       "title": "The LightHouse",
       "date": "8/13/2019",
       "time": "14:00",
@@ -514,7 +519,7 @@
       "src": "TheLightHouse.jpg"
     },
     {
-      "id": "10",
+      "id": "7",
       "title": "Bohemian Rhapsody",
       "date": "8/14/2019",
       "time": "18:00",

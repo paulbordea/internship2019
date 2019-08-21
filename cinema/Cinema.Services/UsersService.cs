@@ -13,7 +13,6 @@ namespace Cinema.Services
     public class UsersService : IUsersService
     {
         private readonly CinemaContext _cinemaContext;
-
         public UsersService(CinemaContext cinemaContext)
         {
             _cinemaContext = cinemaContext;
@@ -29,6 +28,13 @@ namespace Cinema.Services
         public ActionResult<User> GetUser(int id)
         {
             var firstOrDefault = _cinemaContext.User.FirstOrDefault(e => e.Id == id);
+            return firstOrDefault;
+        }
+
+        //GET by {username}/{password}
+        public ActionResult<User> GetUserByCredentials(string username, string password)
+        {
+            var firstOrDefault = _cinemaContext.User.FirstOrDefault(e => e.Name == username && e.Password == password);
             return firstOrDefault;
         }
 

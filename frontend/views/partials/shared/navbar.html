@@ -1,6 +1,6 @@
 <div class="continut">
 
-    <nav class="navbar  navbar-expand-md" id="navigare" ng-class="{'transparent' : !isUserAdmin(), 'navbar-admin' :isCurrentRoute('/adminpage'),'transparent': isCurrentRoute('/movies')&& isUserLogged(),'navbar-dark bg-dark': isCurrentRoute('/') ||!isCurrentRoute('/movies') && isUserLogged()}">
+    <nav class="navbar  navbar-expand-md" id="navigare" ng-class="{ 'navbar-admin' :isCurrentRoute('/adminpage'),'navbar-dark bg-dark': !isCurrentRoute('/adminpage')}">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="../../../images/logos/logo_transparent-small.png" style="height:90px; width:150px" alt="">
