@@ -1,7 +1,13 @@
-app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', '$location',
-    function($scope, $http, $routeParams, $log, $location) {
+app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', '$location', 'userService',
+    function($scope, $http, $routeParams, $log, $location, userService) {
+
+        if (!userService.isUserLogged()) {
+            $location.path('/movies');
+            return;
+        }
 
         $scope.movieId = $routeParams.movieId;
+        $scope.selectedSeats = [];
 
         $http.get(`http://localhost:3000/movies?id=${$scope.movieId}`)
             .then((response) => {
@@ -22,12 +28,22 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
                 console.log("Error fetching seats" + error.data)
             })
 
-        $scope.select = function(seat) {
+        $scope.selectSeat = function(seat) {
+
+            let arrayIndex = $scope.selectedSeats.indexOf(seat.seat_no);
+
+            if (arrayIndex == -1) { // item not in array 
+                $scope.selectedSeats.push(seat.seat_no);
+            } else {
+                $scope.selectedSeats.splice(arrayIndex, 1);
+            }
+
             if (seat.check === true) {
                 seat.check = false;
             } else {
                 seat.check = true;
             }
+
         }
 
         $scope.storeSeat = function() {
