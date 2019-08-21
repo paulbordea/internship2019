@@ -1,4 +1,4 @@
-app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', '$location', 'userService',
+app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', '$location', '$rootScope', 'userService',
     function($scope, $http, $routeParams, $log, $location, $rootScope, userService) {
 
         if (!userService.isUserLogged()) {
@@ -45,11 +45,11 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
             }
 
         }
-        $scope.isConfirmed=function(){
-                return false;
-            }
+        $scope.isConfirmed = function() {
+            return false;
+        }
         $scope.storeSeat = function() {
-            $scope.isConfirmed=function(){
+            $scope.isConfirmed = function() {
                 return true;
             }
             $scope.selection = [];
@@ -62,26 +62,25 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
                     }
                 }
             }
-            $scope.nrSeats=$scope.selection.length;
-         var data=
-                {
-                movieId:$scope.movieId,
+            $scope.nrSeats = $scope.selection.length;
+            var data = {
+                movieId: $scope.movieId,
                 date: $scope.bookMovie.date,
-                time:$scope.bookMovie.time,
+                time: $scope.bookMovie.time,
                 seatsBooked: $scope.selection.join(','),
-                userId:$rootScope.userId
-                }
-            
+                userId: $rootScope.userId
+            }
+
             $http
-            .post('http://localhost:3000/bookingUser',data)
-            .then((response)=>{
-                console.log(response.data)
-            })
-            .catch((error)=>{
-                console.log(error);
-            })
-           /*  alert("Your seats are : " + $scope.selection.join(', '))
-            $location.path("/movies"); */
+                .post('http://localhost:3000/bookingUser', data)
+                .then((response) => {
+                    console.log(response.data)
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+                /*  alert("Your seats are : " + $scope.selection.join(', '))
+                 $location.path("/movies"); */
         }
     }
 ]);
