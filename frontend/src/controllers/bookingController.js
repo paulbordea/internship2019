@@ -1,5 +1,5 @@
-app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', '$location', '$rootScope', 'userService',
-    function($scope, $http, $routeParams, $log, $location, $rootScope, userService) {
+app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', '$location', '$window', 'userService',
+    function($scope, $http, $routeParams, $log, $location, $window, userService) {
 
         if (!userService.isUserLogged()) {
             $location.path('/movies');
@@ -63,16 +63,18 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
                 }
             }
             $scope.nrSeats = $scope.selection.length;
+
             var data = {
                 movieId: $scope.movieId,
                 date: $scope.bookMovie.date,
                 time: $scope.bookMovie.time,
-                seatsBooked: $scope.selection.join(','),
-                userId: $rootScope.userId
+                seatsBooked: $scope.selectedSeats.join(','),
+                userId: $window.sessionStorage.userId,
+                id: 123
             }
 
             $http
-                .post('http://localhost:3000/bookingUser', data)
+                .post('http://localhost:3000/bookings', data)
                 .then((response) => {
                     console.log(response.data)
                 })
