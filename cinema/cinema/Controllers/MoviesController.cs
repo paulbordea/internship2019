@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Cinema.Domain.Interfaces;
 using Cinema.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -17,13 +18,13 @@ namespace Cinema.Controllers
             _movieService = movieService;
         }
 
-        // GET: api/movie
+        // GET: api/movies
         [HttpGet]
-        public IEnumerable<Movie> GetMovies(DateTime date)
+        public Task<List<Movie>> GetMovies()
         {
             try
             {
-                return _movieService.GetMovies(date);
+                return _movieService.GetMovies();
             }
             catch (Exception exception)
             {

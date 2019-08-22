@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Cinema.DataAccess;
 using Cinema.Domain.Interfaces;
 using Cinema.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cinema.Services
 {
@@ -17,21 +19,9 @@ namespace Cinema.Services
         }
 
         //GET method
-        public IEnumerable<Movie> GetMovies(DateTime date)
+        public Task<List<Movie>> GetMovies()
         {
-            var query = (from movie in _cinemaContext.Movie
-                join movieSchedule in _cinemaContext.MovieSchedule
-                    on movie.Id equals movieSchedule.MovieId
-                        where movieSchedule.Date == date
-                select new Movie
-                {
-                    Id = movie.Id,
-                    Name = movie.Name,
-                    Description = movie.Description,
-                    Actors = movie.Actors
-                }).ToList();
-
-            return query;
+            return _cinemaContext.Movie.ToListAsync();
         }
 
         //GET by {id} method
@@ -58,7 +48,7 @@ namespace Cinema.Services
             if (entity != null)
             {
                 entity.Id = movie.Id;
-                entity.Name = movie.Name;
+                entity.Title = movie.Title;
                 entity.Description = movie.Description;
                 entity.Actors = movie.Actors;
             }
