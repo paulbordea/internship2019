@@ -20,7 +20,7 @@ namespace Cinema.DataAccess
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(@"Data Source=PC1328\SQLEXPRESS;Initial Catalog=cinema;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Server=.;Database=cinema;Trusted_Connection=True;MultipleActiveResultSets=True;Integrated Security=true;");
             }
         }
 

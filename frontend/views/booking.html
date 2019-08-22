@@ -285,7 +285,7 @@
                 <tr ng-repeat="row in seats" class="row">
                     <td class="SRow1">
                         <div class="itemSeat d-flex flex-row" ng-repeat="seat in row">
-                            <a ng-class="{'selected': seat.check, 'available': (!seat.check && seat.free),  'blocked': !seat.free}" ng-click="select(seat)">{{seat.seat_no}}</a>
+                            <a ng-class="{'selected': seat.check, 'available': (!seat.check && seat.free),  'blocked': !seat.free}" ng-click="selectSeat(seat)">{{seat.seat_no}}</a>
                         </div>
                     </td>
                 </tr>
