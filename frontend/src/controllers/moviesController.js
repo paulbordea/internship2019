@@ -6,6 +6,8 @@
             var result = [];
             angular.forEach(items, function(value) {
                 if (Date.parse(value.date) === Date.parse(movieDate)) {
+                    value.date=value.date.replace(/\//g,"-");
+                    console.log(value.date);
                     result.push(value);
                 }
             });
@@ -23,6 +25,7 @@
          }
           */
         console.log($scope.movieDate);
+        
 
         $scope.isUserLogged = userService.isUserLogged;
         $scope.movies = {};

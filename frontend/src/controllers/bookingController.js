@@ -52,25 +52,14 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
             $scope.isConfirmed = function() {
                 return true;
             }
-            $scope.selection = [];
-            for (var row = 0; row < $scope.seats.length; row++) {
-                for (var col = 0; col < $scope.seats[row].length; col++) {
-                    if ($scope.seats[row][col].check) {
-                        $scope.selection.push($scope.seats[row][col].seat_no);
-                        $scope.seats[row][col].free = false;
-                        $scope.seats[row][col].check = false;
-                    }
-                }
-            }
-            $scope.nrSeats = $scope.selection.length;
-
+            $scope.nrSeats = $scope.selectedSeats.length;
             var data = {
                 movieId: $scope.movieId,
                 date: $scope.bookMovie.date,
                 time: $scope.bookMovie.time,
                 seatsBooked: $scope.selectedSeats.join(','),
                 userId: $window.sessionStorage.userId,
-                id: 123
+                movieTitle: $scope.bookMovie.title
             }
 
             $http
@@ -81,8 +70,7 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
                 .catch((error) => {
                     console.log(error);
                 })
-                /*  alert("Your seats are : " + $scope.selection.join(', '))
-                 $location.path("/movies"); */
+               
         }
     }
 ]);

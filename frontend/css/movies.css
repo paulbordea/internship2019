@@ -20,12 +20,16 @@
 	background-color:transparent;
 	color: #e0661f;
 	font-weight: bold;
+	width:90px;
+	margin-left:-30px;
 }
 .btn-book{
 	border: 3px solid #c92f44 !important;
 	background-color:transparent;
 	color: #c92f44;
 	font-weight:bold;
+	margin-left:60px;
+	width:90px;
 }
 .date-select{
     font-family: 'Patrick',cursive;
@@ -44,69 +48,6 @@ font-size: 20px;
 .table td{
 	border-top: none !important;
 }
-/*
-@media only screen and (max-width: 760px),
-(min-device-width: 768px) and (max-device-width: 1024px) {
-
-	
-		table, thead, tbody, th, td, tr {
-			display: block;
-			
-		}
-		thead tr {
-			position: absolute;
-			top: -9999px;
-			left: -9999px;
-		}
-        .table td{
-            padding-left: 165px;
-            padding-top: 1px;
-            padding-right: 1px;
-			padding-bottom: 1px;
-			height:90px;
-			font-size:17px;
-			border-top: 1px solid white !important
-        
-		}
-		
-    tr {
-      margin: 0 0 1rem 0;
-    }
-      
-    
-    
-		td {
-			
-			border: none;
-		
-			position: relative;
-			padding-left: 50%;
-		}
-
-		td:before {
-			
-			position: absolute;
-		
-			top: 0;
-			left: 6px;
-			width: 45%;
-			padding-right: 10px;
-			white-space: nowrap;
-		}
-
-		
-	
-		
-		td:nth-of-type(1):before { content: "Title"; color:white;margin-top:25px;}
-		
-		td:nth-of-type(2):before { content: "Time";color:white; margin-top:25px;}
-		td:nth-of-type(3):before { content: "Room"; color:white;margin-top:25px;}
-     
-
-		td:nth-of-type(4):before { content: ""; }
-		td:nth-of-type(5):before { content: ""; }
-	
-	} */
 
 .styling{
 	

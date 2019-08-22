@@ -7,35 +7,31 @@
                     <!-- <div class="date-select col-md-3">Select a date</div> -->
 
 
-                    <div class="control col-md-10 mx-auto">
-                        <laber for="date-birth" class="date-select">Select a date</laber>
-                        <input id="date-birth" class="form-control col-md-5  " type="date" style="margin-left:20px; width:200px" ng-model="movieDate"></div>
+                    <div class="control col-md-12 text-center mx-auto">
+                        <label for="date-birth" class="date-select">Select a date</laber>
+                        <input id="date-birth" class="form-control col-md-5  " type="date"  ng-model="movieDate"></div>
 
                 </div>
-                <div class="row" ng-if="clicked">
-                    <p class="date-select">
-
-                        Date : {{ movieDate | date: 'fullDate' }}</p>
-                </div>
+                
 
             </div>
         </div>
 
         <div class="row">
 
-            <table class="table  table-borderless">
+            <table class="table mx-auto table-borderless">
                 <thead>
                     <tr>
                         <th>Movie</th>
                         <th>Start hour</th>
                         <th>Room</th>
                         <th>Details</th>
-                        <th>Book</th>
+                         <th>Book</th>
                     </tr>
                 </thead>
                 <tbody role="rowgroup">
                     <tr role="row" ng-repeat="movie in movies | dateFilter: movieDate ">
-                        <td style="width:auto;">
+                        <td style="width:auto;padding-left:0px">
                             <p class="movie-title"><img ng-src="../images/{{movie.src}}" class="movie-image">{{movie.title}}</p>
                         </td>
                         </td>
@@ -47,9 +43,10 @@
                         <td style="width:auto;">
                             <p class="movie-title movie-attr">{{movie.room}}</p>
                         </td>
-                        <td><button class="btn btn-about" ng-click="openMovieDetails(movie.id)">About</button></td>
-                        <td><button class="btn btn-book" ng-disabled="!isUserLogged()" ng-click="bookMovie(movie.id)">Book</button>
-                        <p ng-if="!isUserLogged()" style="color:white;" >Only logged users can book a movie! Please Log In!</p></td>
+                        <td colspan="2" style="padding-left:50px"><button class="btn btn-about" ng-click="openMovieDetails(movie.id)">About</button>
+                        <button class="btn btn-book" ng-disabled="!isUserLogged()" ng-click="bookMovie(movie.id)">Book</button></td>
+                        <!-- <td><button class="btn btn-book" ng-disabled="!isUserLogged()" ng-click="bookMovie(movie.id)">Book</button>
+                        <p ng-if="!isUserLogged()" style="color:white;" >Only logged users can book a movie! Please Log In!</p></td> -->
                     </tr>
                 </tbody>
             </table>
@@ -74,7 +71,10 @@
     }
     
      
-    
+    #date-birth{
+        margin-left:20px;
+         width:200px
+    }
     .table td {
         text-align: center;
         border-top: none !important;
@@ -82,7 +82,14 @@
     
     @media only screen and (max-width: 760px),
     (min-device-width: 768px) and (max-device-width: 1024px) {
+        .table{
+            width:90% !important;
+        }
         /* Force table to not be like tables anymore */
+        .btn-book, .btn-about{
+            margin-top:10px;
+            margin-bottom: 10px;
+        }
         .movie-title {
             font-size: 14px;
         }
@@ -115,10 +122,11 @@
             padding-top: 1px;
             padding-right: 1px;
             padding-bottom: 1px;
-            border-top: 1px solid white !important;
+            border-top: 1px solid black !important;
         }
         tr {
             margin: 0 0 1rem 0;
+               border-top: 2px solid black;
         }
         td {
             /* Behave  like a "row" */
@@ -142,10 +150,12 @@
           You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
           */
         td:nth-of-type(1):before {
-            content: "Movie";
+            content: "";
             margin-left: -25px;
             color:white;
             margin-top:25px;
+         
+         
         }
         td:nth-of-type(2):before {
             content: "Start";
@@ -162,8 +172,8 @@
         td:nth-of-type(4):before {
             content: "";
         }
-        td:nth-of-type(5):before {
+       /*  td:nth-of-type(5):before {
             content: "";
-        }
+        } */
     }
 </style>
