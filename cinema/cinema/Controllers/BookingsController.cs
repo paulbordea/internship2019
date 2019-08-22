@@ -11,10 +11,10 @@ namespace Cinema.Controllers
     [ApiController]
     public class BookingController : Controller
     {
-        private readonly IBookingsService _bookingService;
-        public BookingController(IBookingsService bookingService)
+        private readonly IBookingsService _bookingsService;
+        public BookingController(IBookingsService bookingsService)
         {
-            _bookingService = bookingService;
+            _bookingsService = bookingsService;
         }
 
         // GET: api/booking
@@ -23,7 +23,7 @@ namespace Cinema.Controllers
         {
             try
             {
-                return _bookingService.GetBookings();
+                return _bookingsService.GetBookings();
 
             }
             catch (Exception exception)

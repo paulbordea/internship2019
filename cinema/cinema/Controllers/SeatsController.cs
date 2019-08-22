@@ -10,20 +10,19 @@ namespace Cinema.Controllers
     [ApiController]
     public class SeatsController : Controller
     {
-        private readonly ISeatsService _seatService;
-        public SeatsController(ISeatsService seatService)
+        private readonly ISeatsService _seatsService;
+        public SeatsController(ISeatsService seatsService)
         {
-            _seatService = seatService;
+            _seatsService = seatsService;
         }
 
         // GET: api/seat
-        [HttpGet]
-        public IEnumerable<bool> GetSeats(MovieSchedule schedule)
+        [HttpGet("{movieId}/{*date}")]
+        public IEnumerable<Seat> GetSeats(int movieId, DateTime date)
         {
             try
             {
-                //return _seatService.GetSeats(schedule);
-                return null;
+                return _seatsService.GetSeats(movieId, date);
             }
 
             catch (Exception exception)

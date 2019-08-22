@@ -12,10 +12,10 @@ namespace Cinema.Controllers
     [ApiController]
     public class MoviesController : Controller
     {
-        private readonly IMoviesService _movieService;
-        public MoviesController(IMoviesService movieService)
+        private readonly IMoviesService _moviesService;
+        public MoviesController(IMoviesService moviesService)
         {
-            _movieService = movieService;
+            _moviesService = moviesService;
         }
 
         // GET: api/movies
@@ -24,7 +24,7 @@ namespace Cinema.Controllers
         {
             try
             {
-                return _movieService.GetMovies();
+                return _moviesService.GetMovies();
             }
             catch (Exception exception)
             {
@@ -38,7 +38,7 @@ namespace Cinema.Controllers
         {
             try
             {
-                return _movieService.GetMovie(id);
+                return _moviesService.GetMovie(id);
             }
             catch (NullReferenceException exception)
             {
@@ -53,7 +53,7 @@ namespace Cinema.Controllers
         {
             try
             {
-                _movieService.PostMovie(movie);
+                _moviesService.PostMovie(movie);
             }
             catch (Exception exception)
             {
@@ -67,7 +67,7 @@ namespace Cinema.Controllers
         {
             try
             {
-                _movieService.PutMovie(id, movie);
+                _moviesService.PutMovie(id, movie);
             }
             catch (Exception exception)
             {
@@ -81,7 +81,7 @@ namespace Cinema.Controllers
         {
             try
             {
-                _movieService.DeleteMovie(id);
+                _moviesService.DeleteMovie(id);
             }
             catch (Exception exception)
             {

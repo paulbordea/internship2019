@@ -1,10 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Cinema.Domain.Interfaces;
-using System.Threading.Tasks;
 using Cinema.Domain.Models;
 using Cinema.DataAccess;
-using Microsoft.EntityFrameworkCore;
 
 namespace Cinema.Services
 {
@@ -16,7 +14,6 @@ namespace Cinema.Services
             _cinemaContext = cinemaContext;
         }
 
-        //GET
         public List<Booking> GetBookings()
         {
             return _cinemaContext.Booking.ToList();
