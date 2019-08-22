@@ -1,17 +1,13 @@
 (function() {
     'use strict';
 
-    app.controller('homeCtrl', function($scope, $rootScope, $location, ngDialog) {
-        $scope.isUserAdmin = () => {            
-            return $scope.isUserLoggedIn && $scope.isAdmin;
-        };
-        $scope.isUserLogged=()=>{
-            return $scope.isUserLoggedIn;
-        }
+    app.controller('homeCtrl', function($scope, $location, $window, ngDialog, userService) {
+        $scope.isUserAdmin = userService.isUserAdmin;
+        $scope.isUserLogged = userService.isUserLoggedIn;
 
         $scope.loginButtonText = () => {
-            if ($scope.isUserLoggedIn) {
-                return `Logout (${$scope.loggedInUser})`;
+            if ($window.sessionStorage.isUserLoggedIn === "true") {
+                return `Logout (${$window.sessionStorage.loggedInUser})`;
             } else {
                 return `Login`;
             }
@@ -23,10 +19,10 @@
 
         $scope.openLoginModal = function() {
 
-            if ($scope.isUserLoggedIn === true) {
-                $rootScope.isUserLoggedIn = false;
-                $rootScope.isUserAdmin = false;
-                $rootScope.loggedInUser = undefined;
+            if ($window.sessionStorage.isUserLoggedIn === "true") {
+                $window.sessionStorage.isUserLoggedIn = undefined;
+                $window.sessionStorage.isAdmin = undefined;
+                $window.sessionStorage.loggedInUser = undefined;
                 $location.path("/");
             } else {
                 ngDialog.open({
@@ -35,10 +31,10 @@
                     scope: $scope,
                     controller: 'loginCtrl',
                     width: 330,
-                    height: 'auto',              
+                    height: 'auto',
                     showClose: true
                 });
-            }            
+            }
         };
     })
 }());

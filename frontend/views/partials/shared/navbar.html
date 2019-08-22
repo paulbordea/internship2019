@@ -1,6 +1,6 @@
 <div class="continut">
 
-    <nav class="navbar  navbar-expand-md" id="navigare" ng-class="{ 'navbar-admin' :isCurrentRoute('/adminpage'),'navbar-dark bg-dark': !isCurrentRoute('/adminpage')}">
+    <nav class="navbar  navbar-expand-md" id="navigare" ng-class="{ 'navbar-admin' :isCurrentRoute('/adminpage')|| isCurrentRoute('/bookingsAdmin'),'navbar-dark bg-dark': !isCurrentRoute('/adminpage')}">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="../../../images/logos/logo_transparent-small.png" style="height:90px; width:150px" alt="">
@@ -23,6 +23,9 @@
                    
                     <li ng-if="isUserAdmin()" class="nav-item mystyle" ng-class="{'active': isCurrentRoute('/adminpage')}">
                         <a class="nav-link" href="/index.html#!/adminpage"><i class="fa fa-edit"></i> Edit </a>
+                    </li>
+                    <li ng-if="isUserAdmin()" class="nav-item mystyle" ng-class="{'active': isCurrentRoute('/bookingsAdmin')}">
+                        <a class="nav-link" href="/index.html#!/bookingsAdmin"><i class="fa fa-edit"></i>Bookings</a>
                     </li>
                     <li class="nav-item mystyle">
                      
