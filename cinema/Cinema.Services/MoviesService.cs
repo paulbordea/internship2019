@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Cinema.DataAccess;
 using Cinema.Domain.Interfaces;
 using Cinema.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace Cinema.Services
 {
@@ -18,20 +16,17 @@ namespace Cinema.Services
             _cinemaContext = cinemaContext;
         }
 
-        //GET method
         public List<Movie> GetMovies()
         {
             return _cinemaContext.Movie.ToList();
         }
 
-        //GET by {id} method
         public ActionResult<Movie> GetMovie(int id)
         {
             var firstOrDefault = _cinemaContext.Movie.FirstOrDefault(e => e.Id == id);
             return firstOrDefault;
         }
 
-        //POST method
         public void PostMovie(Movie movie)
         {
             if (_cinemaContext != null)
@@ -41,7 +36,6 @@ namespace Cinema.Services
             }
         }
 
-        //PUT method
         public void PutMovie(int id, [FromBody]Movie movie)
         {
             var entity = _cinemaContext.Movie.FirstOrDefault(e => e.Id == id);
@@ -56,7 +50,6 @@ namespace Cinema.Services
             _cinemaContext.SaveChanges();
         }
 
-        //DELETE method
         public void DeleteMovie(int id)
         {
             _cinemaContext.Movie.Remove(_cinemaContext.Movie.FirstOrDefault(e => e.Id == id) ?? throw new InvalidOperationException());

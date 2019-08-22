@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Threading.Tasks;
 using Cinema.DataAccess;
 using Cinema.Domain.Interfaces;
 using Cinema.Domain.Models;
 using Microsoft.EntityFrameworkCore;
-using Remotion.Linq.Clauses;
 
 namespace Cinema.Services
 {
@@ -20,25 +16,27 @@ namespace Cinema.Services
             _cinemaContext = cinemaContext;
         }
 
-        //GET
-        public IEnumerable<bool> GetSeats(MovieSchedule schedule)
+        public IEnumerable<Seat> GetSeats(int movieId, DateTime date)
         {
-            IEnumerable<bool> seatBools = new List<bool>();
+            //IEnumerable<bool> seatBools = new List<bool>();
 
-            var query = from seat in _cinemaContext.Seat
-                join movieSchedule in _cinemaContext.MovieSchedule
-                    on seat.MovieId equals movieSchedule.MovieId
-                        where (seat.Date == movieSchedule.Date && seat.Time == movieSchedule.Time)
-                select new
-                {
+            //var query = from seat in _cinemaContext.Seat
+            //    join movieSchedule in _cinemaContext.MovieSchedule
+            //        on seat.MovieId equals movieSchedule.MovieId
+            //            where (seat.Date == movieSchedule.Date && seat.Time == movieSchedule.Time)
+            //    select new
+            //    {
 
-                };
+            //    };
 
-            //bool[] seatBools;
 
-            var listAsync = _cinemaContext.Seat.ToListAsync();
+            //var listAsync = _cinemaContext.Seat.ToListAsync();
 
-            return seatBools;
+            //return seatBools;
+
+
+            var query = _cinemaContext.Seat.Where(x => x.MovieId == movieId && x.Date == date).ToList();
+            return query;
         }
     }
 }
