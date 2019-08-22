@@ -20,7 +20,7 @@ namespace Cinema.Controllers
 
         // GET: api/user
         [HttpGet]
-        public Task<List<User>> GetUsers()
+        public List<User> GetUsers()
         {
             try
             {

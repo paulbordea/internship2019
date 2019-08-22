@@ -19,9 +19,9 @@ namespace Cinema.Services
         }
 
         //GET method
-        public Task<List<User>> GetUsers()
+        public List<User> GetUsers()
         {
-            return _cinemaContext.User.ToListAsync();
+            return _cinemaContext.User.ToList();
         }
 
         //GET by {id}

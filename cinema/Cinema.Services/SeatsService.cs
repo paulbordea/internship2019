@@ -28,7 +28,7 @@ namespace Cinema.Services
             var query = from seat in _cinemaContext.Seat
                 join movieSchedule in _cinemaContext.MovieSchedule
                     on seat.MovieId equals movieSchedule.MovieId
-                        where (seat.Date == movieSchedule.Date && seat.Hour == movieSchedule.Hour)
+                        where (seat.Date == movieSchedule.Date && seat.Time == movieSchedule.Time)
                 select new
                 {
 

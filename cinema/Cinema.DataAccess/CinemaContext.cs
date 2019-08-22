@@ -1,6 +1,5 @@
-﻿
+﻿using Cinema.Domain.Models;
 using Microsoft.EntityFrameworkCore;
-using Cinema.Domain.Models;
 
 namespace Cinema.DataAccess
 {
@@ -30,9 +29,7 @@ namespace Cinema.DataAccess
 
             modelBuilder.Entity<Booking>(entity =>
             {
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Date).HasColumnType("date");
 
@@ -51,13 +48,27 @@ namespace Cinema.DataAccess
 
             modelBuilder.Entity<Movie>(entity =>
             {
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
-                entity.Property(e => e.Description).IsRequired();
+                entity.Property(e => e.Actors)
+                    .IsRequired()
+                    .IsUnicode(false);
 
-                entity.Property(e => e.Name)
+                entity.Property(e => e.Description)
+                    .IsRequired()
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Room)
+                    .IsRequired()
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Src)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Title)
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
@@ -65,11 +76,11 @@ namespace Cinema.DataAccess
 
             modelBuilder.Entity<MovieSchedule>(entity =>
             {
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Date).HasColumnType("date");
+
+                entity.Property(e => e.Time).HasColumnType("time(0)");
 
                 entity.HasOne(d => d.Movie)
                     .WithMany(p => p.MovieSchedule)
@@ -86,6 +97,10 @@ namespace Cinema.DataAccess
 
                 entity.Property(e => e.Date).HasColumnType("date");
 
+                entity.Property(e => e.MovieId).ValueGeneratedOnAdd();
+
+                entity.Property(e => e.Time).HasColumnType("time(0)");
+
                 entity.HasOne(d => d.Movie)
                     .WithMany(p => p.Seat)
                     .HasForeignKey(d => d.MovieId)
@@ -95,9 +110,7 @@ namespace Cinema.DataAccess
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Email)
                     .IsRequired()

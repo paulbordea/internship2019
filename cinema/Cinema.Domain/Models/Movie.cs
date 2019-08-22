@@ -12,9 +12,12 @@ namespace Cinema.Domain.Models
         }
 
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Title { get; set; }
         public string Description { get; set; }
         public string Actors { get; set; }
+        public string Room { get; set; }
+        public int Year { get; set; }
+        public string Src { get; set; }
 
         public ICollection<Booking> Booking { get; set; }
         public ICollection<MovieSchedule> MovieSchedule { get; set; }
