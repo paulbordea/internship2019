@@ -29,13 +29,18 @@
                 selected: {}
             };
 
-            $http.get("http://localhost:3000/movies")
-                .then((response) => {
-                    $scope.model.movies = response.data;
-                })
-                .catch((error) => {
-                    $log.log("Error fetching movies: " + JSON.stringify(error));
-                });
+            var loadMovies = () => {
+                $http.get("http://localhost:3000/movies")
+                    .then((response) => {
+                        $scope.model.movies = response.data;
+                    })
+                    .catch((error) => {
+                        $log.log("Error fetching movies: " + JSON.stringify(error));
+                    });
+            };
+
+            loadMovies();
+
             $scope.uploadme = {};
             $scope.uploadme.src = "";
             $scope.addMovie = function() {
@@ -71,14 +76,27 @@
                 if (movie.id === $scope.model.selected.id) return 'edit';
                 else return 'display';
             };
+
             $scope.editMovie = function(movie) {
                 $scope.model.selected = angular.copy(movie);
             };
-            $scope.saveMovie = function(id) {
+
+            $scope.saveMovie = function(movie) {
                 console.log("Saving movie");
-                $scope.model.movies[id] = angular.copy($scope.model.selected);
+                //$scope.model.movies[id] = angular.copy($scope.model.selected);
+
+                $http.put(`http://localhost:3000/movies/${movie.id}`, movie)
+                    .then((response) => {
+                        console.log(response.data);
+                        loadMovies();
+                    })
+                    .catch((error) => {
+                        $log.log("Error fetching movies: " + JSON.stringify(error));
+                    });
+
                 $scope.reset();
             };
+
             $scope.deleteMovie = function(i) {
                 $http
                     .delete(`http://localhost:3000/movies/${$scope.model.movies[i].id}`)
