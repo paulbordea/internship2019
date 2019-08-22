@@ -7,7 +7,7 @@ namespace Cinema.Domain.Interfaces
 {
     public interface IMoviesService
     {
-        Task<List<Movie>> GetMovies();
+        List<Movie> GetMovies();
         ActionResult<Movie> GetMovie(int id);
         void PostMovie(Movie movie);
         void PutMovie(int id, [FromBody] Movie movie);

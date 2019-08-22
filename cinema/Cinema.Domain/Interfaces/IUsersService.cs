@@ -7,7 +7,7 @@ namespace Cinema.Domain.Interfaces
 {
     public interface IUsersService
     {
-        Task<List<User>> GetUsers();
+        List<User> GetUsers();
         ActionResult<User> GetUser(int id);
         ActionResult<User> GetUserByCredentials(string username, string password);
         void PostUser([FromBody] User user);

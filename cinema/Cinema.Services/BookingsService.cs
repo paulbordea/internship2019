@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Cinema.Domain.Interfaces;
 using System.Threading.Tasks;
 using Cinema.Domain.Models;
@@ -16,9 +17,9 @@ namespace Cinema.Services
         }
 
         //GET
-        public Task<List<Booking>> GetBookings()
+        public List<Booking> GetBookings()
         {
-            return _cinemaContext.Booking.ToListAsync();
+            return _cinemaContext.Booking.ToList();
         }
     }
 }

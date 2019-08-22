@@ -6,6 +6,6 @@ namespace Cinema.Domain.Interfaces
 {
     public interface IBookingsService
     {
-        Task<List<Booking>> GetBookings();
+        List<Booking> GetBookings();
     }
 }

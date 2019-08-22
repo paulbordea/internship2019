@@ -19,9 +19,9 @@ namespace Cinema.Services
         }
 
         //GET method
-        public Task<List<Movie>> GetMovies()
+        public List<Movie> GetMovies()
         {
-            return _cinemaContext.Movie.ToListAsync();
+            return _cinemaContext.Movie.ToList();
         }
 
         //GET by {id} method

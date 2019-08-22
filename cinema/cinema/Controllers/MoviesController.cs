@@ -20,7 +20,7 @@ namespace Cinema.Controllers
 
         // GET: api/movies
         [HttpGet]
-        public Task<List<Movie>> GetMovies()
+        public List<Movie> GetMovies()
         {
             try
             {

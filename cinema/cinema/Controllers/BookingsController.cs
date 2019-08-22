@@ -19,7 +19,7 @@ namespace Cinema.Controllers
 
         // GET: api/booking
         [HttpGet]
-        public Task<List<Booking>> GetBookings()
+        public List<Booking> GetBookings()
         {
             try
             {
