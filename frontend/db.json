@@ -155,6 +155,114 @@
       "userId": "3",
       "movieTitle": "Dora and The Lost City of Gold",
       "id": 14
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "16,17",
+      "userId": "3",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 15
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "20,39,18",
+      "userId": "3",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 16
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "7,17",
+      "userId": "1",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 17
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "",
+      "userId": "1",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 18
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "16",
+      "userId": "1",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 19
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "45,35",
+      "userId": "1",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 20
+    },
+    {
+      "movieId": "5",
+      "date": "8/13/2019",
+      "time": "16:00",
+      "seatsBooked": "17,27",
+      "userId": "1",
+      "movieTitle": "Alita: Battle Angel",
+      "id": 21
+    },
+    {
+      "movieId": "5",
+      "date": "8/13/2019",
+      "time": "16:00",
+      "seatsBooked": "26,27",
+      "userId": "1",
+      "movieTitle": "Alita: Battle Angel",
+      "id": 22
+    },
+    {
+      "movieId": "5",
+      "date": "8/13/2019",
+      "time": "16:00",
+      "seatsBooked": "5,15",
+      "userId": "1",
+      "movieTitle": "Alita: Battle Angel",
+      "id": 23
+    },
+    {
+      "movieId": "5",
+      "date": "8/13/2019",
+      "time": "16:00",
+      "seatsBooked": "16,26",
+      "userId": "1",
+      "movieTitle": "Alita: Battle Angel",
+      "id": 24
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "12,22",
+      "userId": "1",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 25
+    },
+    {
+      "movieId": "6",
+      "date": "8/13/2019",
+      "time": "14:00",
+      "seatsBooked": "34,25,26",
+      "userId": "1",
+      "movieTitle": "The LightHouse",
+      "id": 26
     }
   ],
   "seats": [

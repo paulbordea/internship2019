@@ -1,5 +1,8 @@
 <div class="background">
     <div class="continut flex-column ">
+    <div class="text-center justify-content-center">
+    <p style="font-size:25px;font-weight:bold">Bookings</p> 
+    </div>
         <div class="container mx-auto margins">
             <div ng-controller="bookingAdmin">
                 <table class="table table-hover" role="table">
@@ -87,6 +90,7 @@ th{
         }
         tr {
             margin: 0 0 1rem 0;
+            border-bottom: 2px dotted black !important;
         }
         td {
             /* Behave  like a "row" */
@@ -113,30 +117,35 @@ th{
             content: "Movie";
             margin-left: -25px;
             color:black;
+            font-weight:bold;
      
         }
         td:nth-of-type(2):before {
             content: "Date";
             margin-left: -25px;
             color:black;
+            font-weight:bold;
     
         }
         td:nth-of-type(3):before {
             content: "Time";
             margin-left: -25px;
             color:black;
+            font-weight:bold;
          
         }
         td:nth-of-type(4):before {
             content: "Seats";
             margin-left:-25px;
-               color:black;
+            color:black;
+            font-weight:bold;
       
         }
         td:nth-of-type(5):before {
             content: "User Id";
-               color:black;
-               margin-left:-25px;
+            color:black;
+            font-weight:bold;
+            margin-left:-25px;
          
         }
     }

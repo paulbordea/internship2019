@@ -3,17 +3,15 @@
         <div class="row flex-column justify-content-center">
 
             <div class="form-group col-md-12 text-center mb-5">
-                <div class="row">
-                    <!-- <div class="date-select col-md-3">Select a date</div> -->
+              
+             
 
 
                     <div class="control col-md-12 text-center mx-auto">
-                        <label for="date-birth" class="date-select">Select a date</laber>
-                        <input id="date-birth" class="form-control col-md-5  " type="date"  ng-model="movieDate"></div>
+                        <label for="date-birth" class="date-select">Select a date</label>
+                        <input id="date-birth"  type="date" class="form-control" style="width:200px" ng-model="movieDate"></div>
 
-                </div>
-                
-
+               
             </div>
         </div>
 
@@ -26,7 +24,7 @@
                         <th>Start hour</th>
                         <th>Room</th>
                         <th>Details</th>
-                         <th>Book</th>
+                        <th>Book</th>
                     </tr>
                 </thead>
                 <tbody role="rowgroup">
@@ -37,14 +35,14 @@
                         </td>
                         <td style="width:auto;">
                             <p class="movie-title movie-attr">{{movie.time}}</p>
-                            <p ng-if="noEntries===true" class="movie-title">No movies found !</p>
+                         
                         </td>
 
                         <td style="width:auto;">
                             <p class="movie-title movie-attr">{{movie.room}}</p>
                         </td>
                         <td colspan="2" style="padding-left:50px"><button class="btn btn-about" ng-click="openMovieDetails(movie.id)">About</button>
-                        <button class="btn btn-book" ng-disabled="!isUserLogged()" ng-click="bookMovie(movie.id)">Book</button></td>
+                        <button class="btn btn-book" ng-disabled="!isUserLogged()" ng-click="bookMovie(movie.id)" title="You have to be logged in !">Book</button></td>
                         <!-- <td><button class="btn btn-book" ng-disabled="!isUserLogged()" ng-click="bookMovie(movie.id)">Book</button>
                         <p ng-if="!isUserLogged()" style="color:white;" >Only logged users can book a movie! Please Log In!</p></td> -->
                     </tr>
@@ -71,9 +69,10 @@
     }
     
      
-    #date-birth{
+    input [type="date"]{
         margin-left:20px;
-         width:200px
+         width:200px !important;
+         float:right;
     }
     .table td {
         text-align: center;

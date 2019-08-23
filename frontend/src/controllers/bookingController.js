@@ -1,5 +1,5 @@
-app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', '$location', '$window', 'userService',
-    function($scope, $http, $routeParams, $log, $location, $window, userService) {
+app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', '$location', '$window', 'userService','ngDialog',
+    function($scope, $http, $routeParams, $log, $location, $window, userService,ngDialog) {
 
         if (!userService.isUserLogged()) {
             $location.path('/movies');
@@ -65,12 +65,27 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
             $http
                 .post('http://localhost:3000/bookings', data)
                 .then((response) => {
-                    console.log(response.data)
+                   $scope.booking=response.data;
                 })
                 .catch((error) => {
                     console.log(error);
                 })
                
+      
+
+            let modalScope = $scope;
+       
+
+            ngDialog.open({
+                template: 'views/partials/modals/confirmation.html',
+                className: 'ngdialog-theme-default',
+                scope: modalScope,
+                controller: 'bookingController',
+                width: 600,
+                height: 'auto',
+                showClose: true
+            });
+        
         }
     }
 ]);

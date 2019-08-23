@@ -128,12 +128,13 @@
     }
     
     .screen {
-        height: 15px;
-        background-color: gray;
-        box-shadow: #aaa 3px solid;
+     
+        background-image: url("../../images/2.jpg");
+        background-size:cover;
+        height:80px;
+        width:250px;
         margin-top: 0px;
-        font-size: 12px;
-        text-align: center;
+
     }
     
     .btn-legend {
@@ -185,9 +186,9 @@
             display: block;
         }
         table a {
-            width: 25px;
-            height: 25px;
-            line-height: 25px;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
         }
         /* Hide table headers (but not display: none;, for accessibility) */
         thead tr {
@@ -196,15 +197,15 @@
             left: -9999px;
         }
         table .SRow1 {
-            margin-left: 30px;
+            margin:0 auto;
         }
         .table td {
             padding-top: 1px;
             padding-right: 1px;
             padding-bottom: 1px;
-            height: 40px;
+            height: auto;
             font-size: 17px;
-            border-top: 1px solid white !important
+       
         }
         tr {
             margin: 0 0 1rem 0;
@@ -278,7 +279,6 @@
                 <tr>
                     <td>
                         <div class="screen mx-auto">
-                            SCREEN
                         </div>
                     </td>
                 </tr>
@@ -309,39 +309,7 @@
 </div>
 
 
-<div ng-if="isConfirmed()">
-    <div class="container mt-5 mb-5 displaying" style="border: black 10px double">
-    <div class="col-md-6">
-        <div class="row text-center d-flex flex-column mt-5 mb-5">
-        <div class="col-md-10 mx-auto text-left">
-            <p class="confirmation"><strong style="color: red"> Movie :</strong> {{bookMovie.title}}</p>
-        </div>
-        <div class="col-md-10 mx-auto text-left">
-            <p class="confirmation"><strong style="color: red"> Date : </strong>{{bookMovie.date}}</p>
-        </div>
-        <div class="col-md-10 mx-auto text-left">
-            <p class="confirmation"><strong style="color: red"> No. of tickets : </strong> {{nrSeats}}</p>
-        </div>
-        <div class="col-md-10 mx-auto text-left">
-            <p class="confirmation"><strong style="color: red"> Seats chosen :</strong> {{selectedSeats.join(", ")}}</p>
-        </div>
-        <div class="col-md-10 mx-auto text-left">
-            <p class="confirmation"> <strong style="color: red">Total price:</strong> {{5*nrSeats}}$</p>
-        </div>
-        </div>
-        </div>
 
-      <div class="col-md-6 mt-5 mb-5">
-            <p class="confirmation">Thank You for your order!</p>
-            <p class="confirmation"> You can get your tickets from the pay office! </p>
-            <div class="col-md-9 mx-auto">
-        <img src="../../images/verif.png">
-        </div>
-        </div>
-        
-        </div>
-    </div>
-</div>
 
 <style>
 .confirmation{
