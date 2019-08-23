@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using Cinema.DataAccess;
 using Cinema.Domain.Interfaces;
 using Cinema.Domain.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace Cinema.Services
 {
@@ -16,27 +15,36 @@ namespace Cinema.Services
             _cinemaContext = cinemaContext;
         }
 
-        public IEnumerable<Seat> GetSeats(int movieId, DateTime date)
+        public ArrayList GetSeats(int movieId, DateTime date)
         {
-            //IEnumerable<bool> seatBools = new List<bool>();
+            ArrayList seatsAvailabilityMatrix = null;
 
-            //var query = from seat in _cinemaContext.Seat
-            //    join movieSchedule in _cinemaContext.MovieSchedule
-            //        on seat.MovieId equals movieSchedule.MovieId
-            //            where (seat.Date == movieSchedule.Date && seat.Time == movieSchedule.Time)
-            //    select new
-            //    {
+            var seatsAvailableFromDb = _cinemaContext.Seat.Where(x => x.MovieId == movieId && x.Date == date).ToList();
+            if (seatsAvailableFromDb.Count == 0)
+            {
+                seatsAvailabilityMatrix = generateSeats();
+            }
 
-            //    };
-
-
-            //var listAsync = _cinemaContext.Seat.ToListAsync();
-
-            //return seatBools;
-
-
-            var query = _cinemaContext.Seat.Where(x => x.MovieId == movieId && x.Date == date).ToList();
-            return query;
+            return seatsAvailabilityMatrix;
         }
+
+        private ArrayList generateSeats()
+        {
+            ArrayList matrix = new ArrayList();
+            int noLines = 10;
+
+            for (int i = 0; i < noLines; i++)
+            {
+                ArrayList rowWithSeats = new ArrayList();
+
+                for (int j = i * noLines; j < (i + 1) * noLines; j++)
+                {
+                    rowWithSeats.Add(new SeatAvailability { Free = true, Seat_no = j + 1 });
+                }
+                matrix.Add(rowWithSeats.Clone());
+            }
+            return matrix;
+        }
+
     }
 }

@@ -17,12 +17,28 @@ namespace Cinema.Controllers
         }
 
         // GET: api/seat
+        //[HttpGet("{movieId}/{*date}")]
+        //public IEnumerable<Seat> GetSeats(int movieId, DateTime date)
+        //{
+        //    try
+        //    {
+        //        return _seatsService.GetSeats(movieId, date);
+        //    }
+
+        //    catch (Exception exception)
+        //    {
+        //        throw exception;
+        //    }
+        //}
+
+
+        // GET: api/seat
         [HttpGet("{movieId}/{*date}")]
-        public IEnumerable<Seat> GetSeats(int movieId, DateTime date)
+        public JsonResult GetSeats(int movieId, DateTime date)
         {
             try
             {
-                return _seatsService.GetSeats(movieId, date);
+                return Json(_seatsService.GetSeats(movieId, date));
             }
 
             catch (Exception exception)
