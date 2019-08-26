@@ -57,7 +57,7 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
                 movieId: $scope.movieId,
                 date: $scope.bookMovie.date,
                 time: $scope.bookMovie.time,
-                seatsBooked: $scope.selectedSeats.join(','),
+                seatsBooked: $scope.selectedSeats.join(', '),
                 userId: $window.sessionStorage.userId,
                 movieTitle: $scope.bookMovie.title
             }
@@ -81,7 +81,7 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
                 className: 'ngdialog-theme-default',
                 scope: modalScope,
                 controller: 'bookingController',
-                width: 600,
+                width: 400,
                 height: 'auto',
                 showClose: true
             });

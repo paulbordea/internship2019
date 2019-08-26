@@ -263,6 +263,42 @@
       "userId": "1",
       "movieTitle": "The LightHouse",
       "id": 26
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "15,16",
+      "userId": "1",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 27
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "7, 17",
+      "userId": "3",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 28
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "",
+      "userId": "3",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 29
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "97",
+      "userId": "3",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 30
     }
   ],
   "seats": [
