@@ -31,47 +31,292 @@
   ],
   "bookings": [
     {
-      "movieId": "1",
-      "date": "8/12/2019",
-      "time": "12:00",
-      "seatsBooked": "16, 17",
-      "userId": "2"
+      "movieId": "5",
+      "date": "08/13/2019",
+      "time": "16:00",
+      "seatsBooked": "6,7",
+      "userId": "1",
+      "movieTitle": "Alita: Battle Angel",
+      "id": 1
+    },
+    {
+      "movieId": "6",
+      "date": "08/13/2019",
+      "time": "14:00",
+      "seatsBooked": "66,65,64",
+      "userId": "3",
+      "movieTitle": "The LightHouse",
+      "id": 2
+    },
+    {
+      "movieId": "6",
+      "date": "08/13/2019",
+      "time": "14:00",
+      "seatsBooked": "6,16,26",
+      "userId": "3",
+      "movieTitle": "The LightHouse",
+      "id": 3
+    },
+    {
+      "movieId": "7",
+      "date": "08/14/2019",
+      "time": "18:00",
+      "seatsBooked": "7,17,27",
+      "userId": "3",
+      "movieTitle": "Bohemian Rhapsody",
+      "id": 4
     },
     {
       "movieId": "2",
-      "date": "8/12/2019",
-      "time": "12:00",
-      "seatsBooked": "16, 17",
-      "userId": "2"
+      "date": "08/12/2019",
+      "time": "17:00",
+      "seatsBooked": "6,16",
+      "userId": "3",
+      "movieTitle": "Fast Color",
+      "id": 5
     },
     {
-      "movieId": "5",
-      "date": "8/13/2019",
-      "time": "16:00",
-      "seatsBooked": "56,57,58",
-      "userId": 3
+      "movieId": "4",
+      "date": "08/13/2019",
+      "time": "15:00",
+      "seatsBooked": "9,10,20,30,50",
+      "userId": "3",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 6
     },
     {
-      "movie": "The Lion King",
-      "date": "8/13/2019",
-      "time": "12:00",
-      "seats": "16,14,20",
-      "userId": "2"
+      "movieId": "4",
+      "date": "08/13/2019",
+      "time": "15:00",
+      "seatsBooked": "7,17",
+      "userId": "3",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 7
     },
     {
-      "movie": "The LightHouse",
-      "date": "8/12/2019",
-      "time": "11:00",
-      "seats": "20,22,23",
-      "userId": "1"
+      "movieId": "4",
+      "date": "08/13/2019",
+      "time": "15:00",
+      "seatsBooked": "15,16,17",
+      "userId": "3",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 8
     },
     {
       "movieId": "4",
       "date": "8/13/2019",
       "time": "15:00",
-      "seatsBooked": "27,25",
-      "userId": "4",
-      "id": 123
+      "seatsBooked": "27,26,25",
+      "userId": "3",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 9
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "20,19,18",
+      "userId": "3",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 10
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "7,18,19",
+      "userId": "1",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 11
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "16,17,27,35,36,45,55",
+      "userId": "1",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 12
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "32,42,35",
+      "userId": "1",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 13
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "7,17",
+      "userId": "3",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 14
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "16,17",
+      "userId": "3",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 15
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "20,39,18",
+      "userId": "3",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 16
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "7,17",
+      "userId": "1",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 17
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "",
+      "userId": "1",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 18
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "16",
+      "userId": "1",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 19
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "45,35",
+      "userId": "1",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 20
+    },
+    {
+      "movieId": "5",
+      "date": "8/13/2019",
+      "time": "16:00",
+      "seatsBooked": "17,27",
+      "userId": "1",
+      "movieTitle": "Alita: Battle Angel",
+      "id": 21
+    },
+    {
+      "movieId": "5",
+      "date": "8/13/2019",
+      "time": "16:00",
+      "seatsBooked": "26,27",
+      "userId": "1",
+      "movieTitle": "Alita: Battle Angel",
+      "id": 22
+    },
+    {
+      "movieId": "5",
+      "date": "8/13/2019",
+      "time": "16:00",
+      "seatsBooked": "5,15",
+      "userId": "1",
+      "movieTitle": "Alita: Battle Angel",
+      "id": 23
+    },
+    {
+      "movieId": "5",
+      "date": "8/13/2019",
+      "time": "16:00",
+      "seatsBooked": "16,26",
+      "userId": "1",
+      "movieTitle": "Alita: Battle Angel",
+      "id": 24
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "12,22",
+      "userId": "1",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 25
+    },
+    {
+      "movieId": "6",
+      "date": "8/13/2019",
+      "time": "14:00",
+      "seatsBooked": "34,25,26",
+      "userId": "1",
+      "movieTitle": "The LightHouse",
+      "id": 26
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "15,16",
+      "userId": "1",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 27
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "7, 17",
+      "userId": "3",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 28
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "",
+      "userId": "3",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 29
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "97",
+      "userId": "3",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 30
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "17",
+      "userId": "1",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 31
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "35, 45",
+      "userId": "1",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 32
     }
   ],
   "seats": [
@@ -500,8 +745,8 @@
     {
       "id": "1",
       "title": "Beauty and the beast",
-      "date": "8/10/2019",
-      "time": "12:00",
+      "date": "8/11/2019",
+      "time": "13:00",
       "room": "room 3",
       "actors": "Emma Watson,Dan Stevens",
       "year": "2018",
@@ -573,6 +818,17 @@
       "year": "2018",
       "description": "The story of the legendary rock band Queen and lead singer Freddie Mercury, leading up to their famous performance at Live Aid (1985).",
       "src": "BohemianRhapsody.jpg"
+    },
+    {
+      "id": 8,
+      "title": "A Star is Born",
+      "date": "8/14/2019",
+      "time": "14:00",
+      "room": "room 3",
+      "actors": "Lady Gaga, Bradley Cooper",
+      "year": "2018",
+      "description": "A singer helps a woman get famous while his career is about to get to finish.",
+      "src": "star-is-born-web.jpg"
     }
   ]
 }

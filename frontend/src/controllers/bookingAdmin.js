@@ -3,7 +3,7 @@
     app.controller('bookingAdmin', function($scope, $http) {
 
         $http
-            .get('http://localhost:3000/bookingInfo')
+            .get('http://localhost:3000/bookings')
             .then((response) => {
                 $scope.bookingInfo = response.data;
             })

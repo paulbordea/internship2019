@@ -1,0 +1,35 @@
+<div>
+<div ng-controller="bookingController">
+    <div class="container mt-5 mb-5 displaying" style="border: black 10px double">
+    <div class="col-md-6">
+        <div class="row text-center d-flex flex-column mt-5 mb-5">
+        <div class="col-md-10 mx-auto text-left">
+            <p class="confirmation"><strong style="color: red"> Movie :</strong> {{bookMovie.title}}</p>
+        </div>
+        <div class="col-md-10 mx-auto text-left">
+            <p class="confirmation"><strong style="color: red"> Date : </strong>{{bookMovie.date}}</p>
+        </div>
+        <div class="col-md-10 mx-auto text-left">
+            <p class="confirmation"><strong style="color: red"> No. of tickets : </strong> {{nrSeats}}</p>
+        </div>
+        <div class="col-md-10 mx-auto text-left">
+            <p class="confirmation"><strong style="color: red"> Seats chosen :</strong> {{booking.seatsBooked}}</p>
+        </div>
+        <div class="col-md-10 mx-auto text-left">
+            <p class="confirmation"> <strong style="color: red">Total price:</strong> {{5*nrSeats}}$</p>
+        </div>
+        </div>
+        </div>
+
+      <div class="col-md-6 mt-5 mb-5">
+            <p class="confirmation">Thank You for your order!</p>
+            <p class="confirmation"> You can get your tickets from the pay office! </p>
+            <div class="col-md-9 mx-auto">
+        <img src="../../images/verif.png">
+        </div>
+        </div>
+        
+        </div>
+    </div>
+</div>
+</div>

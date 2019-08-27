@@ -13,7 +13,16 @@
          return result;
          };
      });
-    app.controller('MoviesCtrl', function Control($scope,$filter,$location, $http, $log, ngDialog) {
+ 
+
+
+    app.controller('MoviesCtrl', function Control($scope, $filter, $location, $http, $log, ngDialog, userService) {
+
+        $scope.movieDate = new Date(2019, 7, 13);
+ 
+        
+
+        $scope.isUserLogged = userService.isUserLogged;
 
         $scope.movieDate = new Date(2019,7,13);
        /*  if (!$scope.isUserLoggedIn) {
@@ -25,6 +34,7 @@
         console.log($scope.movieDate);
         
         
+
         $scope.movies = {};
 
        // $http.get("http://localhost:3000/movies")
