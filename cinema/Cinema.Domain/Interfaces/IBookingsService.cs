@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Threading.Tasks;
 using Cinema.Domain.Models;
 
 namespace Cinema.Domain.Interfaces
@@ -7,5 +6,7 @@ namespace Cinema.Domain.Interfaces
     public interface IBookingsService
     {
         List<Booking> GetBookings();
+        void InsertBooking(BookingInfo info);
+        void DeleteBooking(int id);
     }
 }

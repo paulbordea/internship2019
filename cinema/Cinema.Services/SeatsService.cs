@@ -4,6 +4,7 @@ using System.Linq;
 using Cinema.DataAccess;
 using Cinema.Domain.Interfaces;
 using Cinema.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cinema.Services
 {
@@ -28,6 +29,7 @@ namespace Cinema.Services
             return seatsAvailabilityMatrix;
         }
 
+
         private ArrayList generateSeats()
         {
             ArrayList matrix = new ArrayList();
@@ -46,5 +48,21 @@ namespace Cinema.Services
             return matrix;
         }
 
+        public void InsertSeats(BookingInfo info)
+        {
+            var booking = new Seat();
+            foreach (var seat in info.SeatsList)
+            {
+                booking.MovieId = info.MovieId;
+                booking.SeatNumber = seat;
+                booking.Date = info.Date;
+                if (_cinemaContext != null)
+                {
+                    _cinemaContext.Database.ExecuteSqlCommand(@"SET IDENTITY_INSERT [dbo].[Seat] ON");
+                    _cinemaContext.Seat.Add(booking);
+                    _cinemaContext.SaveChanges();
+                }
+            }
+        }
     }
 }

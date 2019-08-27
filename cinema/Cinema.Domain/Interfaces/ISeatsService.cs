@@ -9,5 +9,6 @@ namespace Cinema.Domain.Interfaces
     public interface ISeatsService
     {
         ArrayList GetSeats(int movieId, DateTime date);
+        void InsertSeats(BookingInfo info);
     }
 }

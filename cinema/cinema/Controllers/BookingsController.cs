@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Cinema.Domain.Interfaces;
 using Cinema.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -11,11 +10,19 @@ namespace Cinema.Controllers
     [ApiController]
     public class BookingController : Controller
     {
-        private readonly IBookingsService _bookingsService;
-        public BookingController(IBookingsService bookingsService)
+        private readonly IBookingsService _bookingService;
+        private readonly ISeatsService _seatsService;
+        public BookingController(IBookingsService bookingService, ISeatsService seatsService)
         {
-            _bookingsService = bookingsService;
+            _bookingService = bookingService;
+            _seatsService = seatsService;
         }
+
+        //private readonly ISeatsService _seatsService;
+        //public BookingController(ISeatsService seatsService)
+        //{
+        //    _seatsService = seatsService;
+        //}
 
         // GET: api/booking
         [HttpGet]
@@ -23,7 +30,7 @@ namespace Cinema.Controllers
         {
             try
             {
-                return _bookingsService.GetBookings();
+                return _bookingService.GetBookings();
 
             }
             catch (Exception exception)
@@ -41,7 +48,18 @@ namespace Cinema.Controllers
 
         // POST api/booking
         [HttpPost]
-        public void PostBooking([FromBody]string value) { }
+        public void PostBooking(BookingInfo info)
+        {
+            try
+            {
+                _bookingService.InsertBooking(info);
+                _seatsService.InsertSeats(info);
+            }
+            catch (Exception exception)
+            {
+                throw exception;
+            }
+        }
 
         // PUT api/booking/5
         [HttpPut("{id}")]
@@ -49,8 +67,9 @@ namespace Cinema.Controllers
 
         // DELETE api/booking/5
         [HttpDelete("{id}")]
-        public void DeleteBooking(int id) { }
-
-        
+        public void DeleteBooking(int id)
+        {
+            _bookingService.DeleteBooking(id);
+        }
     }
 }
