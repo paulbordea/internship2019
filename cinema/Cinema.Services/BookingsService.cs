@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Cinema.Domain.Interfaces;
-using System.Threading.Tasks;
 using Cinema.Domain.Models;
 using Cinema.DataAccess;
-using Microsoft.EntityFrameworkCore;
 
 namespace Cinema.Services
 {
@@ -15,10 +15,29 @@ namespace Cinema.Services
             _cinemaContext = cinemaContext;
         }
 
-        //GET
-        public Task<List<Booking>> GetBookings()
+        public List<Booking> GetBookings()
         {
-            return _cinemaContext.Booking.ToListAsync();
+            return _cinemaContext.Booking.ToList();
+        }
+
+        public void InsertBooking(BookingInfo bookingInfo)
+        {
+            var bookingMap = new Booking();
+            bookingMap.MovieId = bookingInfo.MovieId;
+            bookingMap.UserId = bookingInfo.UserId;
+            bookingMap.Date = bookingInfo.Date;
+
+            if (_cinemaContext != null)
+            {
+                _cinemaContext.Booking.Add(bookingMap);
+                _cinemaContext.SaveChanges();
+            }
+        }
+
+        public void DeleteBooking(int id)
+        {
+            _cinemaContext.Booking.Remove(_cinemaContext.Booking.FirstOrDefault(e => e.Id == id) ?? throw new InvalidOperationException());
+            _cinemaContext.SaveChanges();
         }
     }
 }

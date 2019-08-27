@@ -55,9 +55,7 @@
                         year: $scope.year,
                         description: $scope.description,
                         src: $scope.uploadme.src.name
-                    };
-
-                    // console.log($scope.uploadme.src.name);
+                    }
 
                     $http.post("http://localhost:3000/movies", movie)
                         .then((response) => {

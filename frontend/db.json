@@ -32,7 +32,7 @@
   "bookings": [
     {
       "movieId": "5",
-      "date": "8/13/2019",
+      "date": "08/13/2019",
       "time": "16:00",
       "seatsBooked": "6,7",
       "userId": "1",
@@ -41,7 +41,7 @@
     },
     {
       "movieId": "6",
-      "date": "8/13/2019",
+      "date": "08/13/2019",
       "time": "14:00",
       "seatsBooked": "66,65,64",
       "userId": "3",
@@ -50,7 +50,7 @@
     },
     {
       "movieId": "6",
-      "date": "8/13/2019",
+      "date": "08/13/2019",
       "time": "14:00",
       "seatsBooked": "6,16,26",
       "userId": "3",
@@ -59,7 +59,7 @@
     },
     {
       "movieId": "7",
-      "date": "8/14/2019",
+      "date": "08/14/2019",
       "time": "18:00",
       "seatsBooked": "7,17,27",
       "userId": "3",
@@ -68,7 +68,7 @@
     },
     {
       "movieId": "2",
-      "date": "8/12/2019",
+      "date": "08/12/2019",
       "time": "17:00",
       "seatsBooked": "6,16",
       "userId": "3",
@@ -77,7 +77,7 @@
     },
     {
       "movieId": "4",
-      "date": "8/13/2019",
+      "date": "08/13/2019",
       "time": "15:00",
       "seatsBooked": "9,10,20,30,50",
       "userId": "3",
@@ -86,7 +86,7 @@
     },
     {
       "movieId": "4",
-      "date": "8/13/2019",
+      "date": "08/13/2019",
       "time": "15:00",
       "seatsBooked": "7,17",
       "userId": "3",
@@ -95,7 +95,7 @@
     },
     {
       "movieId": "4",
-      "date": "8/13/2019",
+      "date": "08/13/2019",
       "time": "15:00",
       "seatsBooked": "15,16,17",
       "userId": "3",
@@ -299,6 +299,24 @@
       "userId": "3",
       "movieTitle": "Dora and The Lost City of Gold",
       "id": 30
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "17",
+      "userId": "1",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 31
+    },
+    {
+      "movieId": "4",
+      "date": "8/13/2019",
+      "time": "15:00",
+      "seatsBooked": "35, 45",
+      "userId": "1",
+      "movieTitle": "Dora and The Lost City of Gold",
+      "id": 32
     }
   ],
   "seats": [
@@ -727,7 +745,7 @@
     {
       "id": "1",
       "title": "Beauty and the beast",
-      "date": "8/10/2019",
+      "date": "8/11/2019",
       "time": "13:00",
       "room": "room 3",
       "actors": "Emma Watson,Dan Stevens",

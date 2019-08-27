@@ -20,9 +20,11 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
                 $log.log(`Error fetching movie with id: ${movieId}`);
             });
 
-        $http.get("http://localhost:3000/seats")
+       $http.get("http://localhost:3000/seats")
+        //$http.get("https://localhost:5001/api/seats/5/8/13/2019")
             .then((response) => {
                 $scope.seats = response.data;
+                console.log($scope.seats);
             })
             .catch((error) => {
                 console.log("Error fetching seats" + error.data)

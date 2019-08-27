@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Cinema.DataAccess;
 using Cinema.Domain.Interfaces;
 using Cinema.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace Cinema.Services
 {
@@ -18,27 +16,17 @@ namespace Cinema.Services
             _cinemaContext = cinemaContext;
         }
 
-        //GET method
-        public Task<List<User>> GetUsers()
+        public List<User> GetUsers()
         {
-            return _cinemaContext.User.ToListAsync();
+            return _cinemaContext.User.ToList();
         }
 
-        //GET by {id}
-        public ActionResult<User> GetUser(int id)
-        {
-            var firstOrDefault = _cinemaContext.User.FirstOrDefault(e => e.Id == id);
-            return firstOrDefault;
-        }
-
-        //GET by {username}/{password}
         public ActionResult<User> GetUserByCredentials(string username, string password)
         {
             var firstOrDefault = _cinemaContext.User.FirstOrDefault(e => e.Name == username && e.Password == password);
             return firstOrDefault;
         }
 
-        //POST
         public void PostUser([FromBody] User user)
         {
             if (user != null)
@@ -46,7 +34,6 @@ namespace Cinema.Services
             _cinemaContext.SaveChanges();
         }
 
-        //PUT
         public void PutUser(int id, [FromBody]User user)
         {
             User entity = _cinemaContext.User.FirstOrDefault(e => e.Id == id);
@@ -62,7 +49,6 @@ namespace Cinema.Services
             _cinemaContext.SaveChanges();
         }
 
-        //DELETE
         public void DeleteUser(int id)
         {
             _cinemaContext.User.Remove(_cinemaContext.User.FirstOrDefault(e => e.Id == id) ?? throw new InvalidOperationException());
