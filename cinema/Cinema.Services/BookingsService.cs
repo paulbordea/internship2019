@@ -22,14 +22,14 @@ namespace Cinema.Services
 
         public void InsertBooking(BookingInfo bookingInfo)
         {
-            var booking = new Booking();
-            booking.MovieId = bookingInfo.MovieId;
-            booking.UserId = bookingInfo.UserId;
-            booking.Date = bookingInfo.Date;
+            var bookingMap = new Booking();
+            bookingMap.MovieId = bookingInfo.MovieId;
+            bookingMap.UserId = bookingInfo.UserId;
+            bookingMap.Date = bookingInfo.Date;
 
             if (_cinemaContext != null)
             {
-                _cinemaContext.Booking.Add(booking);
+                _cinemaContext.Booking.Add(bookingMap);
                 _cinemaContext.SaveChanges();
             }
         }

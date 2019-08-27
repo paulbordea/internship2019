@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Cinema.DataAccess;
 using Cinema.Domain.Interfaces;
@@ -29,7 +30,6 @@ namespace Cinema.Services
             return seatsAvailabilityMatrix;
         }
 
-
         private ArrayList generateSeats()
         {
             ArrayList matrix = new ArrayList();
@@ -50,18 +50,22 @@ namespace Cinema.Services
 
         public void InsertSeats(BookingInfo info)
         {
-            var booking = new Seat();
-            foreach (var seat in info.SeatsList)
+            List<Seat> seats = new List<Seat>();
+            Seat seat;
+
+            foreach (var seatInfo in info.SeatsList)
             {
-                booking.MovieId = info.MovieId;
-                booking.SeatNumber = seat;
-                booking.Date = info.Date;
-                if (_cinemaContext != null)
-                {
-                    _cinemaContext.Database.ExecuteSqlCommand(@"SET IDENTITY_INSERT [dbo].[Seat] ON");
-                    _cinemaContext.Seat.Add(booking);
-                    _cinemaContext.SaveChanges();
-                }
+                seat = new Seat();
+                seat.MovieId = info.MovieId;
+                seat.SeatNumber = seatInfo;
+                seat.Date = info.Date;
+                seats.Add(seat);
+            }
+
+            if (_cinemaContext != null)
+            {
+                _cinemaContext.Seat.AddRange(seats);
+                _cinemaContext.SaveChanges();
             }
         }
     }
