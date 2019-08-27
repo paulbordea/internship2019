@@ -20,11 +20,11 @@ namespace Cinema.Controllers
 
         // GET: api/movies
         [HttpGet]
-        public List<Movie> GetMovies()
+        public JsonResult GetMovies()
         {
             try
             {
-                return _moviesService.GetMovies();
+                return Json(_moviesService.GetMovies());
             }
             catch (Exception exception)
             {

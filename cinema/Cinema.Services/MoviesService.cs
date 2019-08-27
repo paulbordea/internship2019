@@ -5,6 +5,7 @@ using Cinema.DataAccess;
 using Cinema.Domain.Interfaces;
 using Cinema.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cinema.Services
 {
@@ -18,7 +19,10 @@ namespace Cinema.Services
 
         public List<Movie> GetMovies()
         {
-            return _cinemaContext.Movie.ToList();
+           var movies = _cinemaContext.Movie.Include(x => x.MovieSchedule).ToList();
+          //  var movies = _cinemaContext.Movie.ToList();
+
+            return movies;
         }
 
         public ActionResult<Movie> GetMovie(int id)
