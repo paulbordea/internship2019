@@ -2,38 +2,39 @@
     'use strict';
     app.filter("dateFilter", function() {
         return function datefilter(items, movieDate) {
+          
+        var result = [];
+        angular.forEach(items, function(value){
+            if (Date.parse(value.date) === Date.parse(movieDate) )  {
+                result.push(value);
+             }
+         });
+        
+         return result;
+         };
+     });
+    app.controller('MoviesCtrl', function Control($scope,$filter,$location, $http, $log, ngDialog) {
 
-            var result = [];
-            angular.forEach(items, function(value) {
-                if (Date.parse(value.date) === Date.parse(movieDate)) {
-                    result.push(value);
-                }
-            });
-
-            return result;
-        };
-    });
-    app.controller('MoviesCtrl', function Control($scope, $filter, $location, $http, $log, ngDialog, userService) {
-
-        $scope.movieDate = new Date(2019, 7, 13);
-        /*  if (!$scope.isUserLoggedIn) {
-             alert("You have to be logged in! ");
-             $location.path('/');
-             return;
-         }
-          */
+        $scope.movieDate = new Date(2019,7,13);
+       /*  if (!$scope.isUserLoggedIn) {
+            alert("You have to be logged in! ");
+            $location.path('/');
+            return;
+        }
+         */
         console.log($scope.movieDate);
-
-        $scope.isUserLogged = userService.isUserLogged;
+        
+        
         $scope.movies = {};
 
-        $http.get("http://localhost:3000/movies")
+       // $http.get("http://localhost:3000/movies")
+        $http.get("https://localhost:5001/api/movies")
             .then((response) => {
-
+        
                 $scope.movies = response.data;
-
+                
                 $filter('dateFilter')(movies, selectedDate);
-
+             
             })
             .catch((error) => {
                 $log.log("Error fetching movies: " + JSON.stringify(error));
@@ -57,7 +58,7 @@
         };
 
         $scope.bookMovie = function(movieId) {
-
+           
             $location.path('/booking/' + movieId);
         };
     })
