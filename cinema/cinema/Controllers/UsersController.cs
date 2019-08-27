@@ -12,19 +12,19 @@ namespace Cinema.Controllers
     
     public class UsersController : Controller
     {
-        private readonly IUsersService _userService;
-        public UsersController(IUsersService userService)
+        private readonly IUsersService _usersService;
+        public UsersController(IUsersService usersService)
         {
-            _userService = userService;
+            _usersService = usersService;
         }
 
         // GET: api/user
         [HttpGet]
-        public Task<List<User>> GetUsers()
+        public List<User> GetUsers()
         {
             try
             {
-                return _userService.GetUsers();
+                return _usersService.GetUsers();
 
             }
             catch (Exception exception)
@@ -33,25 +33,12 @@ namespace Cinema.Controllers
             }
         }
 
-        // GET api/user/5
-        [HttpGet("{id}")]
-        public ActionResult<User> GetUser(int id)
-        {
-            try
-            {
-                return _userService.GetUser(id);
-            }
-            catch (NullReferenceException exception)
-            {
-                throw exception;
-            }
-        }
 
         // GET api/user/username/password
         [HttpGet("{username}/{password}")]
         public ActionResult<User> GetUserByCredentials(string username, string password)
         {
-            return _userService.GetUserByCredentials(username, password);
+            return _usersService.GetUserByCredentials(username, password);
         }
 
         // POST api/user
@@ -60,7 +47,7 @@ namespace Cinema.Controllers
         {
             try
             {
-                _userService.PostUser(user);
+                _usersService.PostUser(user);
             }
             catch (Exception exception)
             {
@@ -74,7 +61,7 @@ namespace Cinema.Controllers
         {
             try
             {
-                _userService.PutUser(id, user);
+                _usersService.PutUser(id, user);
             }
             catch (Exception exception)
             {
@@ -88,7 +75,7 @@ namespace Cinema.Controllers
         {
             try
             {
-                _userService.DeleteUser(id);
+                _usersService.DeleteUser(id);
             }
             catch (Exception exception)
             {

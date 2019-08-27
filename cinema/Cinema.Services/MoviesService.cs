@@ -16,32 +16,17 @@ namespace Cinema.Services
             _cinemaContext = cinemaContext;
         }
 
-        //GET method
-        public IEnumerable<Movie> GetMovies(DateTime date)
+        public List<Movie> GetMovies()
         {
-            var query = (from movie in _cinemaContext.Movie
-                join movieSchedule in _cinemaContext.MovieSchedule
-                    on movie.Id equals movieSchedule.MovieId
-                        where movieSchedule.Date == date
-                select new Movie
-                {
-                    Id = movie.Id,
-                    Name = movie.Name,
-                    Description = movie.Description,
-                    Actors = movie.Actors
-                }).ToList();
-
-            return query;
+            return _cinemaContext.Movie.ToList();
         }
 
-        //GET by {id} method
         public ActionResult<Movie> GetMovie(int id)
         {
             var firstOrDefault = _cinemaContext.Movie.FirstOrDefault(e => e.Id == id);
             return firstOrDefault;
         }
 
-        //POST method
         public void PostMovie(Movie movie)
         {
             if (_cinemaContext != null)
@@ -51,14 +36,13 @@ namespace Cinema.Services
             }
         }
 
-        //PUT method
         public void PutMovie(int id, [FromBody]Movie movie)
         {
             var entity = _cinemaContext.Movie.FirstOrDefault(e => e.Id == id);
             if (entity != null)
             {
                 entity.Id = movie.Id;
-                entity.Name = movie.Name;
+                entity.Title = movie.Title;
                 entity.Description = movie.Description;
                 entity.Actors = movie.Actors;
             }
@@ -66,7 +50,6 @@ namespace Cinema.Services
             _cinemaContext.SaveChanges();
         }
 
-        //DELETE method
         public void DeleteMovie(int id)
         {
             _cinemaContext.Movie.Remove(_cinemaContext.Movie.FirstOrDefault(e => e.Id == id) ?? throw new InvalidOperationException());
