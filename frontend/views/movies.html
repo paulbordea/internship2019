@@ -23,8 +23,8 @@
                         <th>Movie</th>
                         <th>Start hour</th>
                         <th>Room</th>
-                        <th>Details</th>
-                        <th>Book</th>
+                        <th></th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody role="rowgroup">
@@ -43,8 +43,6 @@
                         </td>
                         <td colspan="2" style="padding-left:50px"><button class="btn btn-about" ng-click="openMovieDetails(movie.id)">About</button>
                         <button class="btn btn-book" ng-disabled="!isUserLogged()" ng-click="bookMovie(movie.id)" title="You have to be logged in !">Book</button></td>
-                        <!-- <td><button class="btn btn-book" ng-disabled="!isUserLogged()" ng-click="bookMovie(movie.id)">Book</button>
-                        <p ng-if="!isUserLogged()" style="color:white;" >Only logged users can book a movie! Please Log In!</p></td> -->
                     </tr>
                 </tbody>
             </table>
