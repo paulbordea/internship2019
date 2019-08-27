@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Cinema.Domain.Interfaces;
 using Cinema.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using NLog.Fluent;
 
 namespace Cinema.Controllers
@@ -24,7 +25,8 @@ namespace Cinema.Controllers
         {
             try
             {
-                return Json(_moviesService.GetMovies());
+                var movies= _moviesService.GetMovies();
+                return Json(movies);
             }
             catch (Exception exception)
             {
