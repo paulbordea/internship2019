@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Cinema.Domain.Interfaces;
 using Cinema.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +25,7 @@ namespace Cinema.Controllers
             {
                 return _moviesService.GetMovies();
             }
+
             catch (Exception exception)
             {
                 throw exception;
@@ -40,6 +40,7 @@ namespace Cinema.Controllers
             {
                 return _moviesService.GetMovie(id);
             }
+
             catch (NullReferenceException exception)
             {
                 Log.Error(string.Format("The movie with the following ID doesn't exist", id));
@@ -55,6 +56,7 @@ namespace Cinema.Controllers
             {
                 _moviesService.PostMovie(movie);
             }
+
             catch (Exception exception)
             {
                 throw exception;
@@ -69,6 +71,7 @@ namespace Cinema.Controllers
             {
                 _moviesService.PutMovie(id, movie);
             }
+
             catch (Exception exception)
             {
                 throw exception;
@@ -83,6 +86,7 @@ namespace Cinema.Controllers
             {
                 _moviesService.DeleteMovie(id);
             }
+
             catch (Exception exception)
             {
                 throw exception;

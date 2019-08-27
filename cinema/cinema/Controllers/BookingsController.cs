@@ -18,12 +18,6 @@ namespace Cinema.Controllers
             _seatsService = seatsService;
         }
 
-        //private readonly ISeatsService _seatsService;
-        //public BookingController(ISeatsService seatsService)
-        //{
-        //    _seatsService = seatsService;
-        //}
-
         // GET: api/booking
         [HttpGet]
         public List<Booking> GetBookings()
@@ -33,6 +27,7 @@ namespace Cinema.Controllers
                 return _bookingService.GetBookings();
 
             }
+
             catch (Exception exception)
             {
                 throw exception;
@@ -55,6 +50,7 @@ namespace Cinema.Controllers
                 _bookingService.InsertBooking(info);
                 _seatsService.InsertSeats(info);
             }
+
             catch (Exception exception)
             {
                 throw exception;
