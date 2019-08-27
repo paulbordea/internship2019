@@ -268,8 +268,8 @@
       "movieId": "4",
       "date": "8/13/2019",
       "time": "15:00",
-      "seatsBooked": "26,36,27",
-      "userId": "3",
+      "seatsBooked": "15,16",
+      "userId": "1",
       "movieTitle": "Dora and The Lost City of Gold",
       "id": 27
     },
@@ -277,7 +277,7 @@
       "movieId": "4",
       "date": "8/13/2019",
       "time": "15:00",
-      "seatsBooked": "6,16",
+      "seatsBooked": "7, 17",
       "userId": "3",
       "movieTitle": "Dora and The Lost City of Gold",
       "id": 28
@@ -286,7 +286,7 @@
       "movieId": "4",
       "date": "8/13/2019",
       "time": "15:00",
-      "seatsBooked": "10",
+      "seatsBooked": "",
       "userId": "3",
       "movieTitle": "Dora and The Lost City of Gold",
       "id": 29
@@ -295,262 +295,10 @@
       "movieId": "4",
       "date": "8/13/2019",
       "time": "15:00",
-      "seatsBooked": "30",
+      "seatsBooked": "97",
       "userId": "3",
       "movieTitle": "Dora and The Lost City of Gold",
       "id": 30
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "27",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 31
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "7",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 32
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "25",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 33
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "16",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 34
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "17",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 35
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "12",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 36
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "30,40",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 37
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "25",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 38
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "30,20",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 39
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 40
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 41
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "35,36",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 42
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 43
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "15,16",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 44
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "7,17",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 45
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "10,20",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 46
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "6",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 47
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "6",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 48
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "6,16",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 49
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "7,17",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 50
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "6,16",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 51
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "10,20,30",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 52
-    },
-    {
-      "movieId": "6",
-      "date": "8/13/2019",
-      "time": "14:00",
-      "seatsBooked": "10,20,30",
-      "userId": "3",
-      "movieTitle": "The LightHouse",
-      "id": 53
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "19, 20",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 54
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "20, 30",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 55
-    },
-    {
-      "movieId": "4",
-      "date": "8/13/2019",
-      "time": "15:00",
-      "seatsBooked": "7, 18",
-      "userId": "3",
-      "movieTitle": "Dora and The Lost City of Gold",
-      "id": 56
-    },
-    {
-      "movieId": "7",
-      "date": "8/14/2019",
-      "time": "18:00",
-      "seatsBooked": "19, 20",
-      "userId": "3",
-      "movieTitle": "Bohemian Rhapsody",
-      "id": 57
-    },
-    {
-      "movieId": "7",
-      "date": "8/14/2019",
-      "time": "18:00",
-      "seatsBooked": "6, 7",
-      "userId": "3",
-      "movieTitle": "Bohemian Rhapsody",
-      "id": 58
     }
   ],
   "seats": [
