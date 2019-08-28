@@ -48,6 +48,9 @@ namespace Cinema.Services
                 entity.Title = movie.Title;
                 entity.Description = movie.Description;
                 entity.Actors = movie.Actors;
+                entity.Room = movie.Room;
+                entity.Year = movie.Year;
+                entity.Src = movie.Src;
             }
 
             _cinemaContext.SaveChanges();
