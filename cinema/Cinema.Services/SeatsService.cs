@@ -24,13 +24,13 @@ namespace Cinema.Services
             var seatsAvailableFromDb = _cinemaContext.Seat.Where(x => x.MovieId == movieId && x.Date == date).ToList();
             if (seatsAvailableFromDb.Count == 0)
             {
-                seatsAvailabilityMatrix = generateSeats();
+                return GenerateSeats();
             }
 
-            return seatsAvailabilityMatrix;
+            return GenerateTakenSeats(seatsAvailableFromDb);
         }
 
-        private ArrayList generateSeats()
+        private ArrayList GenerateSeats()
         {
             ArrayList matrix = new ArrayList();
             int noLines = 10;
@@ -46,6 +46,12 @@ namespace Cinema.Services
                 matrix.Add(rowWithSeats.Clone());
             }
             return matrix;
+        }
+
+        private ArrayList GenerateTakenSeats(List<Seat> seats)
+        {
+            //TODO:
+
         }
 
         public void InsertSeats(BookingInfo info)

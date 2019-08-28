@@ -72,10 +72,6 @@ namespace Cinema.DataAccess
                     .IsRequired()
                     .HasMaxLength(50)
                     .IsUnicode(false);
-
-                entity.Property(e => e.Year)
-                    .IsRequired()
-                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<MovieSchedule>(entity =>
@@ -85,19 +81,19 @@ namespace Cinema.DataAccess
                 entity.Property(e => e.Date).HasColumnType("date");
 
                 entity.Property(e => e.Time).HasColumnType("time(0)");
+
+                //entity.HasOne(d => d.Movie)
+                //    .WithMany(p => p.MovieSchedule)
+                //    .HasForeignKey(d => d.MovieId)
+                //    .OnDelete(DeleteBehavior.ClientSetNull)
+                //    .HasConstraintName("FK__movieschedule__movie_id");
             });
 
             modelBuilder.Entity<Seat>(entity =>
             {
-                entity.Property(e => e.Id)
-                    .HasColumnName("ID")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Date).HasColumnType("date");
-
-                entity.Property(e => e.MovieId).ValueGeneratedOnAdd();
-
-                entity.Property(e => e.SeatNumber).HasColumnName("SeatNumber");
 
                 entity.HasOne(d => d.Movie)
                     .WithMany(p => p.Seat)

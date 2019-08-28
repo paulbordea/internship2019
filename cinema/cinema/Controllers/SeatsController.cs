@@ -20,7 +20,9 @@ namespace Cinema.Controllers
         {
             try
             {
-                return Json(_seatsService.GetSeats(movieId, date));
+                var seats = _seatsService.GetSeats(movieId, date);
+                var result = Json(seats);
+                return result;
             }
 
             catch (Exception exception)
