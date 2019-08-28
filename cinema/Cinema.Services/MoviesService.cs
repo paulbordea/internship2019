@@ -1,10 +1,12 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Cinema.DataAccess;
 using Cinema.Domain.Interfaces;
 using Cinema.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cinema.Services
 {
@@ -18,7 +20,8 @@ namespace Cinema.Services
 
         public List<Movie> GetMovies()
         {
-            return _cinemaContext.Movie.ToList();
+            var movies = _cinemaContext.Movie.Include(t => t.MovieSchedule).ToList();
+            return movies;
         }
 
         public ActionResult<Movie> GetMovie(int id)
@@ -45,6 +48,9 @@ namespace Cinema.Services
                 entity.Title = movie.Title;
                 entity.Description = movie.Description;
                 entity.Actors = movie.Actors;
+                entity.Room = movie.Room;
+                entity.Year = movie.Year;
+                entity.Src = movie.Src;
             }
 
             _cinemaContext.SaveChanges();

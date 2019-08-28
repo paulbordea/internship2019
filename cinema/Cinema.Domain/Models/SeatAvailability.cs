@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Cinema.Domain.Models
+﻿namespace Cinema.Domain.Models
 {
     public class SeatAvailability
     {

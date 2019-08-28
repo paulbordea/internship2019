@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using Cinema.Domain.Interfaces;
-using Cinema.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cinema.Controllers
@@ -15,22 +13,6 @@ namespace Cinema.Controllers
         {
             _seatsService = seatsService;
         }
-
-        // GET: api/seat
-        //[HttpGet("{movieId}/{*date}")]
-        //public IEnumerable<Seat> GetSeats(int movieId, DateTime date)
-        //{
-        //    try
-        //    {
-        //        return _seatsService.GetSeats(movieId, date);
-        //    }
-
-        //    catch (Exception exception)
-        //    {
-        //        throw exception;
-        //    }
-        //}
-
 
         // GET: api/seat
         [HttpGet("{movieId}/{*date}")]

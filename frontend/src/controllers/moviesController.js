@@ -11,12 +11,8 @@
                 newDate = newDate[1]+'/'+newDate[2]+'/'+ newDate[0];
                 if (Date.parse(newDate) === Date.parse(movieDate)) {
                     var newMovieSchedule = movie.movieSchedule.filter(function(el) { return el.date == value.date; }); 
-                  movie.newMovieSchedule=newMovieSchedule;
-                 
-             
-                  console.log(movie);
-                
-                 result.push(movie);
+                     movie.newMovieSchedule=newMovieSchedule;
+                     result.push(movie);
                 }})   
             });
        return result;
@@ -25,8 +21,9 @@
     });
 
     app.controller('MoviesCtrl', function Control($scope, $filter, $location, $http, $log, ngDialog, userService) {
-        $scope.movieDate = new Date(2019, 7, 13);
+    
         $scope.isUserLogged = userService.isUserLogged;
+        $scope.movieDate = new Date(2019,7,14);
         $scope.movies = {};
        //$http.get("http://localhost:3000/movies")
         $http.get("https://localhost:5001/api/movies")

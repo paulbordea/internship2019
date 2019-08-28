@@ -8,7 +8,5 @@ namespace Cinema.Domain.Models
         public int MovieId { get; set; }
         public DateTime Date { get; set; }
         public TimeSpan Time { get; set; }
-
-        public virtual Movie Movie { get; set; }
     }
 }
