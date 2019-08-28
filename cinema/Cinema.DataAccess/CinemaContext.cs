@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Cinema.Domain.Models;
+﻿using Cinema.Domain.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Cinema.DataAccess
 {
@@ -75,7 +75,6 @@ namespace Cinema.DataAccess
 
                 entity.Property(e => e.Year)
                     .IsRequired()
-                    .HasMaxLength(50)
                     .IsUnicode(false);
             });
 
@@ -84,13 +83,19 @@ namespace Cinema.DataAccess
                 entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Date).HasColumnType("date");
+
+                entity.Property(e => e.Time).HasColumnType("time(0)");
             });
 
             modelBuilder.Entity<Seat>(entity =>
             {
-                entity.Property(e => e.Id).HasColumnName("ID");
+                entity.Property(e => e.Id)
+                    .HasColumnName("ID")
+                    .ValueGeneratedNever();
 
                 entity.Property(e => e.Date).HasColumnType("date");
+
+                entity.Property(e => e.MovieId).ValueGeneratedOnAdd();
 
                 entity.HasOne(d => d.Movie)
                     .WithMany(p => p.Seat)
