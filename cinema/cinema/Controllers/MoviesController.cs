@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cinema.Domain.Interfaces;
 using Cinema.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using NLog.Fluent;
 
 namespace Cinema.Controllers
@@ -20,11 +21,12 @@ namespace Cinema.Controllers
 
         // GET: api/movies
         [HttpGet]
-        public List<Movie> GetMovies()
+        public JsonResult GetMovies()
         {
             try
             {
-                return _moviesService.GetMovies();
+                var movies= _moviesService.GetMovies();
+                return Json(movies);
             }
             catch (Exception exception)
             {
