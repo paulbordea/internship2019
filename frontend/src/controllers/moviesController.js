@@ -25,7 +25,7 @@
 
         $scope.isUserLogged = userService.isUserLogged;
 
-        $scope.movieDate = new Date(2019,7,13);
+        $scope.movieDate = new Date(2019,7,14);
        /*  if (!$scope.isUserLoggedIn) {
             alert("You have to be logged in! ");
             $location.path('/');
