@@ -25,8 +25,8 @@
         $scope.isUserLogged = userService.isUserLogged;
         $scope.movieDate = new Date(2019,7,14);
         $scope.movies = {};
-       //$http.get("http://localhost:3000/movies")
-        $http.get("https://localhost:5001/api/movies")
+       $http.get("http://localhost:3000/movies")
+        //$http.get("https://localhost:5001/api/movies")
             .then((response) => {
         
                 $scope.movies = response.data;

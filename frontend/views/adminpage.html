@@ -28,8 +28,6 @@
                     <thead >
                         <tr>
                             <th >Title</th>
-                            <th >Date</th>
-                            <th >Time</th>
                             <th >Room</th>
                             <th >Actors</th>
                             <th >Year</th>
@@ -47,12 +45,7 @@
                     <td style="width:auto;" class="details title-display">
                         <p class="paragraph my-auto titlu"><img class="movie-image" ng-src="../images/{{movie.src}}">{{movie.title}}</p>
                     </td>
-                    <td style="width:auto;" class="details">
-                        <p class="paragraph my-auto">{{movie.date}}</p>
-                    </td>
-                    <td style="width:auto;" class="details">
-                        <p class="paragraph my-auto">{{movie.time}}</p>
-                    </td>
+                   
                     <td style="width:auto;" class="details">
                         <p class="paragraph my-auto">{{movie.room}}</p>
                     </td>
@@ -78,8 +71,6 @@
                 </script>
                 <script type="text/ng-template" id="edit">
                     <td class="title-resp"><input type="text" style="width:90%;" ng-model="model.selected.title" /></td>
-                    <td><input type="text" style="width: 90%" ng-model="model.selected.date" /></td>
-                    <td><input type="text" style="width:90%" ng-model="model.selected.time" /></td>
                     <td><input type="text" style="width:90%" ng-model="model.selected.room" /></td>
                     <td><input type="text" style="width:90%" ng-model="model.selected.actors" /></td>
                     <td><input type="text" style="width: 90%" ng-model="model.selected.year" /></td>
@@ -278,34 +269,22 @@
             margin-top: 0px;
             font-weight:bold;
         }
-
-
         td:nth-of-type(2):before {
-            content: "Date";
-            color: black;
-            font-weight:bold;
-        }
-        td:nth-of-type(3):before {
-            content: "Time";
-            color: black;
-            font-weight:bold;
-        }
-        td:nth-of-type(4):before {
             content: "Room";
             color: black;
             font-weight:bold;
         }
-        td:nth-of-type(5):before {
+        td:nth-of-type(3):before {
             content: "Actors";
             color: black;
             font-weight:bold;
         }
-        td:nth-of-type(6):before {
+        td:nth-of-type(4):before {
             content: "Year";
             color: black;
             font-weight:bold;
         }
-       td:nth-of-type(7):before {
+       td:nth-of-type(5):before {
             content: "Description";
             color: black;
             margin-left: -10px;
@@ -315,11 +294,11 @@
        
     }
     
-    td:nth-of-type(8):before {
+    td:nth-of-type(6):before {
         content: "";
     }
     
-    td:nth-of-type(9):before {
+    td:nth-of-type(7):before {
         content: "";
     }
 }

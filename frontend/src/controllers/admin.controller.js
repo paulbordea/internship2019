@@ -19,11 +19,11 @@
 
         function Ctrl($scope, $http, $location, $log, userService) {
 
-            if (!userService.isUserAdmin()) {
+          /*   if (!userService.isUserAdmin()) {
                 $location.path('/');
                 return;
             }
-
+ */
             $scope.model = {
                 movies: [],
                 selected: {}
