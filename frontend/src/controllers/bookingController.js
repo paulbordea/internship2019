@@ -50,11 +50,18 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
         $scope.isConfirmed = function() {
             return false;
         }
+        $scope.noSeat= function() {
+            if( $scope.selectedSeats.length===0){
+                return true;
+            }
+           else return false;
+        }
         $scope.storeSeat = function() {
             $scope.isConfirmed = function() {
                 return true;
             }
             $scope.nrSeats = $scope.selectedSeats.length;
+          
             var data = {
                 movieId: $scope.movieId,
                 date: $scope.bookMovie.date,
@@ -72,13 +79,10 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
                 .catch((error) => {
                     console.log(error);
                 })
-               
-      
-
-            let modalScope = $scope;
+             
+         let modalScope = $scope;
        
-
-            ngDialog.open({
+           var dialog= ngDialog.open({
                 template: 'views/partials/modals/confirmation.html',
                 className: 'ngdialog-theme-default',
                 scope: modalScope,
@@ -86,6 +90,9 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
                 width: 400,
                 height: 'auto',
                 showClose: true
+            });
+            dialog.closePromise.then(function () {
+                window.location.replace("http://localhost:8080/index.html#!/movies");
             });
         
         }
