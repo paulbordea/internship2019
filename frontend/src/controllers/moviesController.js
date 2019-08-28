@@ -2,18 +2,28 @@
     'use strict';
     app.filter("dateFilter", function() {
         return function datefilter(items, movieDate) {
-          
-        var result = [];
-        angular.forEach(items, function(value){
-            if (Date.parse(value.date) === Date.parse(movieDate) )  {
-                result.push(value);
-             }
-         });
+
+            var result = [];
+            angular.forEach(items, function(movie) {
+                angular.forEach(movie.movieSchedule,function(value){
+                var newDate= value.date.substring(0,10).split('-');
+                newDate = newDate[1]+'/'+newDate[2]+'/'+ newDate[0];
+                if (Date.parse(newDate) === Date.parse(movieDate)) {
+                   result.push(movie);
+                }})   
+            });
+       return result;
+            
+        };
+    });
+
+    app.controller('MoviesCtrl', function Control($scope, $filter, $location, $http, $log, ngDialog, userService) {
+
+        $scope.movieDate = new Date(2019, 7, 13);
+ 
         
-         return result;
-         };
-     });
-    app.controller('MoviesCtrl', function Control($scope,$filter,$location, $http, $log, ngDialog) {
+
+        $scope.isUserLogged = userService.isUserLogged;
 
         $scope.movieDate = new Date(2019,7,13);
        /*  if (!$scope.isUserLoggedIn) {
@@ -25,6 +35,7 @@
         console.log($scope.movieDate);
         
         
+
         $scope.movies = {};
 
        // $http.get("http://localhost:3000/movies")

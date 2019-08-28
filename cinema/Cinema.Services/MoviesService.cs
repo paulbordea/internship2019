@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Cinema.DataAccess;
 using Cinema.Domain.Interfaces;
 using Cinema.Domain.Models;
@@ -19,9 +20,7 @@ namespace Cinema.Services
 
         public List<Movie> GetMovies()
         {
-           var movies = _cinemaContext.Movie.Include(x => x.MovieSchedule).ToList();
-          //  var movies = _cinemaContext.Movie.ToList();
-
+            var movies = _cinemaContext.Movie.Include(t => t.MovieSchedule).ToList();
             return movies;
         }
 

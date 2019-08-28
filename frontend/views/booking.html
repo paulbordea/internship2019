@@ -128,19 +128,20 @@
     }
     
     .screen {
-        height: 15px;
-        background-color: gray;
-        box-shadow: #aaa 3px solid;
+     
+        background-image: url("../../images/2.jpg");
+        background-size:cover;
+        height:80px;
+        width:250px;
         margin-top: 0px;
-        font-size: 12px;
-        text-align: center;
+
     }
     
     .btn-legend {
         width: 40px;
         height: 40px;
         margin-right: 10px;
-        float: left;
+    
     }
     
     .Displaytable {
@@ -172,9 +173,31 @@
     .top-margin {
         margin-top: 40px;
     }
-    
+    .hide{
+        display:none;
+    }
+    @media only screen and (max-width:770px){
+      .show{
+            display:none;
+        }
+      .hide{
+          display:flex;
+      }
+      .legend{
+          text-align:center;
+      }
+      .btn-choice{
+          margin-left:-13px;
+      }
+    }
     @media only screen and (max-width: 760px),
     (min-device-width: 768px) and (max-device-width: 1024px) {
+        .first-half{
+            margin-right:0px!important;
+        }
+        .second-half{
+            margin-left:0px !important;
+        }
         /* Force table to not be like tables anymore */
         table,
         thead,
@@ -185,9 +208,9 @@
             display: block;
         }
         table a {
-            width: 25px;
-            height: 25px;
-            line-height: 25px;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
         }
         /* Hide table headers (but not display: none;, for accessibility) */
         thead tr {
@@ -196,15 +219,15 @@
             left: -9999px;
         }
         table .SRow1 {
-            margin-left: 30px;
+            margin:0 auto;
         }
         .table td {
             padding-top: 1px;
             padding-right: 1px;
             padding-bottom: 1px;
-            height: 40px;
+            height: auto;
             font-size: 17px;
-            border-top: 1px solid white !important
+       
         }
         tr {
             margin: 0 0 1rem 0;
@@ -252,24 +275,25 @@
     }
 </style>
 
-<div class="row bg-book" ng-if="!isConfirmed()" style="margin: 0px">
+<div class="row bg-book"  style="margin: 0px">
     <div class="col-md-3 top-margin">
         <div class="row mt-3 d-flex flex-column">
-            <div class="col-md-6 mx-auto">
-                <p for="seatsLeft" id="white">Movie : {{bookMovie.title}}</p>
+            <div class="col-md-10 mx-auto text-center">
+                <p  id="white">Movie : {{bookMovie.title}}</p>
             </div>
-            <div class="col-md-6 mx-auto">
-                <p for="seatsLeft" id="white">Date : {{bookMovie.date}} </p>
+            <div class="col-md-10 mx-auto text-center">
+                <p  id="white">Date : {{bookMovie.date}} </p>
             </div>
-            <div class="col-md-6 mx-auto">
-                <p for="seatsLeft" id="white">Time : {{bookMovie.time}}</p>
+            <div class="col-md-10 mx-auto text-center">
+                <p id="white">Time : {{bookMovie.time}}</p>
             </div>
-             <div class="col-md-6 mx-auto">
-                <p for="seatsLeft" id="white">Ticket price : 5$</p>
+             <div class="col-md-10 mx-auto text-center">
+                <p id="white">Ticket price : 5$</p>
             </div>
-            <div class="col-md-6 mx-auto mb-3">
+            <div class="col-md-10 mx-auto text-center mb-3 show">
                 <button class="btn cta proceed" ng-click="storeSeat()">Confirm</button>
             </div>
+            
         </div>
     </div>
     <div class=" col-md-6 top-margin">
@@ -278,76 +302,60 @@
                 <tr>
                     <td>
                         <div class="screen mx-auto">
-                            SCREEN
                         </div>
                     </td>
                 </tr>
                 <tr ng-repeat="row in seats" class="row">
-                    <td class="SRow1">
-                        <div class="itemSeat d-flex flex-row" ng-repeat="seat in row">
+                    <td class="SRow1 first-half">
+                        <div class="itemSeat d-flex flex-row" ng-repeat="seat in row|limitTo:5">
                             <a ng-class="{'selected': seat.check, 'available': (!seat.check && seat.free),  'blocked': !seat.free}" ng-click="selectSeat(seat)">{{seat.seat_no}}</a>
                         </div>
                     </td>
-                </tr>
+            
+            
+                <td style="padding:unset"><div style="width:20px; height:100%">
+                </div>
+                </td>
+                
+              
+                 <td class="SRow1 second-half">
+                        <div class="itemSeat d-flex flex-row" ng-repeat="seat in row|limitTo: (5 - 10)">
+                            <a ng-class="{'selected': seat.check, 'available': (!seat.check && seat.free),  'blocked': !seat.free}" ng-click="selectSeat(seat)">{{seat.seat_no}}</a>
+                        </div>
+                    </td>
+                    </tr>
             </table>
         </div>
     </div>
-    <div class="col-md-3 d-flex flex-column my-auto">
-        <div class="legend" style="margin-bottom: 20px;">
-            <button type="button" class="btn btn-danger btn-legend "></button>
-            <p style="overflow: hidden;color:white">Reserved Seat</p>
-        </div>
-        <div class="legend" style="margin-bottom: 20px;">
-            <button type="button" class="btn btn-success btn-legend "></button>
-            <p style="color:white;">Available Seat</p>
-        </div>
-        <div class="legend" style="margin-bottom: 20px;">
-            <button type="button" class="btn btn-warning btn-legend"></button>
-            <p style="color:white">Your Choice</p>
-        </div>
-    </div>
-</div>
-
-
-<div ng-if="isConfirmed()">
-    <div class="container mt-5 mb-5 d-flex flex-row" style="border: black 10px double">
-    <div class="col-md-6">
-        <div class="row text-center d-flex flex-column mt-5 mb-5">
-        <div class="col-md-10 mx-auto text-left">
-            <p class="confirmation"><strong style="color: red"> Movie :</strong> {{bookMovie.title}}</p>
-        </div>
-        <div class="col-md-10 mx-auto text-left">
-            <p class="confirmation"><strong style="color: red"> Date : </strong>{{bookMovie.date}}</p>
-        </div>
-        <div class="col-md-10 mx-auto text-left">
-            <p class="confirmation"><strong style="color: red"> No. of tickets : </strong> {{nrSeats}}</p>
-        </div>
-        <div class="col-md-10 mx-auto text-left">
-            <p class="confirmation"><strong style="color: red"> Seats chosen :</strong> {{selection.join(", ")}}</p>
-        </div>
-        <div class="col-md-10 mx-auto text-left">
-            <p class="confirmation"> <strong style="color: red">Total price:</strong> {{5*nrSeats}}$</p>
-        </div>
-        </div>
-        </div>
-
-      <div class="col-md-6 mt-5 mb-5">
-            <p class="confirmation">Thank You for your order!</p>
-            <p class="confirmation"> You can get your tickets from the pay office! </p>
-            <div class="col-md-9 mx-auto">
-        <img src="../../images/verif.png">
-        </div>
-        </div>
+    <div class="col-md-3 d-flex flex-column my-auto show">
+        <div class="legend " style="margin-bottom: 20px;">
         
+          
+            <p style="overflow: hidden;color:white">  <button type="button" class="btn btn-danger btn-legend "></button>Reserved Seat</p>
+      
         </div>
+        <div class="legend " style="margin-bottom: 20px;">
+            
+            <p style="color:white;"><button type="button" class="btn btn-success btn-legend "></button>Available Seat</p>
+        </div>
+        <div class="legend " style="margin-bottom: 20px;">
+           
+            <p style="color:white"> <button type="button" class="btn btn-warning btn-legend btn-choice"></button>Your Choice</p>
+        </div>
+         <div class="col-md-10 mx-auto mb-3 justify-content-center hide">
+                <button class="btn cta proceed" ng-click="storeSeat()">Confirm</button>
+            </div>
     </div>
 </div>
+
+
+
 
 <style>
 .confirmation{
     font-family: 'Indie Flower',cursive;
     font-size:25px;
-    color: black;
+    color:white;
     font-weight:bold;
 }
 
