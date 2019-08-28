@@ -85,7 +85,8 @@
                 console.log("Saving movie");
                 //$scope.model.movies[id] = angular.copy($scope.model.selected);
 
-                $http.put(`http://localhost:3000/movies/${movie.id}`, movie)
+               // $http.put(`http://localhost:3000/movies/${movie.id}`, movie)
+                $http.put(`https://localhost:5001/api/movies/${movie.id}`, movie)
                     .then((response) => {
                         console.log(response.data);
                         loadMovies();
