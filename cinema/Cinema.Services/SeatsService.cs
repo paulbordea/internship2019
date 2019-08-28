@@ -50,8 +50,23 @@ namespace Cinema.Services
 
         private ArrayList GenerateTakenSeats(List<Seat> seats)
         {
-            //TODO:
+            var matrix = GenerateSeats();
+            foreach (var matrixElements in matrix)
+            {
+                foreach (var matrixElement in (ArrayList) matrixElements)
+                {
+                    foreach (var seat in seats)
+                    {
+                        if (((SeatAvailability)matrixElement).Seat_no == seat.SeatNumber)
+                        {
+                            ((SeatAvailability)matrixElement).Free = false;
+                        }
+                    }
+                   
+                }
+            }
 
+            return matrix;
         }
 
         public void InsertSeats(BookingInfo info)
