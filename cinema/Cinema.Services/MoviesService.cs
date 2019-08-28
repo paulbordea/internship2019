@@ -32,6 +32,7 @@ namespace Cinema.Services
 
         public void PostMovie(Movie movie)
         {
+            movie.MovieSchedule = new List<MovieSchedule>() { new MovieSchedule() { Date = DateTime.Now, MovieId = movie.Id, Time = DateTime.Now.TimeOfDay } };
             if (_cinemaContext != null)
             {
                 _cinemaContext.Movie.Add(movie);
