@@ -31,7 +31,7 @@ namespace Cinema.DataAccess
             {
                 entity.Property(e => e.Id).HasColumnName("ID");
 
-                entity.Property(e => e.Date).HasColumnType("date");
+                entity.Property(e => e.Date).HasColumnType("datetime");
 
                 entity.HasOne(d => d.Movie)
                     .WithMany(p => p.Booking)

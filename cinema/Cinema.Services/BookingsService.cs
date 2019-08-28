@@ -17,7 +17,7 @@ namespace Cinema.Services
 
         public List<Booking> GetBookings()
         {
-            return _cinemaContext.Booking.ToList();
+            return _cinemaContext.Booking.OrderByDescending(b => b.Date).ToList();
         }
 
         public void InsertBooking(BookingInfo bookingInfo)
@@ -25,7 +25,7 @@ namespace Cinema.Services
             var bookingMap = new Booking();
             bookingMap.MovieId = bookingInfo.MovieId;
             bookingMap.UserId = bookingInfo.UserId;
-            bookingMap.Date = bookingInfo.Date;
+            bookingMap.Date = DateTime.Now;
 
             if (_cinemaContext != null)
             {

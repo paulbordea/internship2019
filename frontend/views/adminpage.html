@@ -5,7 +5,7 @@
     
     .latime {
         width: 80px;
-        margin-left:20px;
+        margin-left: 20px;
     }
     
     .btn-add {
@@ -25,14 +25,14 @@
         <div class="container mx-auto ">
             <div ng-controller="admin">
                 <table class="table table-hover">
-                    <thead >
+                    <thead>
                         <tr>
-                            <th >Title</th>
-                            <th >Room</th>
-                            <th >Actors</th>
-                            <th >Year</th>
-                            <th >Description</th>
-                            <th ></th>
+                            <th>Title</th>
+                            <th>Room</th>
+                            <th>Actors</th>
+                            <th>Year</th>
+                            <th>Description</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody role="rowgroup">
@@ -45,7 +45,7 @@
                     <td class="details title-display">
                         <p class="paragraph my-auto titlu"><img class="movie-image" ng-src="../images/{{movie.src}}">{{movie.title}}</p>
                     </td>
-                   
+
                     <td style="width:auto;" class="details">
                         <p class="paragraph my-auto">{{movie.room}}</p>
                     </td>
@@ -64,9 +64,9 @@
                     </td>
                     <td colspan="2" style="display:flex; padding-left:20px ">
                         <button class="btn btn-dark latime" ng-click="editMovie(movie)">Edit</button>
-                          <button class="btn btn-danger latime" ng-click="deleteMovie($index)">Delete</button>
+                        <!-- <button class="btn btn-danger latime" ng-click="deleteMovie($index)">Delete</button> -->
                     </td>
-                    
+
 
                 </script>
                 <script type="text/ng-template" id="edit">
@@ -78,9 +78,9 @@
 
                     <td colspan="2" style="display:flex;">
                         <button class="btn btn-info latime" ng-click="saveMovie(model.selected)">Save</button>
-                            <button class="btn btn-danger latime" ng-click="reset()">Cancel</button>
+                        <button class="btn btn-danger latime" ng-click="reset()">Cancel</button>
                     </td>
-                    
+
                 </script>
 
 
@@ -156,7 +156,6 @@
 	Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
     */
     
-    
     .movie-image {
         width: 60px;
         height: 50px;
@@ -182,32 +181,30 @@
         font-family: 'Patrick Hand';
         text-align: center;
     }
-    .title-display{
-        width:250px;
+    
+    .title-display {
+        width: 250px;
     }
     
     @media only screen and (max-width: 760px),
     (min-device-width: 768px) and (max-device-width: 990px) {
-        
         td input[type="text"] {
             margin-top: 0px;
         }
         /* .paragraph {
             margin-top: 25px;}
  */
- .latime{
-     margin-bottom:15px;
- }
-    .paragraph{
-        margin-left: 10px !important;
-    }
-    .desc{
-            margin-left:auto !important;
-            margin-right:20px;
-            width:60%;
-
+        .latime {
+            margin-bottom: 15px;
         }
-
+        .paragraph {
+            margin-left: 10px !important;
+        }
+        .desc {
+            margin-left: auto !important;
+            margin-right: 20px;
+            width: 60%;
+        }
         .details {
             margin-left: 20px;
         }
@@ -224,7 +221,6 @@
         td,
         tr {
             display: block;
-
         }
         /* Hide table headers (but not display: none;, for accessibility) */
         thead tr {
@@ -252,7 +248,6 @@
             position: absolute;
             top: 0;
             left: 6px;
-        
             padding-right: 10px;
             white-space: nowrap;
         }
@@ -260,44 +255,42 @@
 		Label the data
     You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
 		*/
-       td.title-display:before {
+        td.title-display:before {
             content: "Title";
-            font-weight:bold;
+            font-weight: bold;
             color: black;
             margin-top: 25px;
         }
-        .title-display{
-            width:auto;
+        .title-display {
+            width: auto;
         }
         td.title-resp:before {
             content: "Title";
             color: black;
             margin-top: 0px;
-            font-weight:bold;
+            font-weight: bold;
         }
         td:nth-of-type(2):before {
             content: "Room";
             color: black;
-            font-weight:bold;
+            font-weight: bold;
         }
         td:nth-of-type(3):before {
             content: "Actors";
             color: black;
-            font-weight:bold;
+            font-weight: bold;
         }
         td:nth-of-type(4):before {
             content: "Year";
             color: black;
-            font-weight:bold;
+            font-weight: bold;
         }
-       td:nth-of-type(5):before {
+        td:nth-of-type(5):before {
             content: "Description";
             color: black;
             margin-left: -10px;
-      
-            font-weight:bold;
-        } 
-       
+            font-weight: bold;
+        }
     }
     
     td:nth-of-type(6):before {
