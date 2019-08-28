@@ -7,11 +7,12 @@
 
         if (movieId) {
 
-            $http.get(`http://localhost:3000/movies?id=${movieId}`)
+           // $http.get(`http://localhost:3000/movies?id=${movieId}`)
+            $http.get(`https://localhost:5001/api/movies/${movieId}`)
                 .then((response) => {
 
-                    if (response.data && response.data.length > 0) {
-                        $scope.movie = response.data[0];
+                    if (response.data && Object.keys(response.data).length > 0) {
+                        $scope.movie = response.data;
                     }
                 })
                 .catch((error) => {
