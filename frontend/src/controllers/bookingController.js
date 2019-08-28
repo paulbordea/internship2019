@@ -52,16 +52,15 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
             $scope.nrSeats = $scope.selectedSeats.length;
           
             var data = {
-                movieId: $scope.movieId,
-                date: $scope.bookMovie.date,
-                time: $scope.bookMovie.time,
-                seatsBooked: $scope.selectedSeats.join(', '),
-                userId: $window.sessionStorage.userId,
-                movieTitle: $scope.bookMovie.title
+                movieid: $scope.movieId,
+                date: $scope.movieDate,
+                seatslist: $scope.selectedSeats,
+                userid: $window.sessionStorage.userId
             }
 
             $http
-                .post('http://localhost:3000/bookings', data)
+               // .post('http://localhost:3000/bookings', data)
+                .post('https://localhost:5001/api/booking', data)
                 .then((response) => {
                    $scope.booking=response.data;
                 })

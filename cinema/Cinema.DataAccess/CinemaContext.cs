@@ -97,6 +97,8 @@ namespace Cinema.DataAccess
 
                 entity.Property(e => e.MovieId).ValueGeneratedOnAdd();
 
+                entity.Property(e => e.SeatNumber).HasColumnName("SeatNumber");
+
                 entity.HasOne(d => d.Movie)
                     .WithMany(p => p.Seat)
                     .HasForeignKey(d => d.MovieId)
