@@ -1,5 +1,5 @@
-app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', '$location', '$window', 'userService','ngDialog',
-    function($scope, $http, $routeParams, $log, $location, $window, userService,ngDialog) {
+app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', '$location', '$window', 'userService','ngDialog','$rootScope',
+    function($scope, $http, $routeParams, $log, $location, $window, userService,ngDialog,$rootScope) {
 
         if (!userService.isUserLogged()) {
             $location.path('/movies');
@@ -7,21 +7,23 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
         }
 
         $scope.movieId = $routeParams.movieId;
+        $scope.movieDate=$rootScope.data;
+        console.log($rootScope.data)
         $scope.selectedSeats = [];
 
-        $http.get(`http://localhost:3000/movies?id=${$scope.movieId}`)
+       /*  $http.get(`http://localhost:5001/movies?id=${$scope.movieId}`)
             .then((response) => {
 
                 if (response.data && response.data.length > 0) {
-                    $scope.bookMovie = response.data[0];
+                    $scope.bookMovie = response.data;
                 }
             })
             .catch((error) => {
-                $log.log(`Error fetching movie with id: ${movieId}`);
-            });
+                $log.log(`Error fetching movie with id: ${$scope.movieId}`);
+            }); */
 
-       $http.get("http://localhost:3000/seats")
-        //$http.get("https://localhost:5001/api/seats/5/8/13/2019")
+       //$http.get("http://localhost:3000/seats")
+        $http.get(`https://localhost:5001/api/seats/${$scope.movieId}/${$scope.movieDate}`)
             .then((response) => {
                 $scope.seats = response.data;
                 console.log($scope.seats);

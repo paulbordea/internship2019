@@ -30,7 +30,7 @@
                          
                         </td>
                         <td colspan="2" style="padding-left:50px"><button class="btn btn-about" ng-click="openMovieDetails(movie.id)">About</button>
-                        <button class="btn btn-book" ng-disabled="!isUserLogged()" ng-click="bookMovie(movie.id)" title="You have to be logged in !">Book</button></td>
+                        <button class="btn btn-book" ng-disabled="!isUserLogged()" ng-click="bookMovie(movie.id,movie.newMovieSchedule[0].date,movie.newMovieSchedule[0].time,movie.title)" title="You have to be logged in !">Book</button></td>
                     </tr>
                 </tbody>
             </table>

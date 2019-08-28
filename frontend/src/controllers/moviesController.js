@@ -20,7 +20,7 @@
         };
     });
 
-    app.controller('MoviesCtrl', function Control($scope, $filter, $location, $http, $log, ngDialog, userService) {
+    app.controller('MoviesCtrl', function Control($scope, $filter, $location, $http, $log, ngDialog, userService,$rootScope) {
     
         $scope.isUserLogged = userService.isUserLogged;
         $scope.movieDate = new Date(2019,7,14);
@@ -54,8 +54,13 @@
             });
         };
 
-        $scope.bookMovie = function(movieId) {
-           
+        $scope.bookMovie = function(movieId,date,time,title) {
+            var parsedDate= date.substring(0,10).split('-');
+                parsedDate = parsedDate[1]+'/'+parsedDate[2]+'/'+ parsedDate[0];
+           $rootScope.data=parsedDate;
+           $rootScope.timp=time;
+           $rootScope.titlu=title;
+           console.log(date);
             $location.path('/booking/' + movieId);
         };
     })
