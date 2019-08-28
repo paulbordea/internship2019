@@ -42,7 +42,7 @@
                 </table>
 
                 <script type="text/ng-template" id="display">
-                    <td style="width:auto;" class="details title-display">
+                    <td class="details title-display">
                         <p class="paragraph my-auto titlu"><img class="movie-image" ng-src="../images/{{movie.src}}">{{movie.title}}</p>
                     </td>
                    
@@ -182,6 +182,9 @@
         font-family: 'Patrick Hand';
         text-align: center;
     }
+    .title-display{
+        width:250px;
+    }
     
     @media only screen and (max-width: 760px),
     (min-device-width: 768px) and (max-device-width: 990px) {
@@ -262,6 +265,9 @@
             font-weight:bold;
             color: black;
             margin-top: 25px;
+        }
+        .title-display{
+            width:auto;
         }
         td.title-resp:before {
             content: "Title";
