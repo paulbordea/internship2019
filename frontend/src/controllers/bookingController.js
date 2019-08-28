@@ -8,21 +8,8 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
 
         $scope.movieId = $routeParams.movieId;
         $scope.movieDate=$rootScope.data;
-        console.log($rootScope.data)
+    
         $scope.selectedSeats = [];
-
-       /*  $http.get(`http://localhost:5001/movies?id=${$scope.movieId}`)
-            .then((response) => {
-
-                if (response.data && response.data.length > 0) {
-                    $scope.bookMovie = response.data;
-                }
-            })
-            .catch((error) => {
-                $log.log(`Error fetching movie with id: ${$scope.movieId}`);
-            }); */
-
-       //$http.get("http://localhost:3000/seats")
         $http.get(`https://localhost:5001/api/seats/${$scope.movieId}/${$scope.movieDate}`)
             .then((response) => {
                 $scope.seats = response.data;
