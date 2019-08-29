@@ -32,7 +32,10 @@ namespace Cinema.Services
 
         public void PostMovie(Movie movie)
         {
-            movie.MovieSchedule = new List<MovieSchedule>() { new MovieSchedule() { Date = DateTime.Now, MovieId = movie.Id, Time = DateTime.Now.TimeOfDay } };
+            TimeSpan timeNow = DateTime.Now.TimeOfDay;
+            TimeSpan trimmedTimeNow = new TimeSpan(timeNow.Hours, timeNow.Minutes, timeNow.Seconds);
+
+            movie.MovieSchedule = new List<MovieSchedule>() { new MovieSchedule() { Date = DateTime.Now, MovieId = movie.Id, Time = trimmedTimeNow} };
             if (_cinemaContext != null)
             {
                 _cinemaContext.Movie.Add(movie);
