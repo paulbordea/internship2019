@@ -34,8 +34,10 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
             } else {
                 seat.check = true;
             }
-
+         
+        
         }
+       
         $scope.isConfirmed = function() {
             return false;
         }
@@ -50,20 +52,22 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
                 return true;
             }
             $scope.nrSeats = $scope.selectedSeats.length;
-          
+   
             var data = {
                 movieId: $scope.movieId,
-                date: $scope.bookMovie.date,
-                time: $scope.bookMovie.time,
+                date:$scope.movieDate,
                 seatsBooked: $scope.selectedSeats.join(', '),
                 userId: $window.sessionStorage.userId,
-                movieTitle: $scope.bookMovie.title
+                movieTitle: $rootScope.titlu
             }
+            console.log($scope.selectedSeats)
 
             $http
-                .post('http://localhost:3000/bookings', data)
+                .post('https://localhost:5001/api/booking', data)
                 .then((response) => {
+                   
                    $scope.booking=response.data;
+                   $rootScope.seatsSelection=$scope.selectedSeats.join(', ');
                 })
                 .catch((error) => {
                     console.log(error);

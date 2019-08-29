@@ -445,6 +445,20 @@
       "userId": "4",
       "movieTitle": "Beauty and the beast",
       "id": 48
+    },
+    {
+      "movieId": "1",
+      "seatsBooked": "8, 28",
+      "userId": "4",
+      "movieTitle": "Beauty and the beast",
+      "id": 49
+    },
+    {
+      "movieId": "1",
+      "seatsBooked": "5, 15",
+      "userId": "4",
+      "movieTitle": "Beauty and the beast",
+      "id": 50
     }
   ],
   "seats": [
@@ -873,7 +887,6 @@
     {
       "id": "1",
       "title": "Beauty and the beast",
-    
       "room": "room 3",
       "actors": "Emma Watson,Dan Stevens",
       "year": "2018",
@@ -916,7 +929,7 @@
           "date": "2019-08-11 T00:00:00",
           "time": "13:00"
         },
-         {
+        {
           "id": 3,
           "movieId": 2,
           "date": "2019-08-14 T00:00:00",
@@ -978,17 +991,6 @@
       "year": "2018",
       "description": "The story of the legendary rock band Queen and lead singer Freddie Mercury, leading up to their famous performance at Live Aid (1985).",
       "src": "BohemianRhapsody.jpg"
-    },
-    {
-      "id": 8,
-      "title": "A Star is Born",
-      "date": "8/14/2019",
-      "time": "14:00",
-      "room": "room 3",
-      "actors": "Lady Gaga, Bradley Cooper",
-      "year": "2018",
-      "description": "A singer helps a woman get famous while his career is about to get to finish.",
-      "src": "star-is-born-web.jpg"
     }
   ]
 }

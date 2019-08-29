@@ -30,7 +30,7 @@
             };
 
             var loadMovies = () => {
-                $http.get("http://localhost:3000/movies")
+                $http.get("https://localhost:5001/api/movies")
                     .then((response) => {
                         $scope.model.movies = response.data;
                     })
