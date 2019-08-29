@@ -10,7 +10,7 @@
                         <tr role="row">
                             <th role="columnheader" style="width:10%;">Movie</th>
                             <th role="columnheader" style="width:10%;">Date</th>
-                            <th role="columnheader" style="width:10%;">Seats Booked</th>
+                         <!--    <th role="columnheader" style="width:10%;">Seats Booked</th> -->
                             <th role="columnheader" style="width:10%;">User Id</th>
 
                         </tr>
@@ -28,9 +28,9 @@
                     <td style="width:auto;" class="details">
                         <p class="paragraph my-auto">{{info.date | date:'dd MMM yyyy HH:mm'}}</p>
                     </td>
-                    <td style="width:auto;" class="details">
+                    <!-- <td style="width:auto;" class="details">
                         <p class="paragraph my-auto">{{info.seatsBooked}}</p>
-                    </td>
+                    </td> -->
                     <td style="width:auto;" class="details">
                         <p class="paragraph my-auto">{{info.userId}}</p>
                     </td>
@@ -134,19 +134,13 @@
                 color: black;
                 font-weight: bold;
             }
-            td:nth-of-type(3):before {
-                content: "Time";
-                margin-left: -25px;
-                color: black;
-                font-weight: bold;
-            }
-            td:nth-of-type(4):before {
+           /*  td:nth-of-type(3):before {
                 content: "Seats";
                 margin-left: -25px;
                 color: black;
                 font-weight: bold;
-            }
-            td:nth-of-type(5):before {
+            } */
+            td:nth-of-type(3):before {
                 content: "User Id";
                 color: black;
                 font-weight: bold;

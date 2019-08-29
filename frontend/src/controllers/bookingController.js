@@ -36,8 +36,10 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
             } else {
                 seat.check = true;
             }
-
+         
+        
         }
+       
         $scope.isConfirmed = function() {
             return false;
         }
@@ -58,6 +60,7 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
                 seatslist: $scope.selectedSeats,
                 userid: $window.sessionStorage.userId
             }
+            console.log($scope.selectedSeats)
 
             $http
             // .post('http://localhost:3000/bookings', data)
