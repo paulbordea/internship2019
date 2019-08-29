@@ -57,6 +57,17 @@
                         description: $scope.description,
                         src: $scope.uploadme.src.name
                     }
+                    var movie1 = {
+                        id: $scope.model.movies.length + 1,
+                          title: $scope.title,
+                          date: $scope.date,
+                          time: $scope.time,
+                          room: $scope.room,
+                          actors: $scope.actors,
+                          year: $scope.year,
+                          description: $scope.description,
+                          src: $scope.uploadme.src.name
+                      }
 
                   //  $http.post("http://localhost:3000/movies", movie)
                     $http.post("https://localhost:5001/api/movies", movie)
@@ -68,9 +79,12 @@
                         });
                     console.log($scope.model.movies.length);
                     console.log($scope.model.movies);
-                    $scope.model.movies.push(movie);
+                    $scope.model.movies.push(movie1);
                     $scope.reset();
+                    
                 }
+                loadMovies();
+              
                 // gets the template to ng-include for a table row / item
             $scope.getTemplate = function(movie) {
                 if (movie.id === $scope.model.selected.id) return 'edit';
@@ -83,7 +97,7 @@
 
             $scope.saveMovie = function(movie) {
                 console.log("Saving movie");
-                //$scope.model.movies[id] = angular.copy($scope.model.selected);
+                $scope.model.movies[id] = angular.copy($scope.model.selected);
 
                // $http.put(`http://localhost:3000/movies/${movie.id}`, movie)
                 $http.put(`https://localhost:5001/api/movies/${movie.id}`, movie)
