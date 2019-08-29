@@ -2,9 +2,9 @@
     <div class="wrapper-movies flex-column mx-auto col-md-9">
         <div class="row flex-column justify-content-center">
             <div class="form-group col-md-12 text-center mb-5">
-                    <div class="control col-md-12 text-center mx-auto">
-                        <label for="date-birth" class="date-select">Select a date</label>
-                        <input id="date-birth"  type="date" class="form-control" style="width:200px" ng-model="movieDate"></div>
+                <div class="control col-md-12 text-center mx-auto">
+                    <label for="date-birth" class="date-select">Select a date</label>
+                    <input id="date-birth" type="date" class="form-control" style="width:200px" ng-model="movieDate"></div>
             </div>
         </div>
 
@@ -27,10 +27,10 @@
                         </td>
                         <td style="width:auto;">
                             <p class="movie-title movie-attr">{{movie.newMovieSchedule[0].time}}</p>
-                         
+
                         </td>
                         <td colspan="2" style="padding-left:50px"><button class="btn btn-about" ng-click="openMovieDetails(movie.id)">About</button>
-                        <button class="btn btn-book" ng-disabled="!isUserLogged()" ng-click="bookMovie(movie.id,movie.newMovieSchedule[0].date,movie.newMovieSchedule[0].time,movie.title)" title="You have to be logged in !">Book</button></td>
+                            <button class="btn btn-book" ng-disabled="!isUserLogged()" ng-click="bookMovie(movie.id,movie.newMovieSchedule[0].date,movie.newMovieSchedule[0].time,movie.title)" title="You have to be logged in !">Book</button></td>
                     </tr>
                 </tbody>
             </table>
@@ -54,12 +54,12 @@
         margin-right: 20px;
     }
     
-     
-    input [type="date"]{
-        margin-left:20px;
-         width:200px !important;
-         float:right;
+    input [type="date"] {
+        margin-left: 20px;
+        width: 200px !important;
+        float: right;
     }
+    
     .table td {
         text-align: center;
         border-top: none !important;
@@ -67,12 +67,13 @@
     
     @media only screen and (max-width: 760px),
     (min-device-width: 768px) and (max-device-width: 1024px) {
-        .table{
-            width:90% !important;
+        .table {
+            width: 90% !important;
         }
         /* Force table to not be like tables anymore */
-        .btn-book, .btn-about{
-            margin-top:10px;
+        .btn-book,
+        .btn-about {
+            margin-top: 10px;
             margin-bottom: 10px;
         }
         .movie-title {
@@ -81,7 +82,6 @@
         .movie-title.movie-attr {
             margin-top: 25px;
         }
-        
         table,
         thead,
         tbody,
@@ -140,22 +140,19 @@
         td:nth-of-type(1):before {
             content: "";
             margin-left: -25px;
-            color:white;
-            margin-top:25px;
-         
-         
+            color: white;
+            margin-top: 25px;
         }
         td:nth-of-type(2):before {
             content: "Start";
             margin-left: -25px;
-            color:white;
-            margin-top:25px;
+            color: white;
+            margin-top: 25px;
         }
-       
         td:nth-of-type(3):before {
             content: "";
         }
-       /*  td:nth-of-type(5):before {
+        /*  td:nth-of-type(5):before {
             content: "";
         } */
     }

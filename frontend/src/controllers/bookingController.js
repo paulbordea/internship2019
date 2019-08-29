@@ -1,5 +1,5 @@
-app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', '$location', '$window', 'userService','ngDialog','$rootScope',
-    function($scope, $http, $routeParams, $log, $location, $window, userService,ngDialog,$rootScope) {
+app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', '$location', '$window', 'userService', 'ngDialog', '$rootScope',
+    function($scope, $http, $routeParams, $log, $location, $window, userService, ngDialog, $rootScope) {
 
         if (!userService.isUserLogged()) {
             $location.path('/movies');
@@ -7,8 +7,8 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
         }
 
         $scope.movieId = $routeParams.movieId;
-        $scope.movieDate=$rootScope.data;
-    
+        $scope.movieDate = $rootScope.data;
+
         $scope.selectedSeats = [];
         $http.get(`https://localhost:5001/api/seats/${$scope.movieId}/${$scope.movieDate}`)
             .then((response) => {
@@ -29,6 +29,8 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
                 $scope.selectedSeats.splice(arrayIndex, 1);
             }
 
+            $scope.seatsAsString = $scope.selectedSeats.join(',');
+
             if (seat.check === true) {
                 seat.check = false;
             } else {
@@ -41,41 +43,39 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
         $scope.isConfirmed = function() {
             return false;
         }
-        $scope.noSeat= function() {
-            if( $scope.selectedSeats.length===0){
+        $scope.noSeat = function() {
+            if ($scope.selectedSeats.length === 0) {
                 return true;
-            }
-           else return false;
+            } else return false;
         }
         $scope.storeSeat = function() {
             $scope.isConfirmed = function() {
                 return true;
             }
             $scope.nrSeats = $scope.selectedSeats.length;
-   
+
             var data = {
-                movieId: $scope.movieId,
-                date:$scope.movieDate,
-                seatsBooked: $scope.selectedSeats.join(', '),
-                userId: $window.sessionStorage.userId,
-                movieTitle: $rootScope.titlu
+                movieid: $scope.movieId,
+                date: $scope.movieDate,
+                seatslist: $scope.selectedSeats,
+                userid: $window.sessionStorage.userId
             }
             console.log($scope.selectedSeats)
 
             $http
+            // .post('http://localhost:3000/bookings', data)
                 .post('https://localhost:5001/api/booking', data)
                 .then((response) => {
-                   
-                   $scope.booking=response.data;
-                   $rootScope.seatsSelection=$scope.selectedSeats.join(', ');
+                    $scope.booking = response.data;
                 })
                 .catch((error) => {
                     console.log(error);
+                    return;
                 })
-             
-         let modalScope = $scope;
-       
-           var dialog= ngDialog.open({
+
+            let modalScope = $scope;
+
+            var dialog = ngDialog.open({
                 template: 'views/partials/modals/confirmation.html',
                 className: 'ngdialog-theme-default',
                 scope: modalScope,
@@ -84,10 +84,10 @@ app.controller('bookingController', ['$scope', '$http', '$routeParams', '$log', 
                 height: 'auto',
                 showClose: true
             });
-            dialog.closePromise.then(function () {
+            dialog.closePromise.then(function() {
                 window.location.replace("http://localhost:8080/index.html#!/movies");
             });
-        
+
         }
     }
 ]);

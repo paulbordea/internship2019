@@ -30,6 +30,7 @@
             };
 
             var loadMovies = () => {
+                //$http.get("http://localhost:3000/movies")
                 $http.get("https://localhost:5001/api/movies")
                     .then((response) => {
                         $scope.model.movies = response.data;
@@ -46,7 +47,7 @@
             $scope.addMovie = function() {
                     //Add the new item to the Array.
                     var movie = {
-                        id: $scope.model.movies.length + 1,
+                      //  id: $scope.model.movies.length + 1,
                         title: $scope.title,
                         date: $scope.date,
                         time: $scope.time,
@@ -57,7 +58,8 @@
                         src: $scope.uploadme.src.name
                     }
 
-                    $http.post("http://localhost:3000/movies", movie)
+                  //  $http.post("http://localhost:3000/movies", movie)
+                    $http.post("https://localhost:5001/api/movies", movie)
                         .then((response) => {
                             console.log(response.data)
                         })
@@ -83,7 +85,8 @@
                 console.log("Saving movie");
                 //$scope.model.movies[id] = angular.copy($scope.model.selected);
 
-                $http.put(`http://localhost:3000/movies/${movie.id}`, movie)
+               // $http.put(`http://localhost:3000/movies/${movie.id}`, movie)
+                $http.put(`https://localhost:5001/api/movies/${movie.id}`, movie)
                     .then((response) => {
                         console.log(response.data);
                         loadMovies();

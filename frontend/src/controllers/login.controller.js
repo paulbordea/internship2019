@@ -11,16 +11,13 @@
                     $window.sessionStorage.loggedInUser = user.name;
                     $window.sessionStorage.isUserLoggedIn = true;
                     // $window.sessionStorage.loggedInUser = user[0].name;
-                     $window.sessionStorage.userId = user.id;
-                     console.log( $window.sessionStorage.userId);
-                     
+                    $window.sessionStorage.userId = user.id;
 
                 } else {
                     $scope.closeThisDialog(true);
                     $location.path('/');
                     return;
                 }
-
 
  
                // if (user[0].isAdmin === true) {

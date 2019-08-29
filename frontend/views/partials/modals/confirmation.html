@@ -1,24 +1,24 @@
 <div id="confirm" class="ngdialog-holder">
-<div class="conf-coontent">
-<div class="ngdialog-header"></div>
-<div class="modal-body" style="background-color: black">
-  <div class="col-md-12">
-        <div class="row text-center d-flex flex-column ">
-                <div class="col-md-12 mx-auto">
+    <div class="conf-coontent">
+        <div class="ngdialog-header"></div>
+        <div class="modal-body" style="background-color: black">
+            <div class="col-md-12">
+                <div class="row text-center d-flex flex-column ">
+                    <div class="col-md-12 mx-auto">
                         <img src="../../images/verif.png" style="height:100px;width:100px">
-                        </div>
-        <div class="col-md-12 mx-auto text-left">
-            <p class="confirmation"><strong style="color: red"> Seats chosen :</strong> {{seatsSelection}}</p>
+                    </div>
+                    <div class="col-md-12 mx-auto text-left">
+                        <p class="confirmation"><strong style="color: red"> Seats chosen :</strong> {{seatsAsString}}</p>
+                    </div>
+                    <div class="col-md-12 mx-auto text-left">
+                        <p class="confirmation"> <strong style="color: red">Total price:</strong> {{5*nrSeats}}$</p>
+                    </div>
+                    <div class="col-md-12 mx-auto text-left">
+                        <p class="confirmation">Thank You for your order!</p>
+                        <p class="confirmation"> You can get your tickets from the pay office! </p>
+
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-12 mx-auto text-left">
-            <p class="confirmation"> <strong style="color: red">Total price:</strong> {{5*nrSeats}}$</p>
-        </div>
-        <div class="col-md-12 mx-auto text-left">
-            <p class="confirmation">Thank You for your order!</p>
-            <p class="confirmation"> You can get your tickets from the pay office! </p>
-           
-        </div>
-        </div>
-</div>
-</div>
-</div>
+    </div>
