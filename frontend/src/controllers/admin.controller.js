@@ -34,20 +34,22 @@
                 $http.get("https://localhost:5001/api/movies")
                     .then((response) => {
                         $scope.model.movies = response.data;
+                    
                     })
                     .catch((error) => {
                         $log.log("Error fetching movies: " + JSON.stringify(error));
                     });
             };
-
+           
             loadMovies();
+           
 
             $scope.uploadme = {};
             $scope.uploadme.src = "";
             $scope.addMovie = function() {
                     //Add the new item to the Array.
                     var movie = {
-                      //  id: $scope.model.movies.length + 1,
+                      //id: $scope.model.movies.length + 1,
                         title: $scope.title,
                         date: $scope.date,
                         time: $scope.time,
@@ -83,7 +85,7 @@
                     $scope.reset();
                     
                 }
-                loadMovies();
+           
               
                 // gets the template to ng-include for a table row / item
             $scope.getTemplate = function(movie) {
@@ -97,7 +99,9 @@
 
             $scope.saveMovie = function(movie) {
                 console.log("Saving movie");
-                $scope.model.movies[id] = angular.copy($scope.model.selected);
+                console.log($scope.model.selected);
+               // $scope.model.movies[id] = angular.copy($scope.model.selected);
+              
 
                // $http.put(`http://localhost:3000/movies/${movie.id}`, movie)
                 $http.put(`https://localhost:5001/api/movies/${movie.id}`, movie)
@@ -111,6 +115,7 @@
 
                 $scope.reset();
             };
+            loadMovies();
 
             $scope.deleteMovie = function(i) {
                 $http
