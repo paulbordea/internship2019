@@ -19,7 +19,8 @@ namespace Cinema.DataAccess
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=.;Database=cinema;Trusted_Connection=True;MultipleActiveResultSets=True;Integrated Security=true;");
+                //optionsBuilder.UseSqlServer("Server=.;Database=cinema;Trusted_Connection=True;MultipleActiveResultSets=True;Integrated Security=true;");
+                optionsBuilder.UseSqlServer("Server=tcp:paulbordea.database.windows.net,1433;Initial Catalog=Cinema;User ID=internship;Password=1231!#ASDF!a;");
             }
         }
 
